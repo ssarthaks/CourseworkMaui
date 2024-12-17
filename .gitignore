@@ -1,0 +1,59 @@
+*.vsdix
+node_modules
+# Build outputs
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# Temp and cache files
+*.tmp
+*.cache
+*.log
+
+# NuGet files
+packages/
+project.lock.json
+
+# Android outputs
+*.apk
+*.aab
+
+# iOS outputs
+*.ipa
+build/ios/
+
+# macOS outputs
+build/macos/
+
+# Windows outputs
+*.exe
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+# Xcode/macOS files
+xcuserdata/
+*.xcworkspace/
+
+# Local app configuration
+appsettings.Development.json
+appsettings.Local.json
+
+# Generated MAUI files
+Platforms/
+Resources/Raw/*
+Resources/Fonts/*
+
+# Blazor outputs
+wwwroot/dist/
+wwwroot/css/app.css

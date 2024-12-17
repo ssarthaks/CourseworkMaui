@@ -1,0 +1,91 @@
+﻿
+.debt-container {
+    padding: 1rem;
+}
+
+.debt-header {
+    color: #2c2e35;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+    .filters input,
+    .filters select {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+.search-input {
+    width: 250px;
+}
+
+.debt-table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+    .debt-table th {
+        text-align: left;
+        padding: 1rem;
+        background-color: #ffffff;
+        border-bottom: 1px solid #eee;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .debt-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+.amount {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.tag {
+    background-color: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    color: #495057;
+    display: inline-block;
+}
+
+.clear-debt-btn {
+    background-color: #D4AF37;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+}
+
+    .clear-debt-btn:hover {
+        background-color: #C4A137;
+    }
+
+.status-cleared {
+    background-color: #f8f9fa;
+    color: #495057;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+}

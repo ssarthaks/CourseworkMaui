@@ -1,0 +1,66 @@
+﻿@page "/transactionhistory"
+
+<div class="transactions-container">
+        <h1 class="transactions-header">Recent Transactions</h1>
+
+        <div class="filters">
+            <input type="text" placeholder="Search..." class="search-input">
+            <select>
+                <option value="">Type</option>
+                <option value="inflow">Inflow</option>
+                <option value="outflow">Outflow</option>
+                <option value="debt">Debt</option>
+            </select>
+            <select>
+                <option value="">Tags</option>
+                <option value="finance">Finance</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+            </select>
+            <select>
+                <option value="">Sort by</option>
+                <option value="date">Date</option>
+                <option value="amount">Amount</option>
+            </select>
+            <input type="date">
+        </div>
+
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Tags</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-12-20</td>
+                    <td>Salary</td>
+                    <td class="amount">$2000</td>
+                    <td><span class="transaction-type type-inflow">Inflow</span></td>
+                    <td><span class="tag">Finance</span></td>
+                    <td>Salary month end</td>
+                </tr>
+                <tr>
+                    <td>2023-10-22</td>
+                    <td>Food</td>
+                    <td class="amount">$50</td>
+                    <td><span class="transaction-type type-outflow">Outflow</span></td>
+                    <td><span class="tag">Fast food</span></td>
+                    <td>Fast food expense today</td>
+                </tr>
+                <tr>
+                    <td>2023-10-31</td>
+                    <td>Bank Loan</td>
+                    <td class="amount">$900</td>
+                    <td><span class="transaction-type type-debt">Debt</span></td>
+                    <td><span class="tag">Car pending</span></td>
+                    <td>Took a loan for bank for paying emi</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
