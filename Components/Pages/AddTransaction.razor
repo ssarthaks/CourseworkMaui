@@ -1,0 +1,140 @@
+﻿@page "/addtransactions"
+
+@inject NavigationManager Navigation
+@using ExpenwiseTracker.Model
+@using ExpenwiseTracker.Services
+@inject TransactionService TransactionService
+
+<div class="add-transactions-container">
+    <h1 class="add-transactions-title">Add Transaction</h1>
+
+    @if (!string.IsNullOrEmpty(NotificationMessage))
+    {
+            <div class="alert @NotificationClass">
+            @NotificationMessage
+            </div>
+    }
+
+    <EditForm Model="@transaction" OnValidSubmit="SubmitTransaction">
+        <div class="add-transactions-form-card">
+            <div class="add-transactions-form-row">
+                <div class="add-transactions-form-group">
+                    <label for="type">Type</label>
+                    <InputSelect @bind-Value="transaction.Type" required class="form-control">
+                        <option value="">Select Type</option>
+                        <option value="Debit">Debit</option>
+                        <option value="Credit">Credit</option>
+                        <option value="Debt">Debt</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => transaction.Type)" />
+                </div>
+
+                <div class="add-transactions-form-group">
+                    <label for="name">Name</label>
+                    <InputText id="name" @bind-Value="transaction.Name" required class="form-control" />
+                    <ValidationMessage For="@(() => transaction.Name)" />
+                </div>
+            </div>
+
+            <div class="add-transactions-form-row">
+                <div class="add-transactions-form-group">
+                    <label for="amount">Amount</label>
+                    <InputNumber id="amount" @bind-Value="transaction.Amount" required class="form-control" />
+                    <ValidationMessage For="@(() => transaction.Amount)" />
+                </div>
+
+                <div class="add-transactions-form-group">
+                    <label for="tag">Tag</label>
+                    <InputText id="tag" @bind-Value="transaction.Tag" class="form-control" />
+                    <ValidationMessage For="@(() => transaction.Tag)" />
+                </div>
+            </div>
+
+            <div class="add-transactions-form-group">
+                <label for="notes">Notes</label>
+                <InputText id="notes" @bind-Value="transaction.Notes" class="form-control" />
+                <ValidationMessage For="@(() => transaction.Notes)" />
+            </div>
+
+            @if (transaction.Type == "Debt")
+            {
+                    <div class="add-transactions-form-row">
+                        <div class="add-transactions-form-group">
+                            <label for="source">Source</label>
+                            <InputText id="source" @bind-Value="transaction.Source" class="form-control" />
+                            <ValidationMessage For="@(() => transaction.Source)" />
+                        </div>
+
+                        <div class="add-transactions-form-group">
+                            <label for="dueDate">Due Date</label>
+                            <InputDate id="dueDate" @bind-Value="transaction.DueDate" class="form-control" />
+                            <ValidationMessage For="@(() => transaction.DueDate)" />
+                        </div>
+                    </div>
+            }
+
+            <button type="submit" class="btn btn-primary" disabled="@IsSubmitDisabled()">Save</button>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    private Transaction transaction = new Transaction();
+    private string NotificationMessage;
+    private string NotificationClass;
+    private bool isSubmitDisabled = false;
+
+    // This will hold the current balance of the user
+    private double userBalance;
+
+    // On initialization, check the user's balance
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            userBalance = await TransactionService.CalculateUserBalanceAsync();
+        }
+        catch (Exception ex)
+        {
+            NotificationMessage = "Error fetching balance: " + ex.Message;
+            NotificationClass = "alert-danger";
+        }
+    }
+
+    private async Task SubmitTransaction()
+    {
+        try
+        {
+            // Check for insufficient balance before proceeding
+            if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
+            {
+                NotificationMessage = "Insufficient balance!";
+                NotificationClass = "alert-danger";
+                StateHasChanged();  // Explicitly trigger a re-render to update the UI with the message
+                return; // Do not proceed with transaction if balance is insufficient
+            }
+
+            // Add the transaction
+            await TransactionService.AddTransactionAsync(transaction);
+
+            // Success notification
+            NotificationMessage = "Transaction added successfully!";
+            NotificationClass = "alert-success";
+
+            // Reset the form after success
+            transaction = new Transaction();
+        }
+        catch (Exception ex)
+        {
+            NotificationMessage = "Error adding transaction: " + ex.Message;
+            NotificationClass = "alert-danger";
+        }
+    }
+
+
+    // Disable submit if the transaction amount is greater than the user's balance
+    private bool IsSubmitDisabled()
+    {
+        return (transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance;
+    }
+}

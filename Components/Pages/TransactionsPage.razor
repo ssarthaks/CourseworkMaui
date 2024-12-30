@@ -1,0 +1,110 @@
+﻿@page "/transactionhistory"
+@using ExpenwiseTracker.Model
+@inject ExpenwiseTracker.Services.DatabaseService DatabaseService
+<div class="transactions-container">
+    <h1 class="transactions-header">Recent Transactions</h1>
+
+    <div class="filters">
+        <label for="searchName">Search by Name:</label>
+        <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+
+        <label for="filterType">Filter by Type:</label>
+        <select id="filterType" @bind="selectedType" @bind:event="onchange">
+            <option value="">All Types</option>
+            <option value="Debit">Debit</option>
+            <option value="Credit">Credit</option>
+            <option value="Debt">Debt</option>
+        </select>
+
+        <label for="filterDate">Filter by Date:</label>
+        <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+    </div>
+
+    @if (filteredTransactions == null)
+    {
+        <p>Loading...</p>
+    }
+    else if (filteredTransactions.Count == 0)
+    {
+        <p>No transactions found.</p>
+    }
+    else
+    {
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Tags</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaction in filteredTransactions)
+                {
+                    <tr>
+                        <td>@transaction.Id</td>
+                        <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
+                        <td>@transaction.Name</td>
+                        <td class="amount">NPR.@transaction.Amount</td>
+                        <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type.Substring(0, 1).ToUpper()@transaction.Type.Substring(1).ToLower()</span></td>
+
+                        <td><span class="tag">@transaction.Tag</span></td>
+                        <td>@transaction.Notes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    private List<Transaction> transactions;
+    private List<Transaction> filteredTransactions;
+    private string searchName = string.Empty;
+    private string selectedType = string.Empty;
+    private DateTime? selectedDate = null;
+
+    protected override void OnInitialized()
+    {
+        // Get all transactions from the database
+        transactions = DatabaseService.RetrieveAllTransactions();
+        filteredTransactions = transactions;
+    }
+
+    private string GetTransactionTypeClass(string type)
+    {
+        return type.ToLower() switch
+        {
+            "credit" => "type-inflow",
+            "debit" => "type-outflow",
+            "debt" => "type-debt",
+            _ => "type-neutral"
+        };
+    }
+
+    private void ApplyFilters()
+    {
+        filteredTransactions = transactions;
+
+        // Filter by name if provided
+        if (!string.IsNullOrWhiteSpace(searchName))
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        // Filter by type if selected
+        if (!string.IsNullOrEmpty(selectedType))
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        // Filter by date if selected
+        if (selectedDate.HasValue)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
+        }
+    }
+}

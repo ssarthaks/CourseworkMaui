@@ -1,0 +1,36 @@
+﻿@using ExpenwiseTracker.Services
+@inherits LayoutComponentBase
+@inject TransactionService TransactionService
+
+<div class="page" style="background-color: #E9ECFE; height:100vh; overflow:hidden;">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row">
+            <h1 style="font-weight:800; font-size:20px; color: #4E55C2;">User: Sarthak</h1>
+            <h1 style="font-weight:800; font-size:20px; color: #4E55C2;">Balance: @totalBalance USD</h1>
+        </div>
+
+        <article class="content">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private double totalBalance;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            totalBalance = await TransactionService.CalculateUserBalanceAsync(); // Fetch balance from your service
+        }
+        catch (Exception ex)
+        {
+            // Handle error
+        }
+    }
+}

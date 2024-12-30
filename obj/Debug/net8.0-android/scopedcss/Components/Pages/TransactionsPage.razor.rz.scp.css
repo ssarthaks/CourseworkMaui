@@ -1,0 +1,98 @@
+body[b-wlao8lxpbt] {
+}
+.transactions-container[b-wlao8lxpbt] {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.transactions-header[b-wlao8lxpbt] {
+    color: #2c2e35;
+    margin-bottom: 1.5rem;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.filters[b-wlao8lxpbt] {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+    .filters input[b-wlao8lxpbt],
+    .filters select[b-wlao8lxpbt] {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+.search-input[b-wlao8lxpbt] {
+    width: 250px;
+}
+
+.transactions-table[b-wlao8lxpbt] {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+    .transactions-table th[b-wlao8lxpbt] {
+        text-align: left;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #eee;
+        color: #666;
+        font-weight: 500;
+    }
+
+    .transactions-table td[b-wlao8lxpbt] {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+.transaction-type[b-wlao8lxpbt] {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.type-inflow[b-wlao8lxpbt] {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+}
+
+.type-outflow[b-wlao8lxpbt] {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.type-debt[b-wlao8lxpbt] {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.tag[b-wlao8lxpbt] {
+    background-color: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    color: #495057;
+    display: inline-block;
+}
+
+.amount[b-wlao8lxpbt] {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+button[b-wlao8lxpbt],
+.search-input[b-wlao8lxpbt],
+.filter-select[b-wlao8lxpbt],
+.filter-date[b-wlao8lxpbt] {
+    margin-right: 10px;
+}

@@ -1,0 +1,100 @@
+﻿@page "/overalldebts" 
+@inject ExpenwiseTracker.Services.DatabaseService DatabaseService
+@using ExpenwiseTracker.Model;
+
+<div class="debt-container">
+<h1 class="debt-header">Overall Debt Calculation</h1>
+<div class="filters">
+    <label for="searchName">Search by Name:</label>
+    <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+
+    <label for="filterDate">Filter by Date:</label>
+    <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+</div>
+
+    @if (filteredTransactions == null)
+    {
+        <p>Loading...</p>
+    }
+    else if (filteredTransactions.Count == 0)
+    {
+        <p>No debts found.</p>
+    }
+    else
+    {
+        <table class="debt-table">
+            <thead>
+                <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Tag</th>
+                    <th>Source</th>
+                    <th>Due Date</th>
+                    <th>Clear Debt</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaction in filteredTransactions)
+                {
+                        <tr>
+                                <td>@transaction.Id</td>
+                                <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
+                            <td>@transaction.Name</td>
+                                <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
+                            <td class="amount">NPR.@transaction.Amount</td>
+                                <td><span class="tag">@transaction.Tag</span></td>
+                            <td>@transaction.Source</td>
+                            <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
+                                    <td><button class="clear-debt-btn">Clear Debt</button></td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+@code {
+    private List<Transaction> transactions;
+    private List<Transaction> filteredTransactions;
+    private string searchName = string.Empty;
+    private DateTime? selectedDate = null;
+
+    protected override void OnInitialized()
+    {
+        // Get all transactions from the database
+        transactions = DatabaseService.RetrieveAllTransactions();
+
+        // Filter only "Debt" transactions initially
+        filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
+    }
+
+    private string GetTransactionTypeClass(string type)
+    {
+        return type.ToLower() switch
+        {
+            "debt" => "type-debt",
+            _ => "type-neutral"
+        };
+    }
+
+    private void ApplyFilters()
+    {
+        // Apply additional filters to "Debt" transactions only
+        filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
+
+        // Filter by name if provided
+        if (!string.IsNullOrWhiteSpace(searchName))
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        // Filter by date if selected
+        if (selectedDate.HasValue)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
+        }
+    }
+}

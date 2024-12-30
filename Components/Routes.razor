@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Components
+@inject NavigationManager NavigationManager
+
+<Router AppAssembly="@typeof(MauiProgram).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <h3>Page not found!</h3>
+    </NotFound>
+</Router>
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Perform redirection if the app starts at the root route
+        if (NavigationManager.Uri.EndsWith("/"))
+        {
+            NavigationManager.NavigateTo("/auth/login", forceLoad: true);
+        }
+    }
+}

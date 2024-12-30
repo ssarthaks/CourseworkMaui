@@ -1,0 +1,91 @@
+
+body[b-oniilsihrt] {
+    padding: 20px;
+}
+
+.add-transactions-container[b-oniilsihrt] {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.add-transactions-title[b-oniilsihrt] {
+    color: #2c2e35;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.add-transactions-form-card[b-oniilsihrt] {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.add-transactions-form-row[b-oniilsihrt] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.add-transactions-form-group[b-oniilsihrt] {
+    margin-bottom: 24px;
+}
+
+label[b-oniilsihrt] {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+input[b-oniilsihrt], select[b-oniilsihrt], textarea[b-oniilsihrt] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+select[b-oniilsihrt] {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+textarea[b-oniilsihrt] {
+    min-height: 120px;
+    resize: vertical;
+}
+
+button[b-oniilsihrt] {
+    width: 100%;
+    padding: 16px;
+    background-color: #5755d9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    button:hover[b-oniilsihrt] {
+        background-color: #4644c8;
+    }
+
+@media (max-width: 768px) {
+    .add-transactions-form-row[b-oniilsihrt] {
+        grid-template-columns: 1fr;
+    }
+
+    .add-transactions-form-card[b-oniilsihrt] {
+        padding: 24px;
+    }
+}

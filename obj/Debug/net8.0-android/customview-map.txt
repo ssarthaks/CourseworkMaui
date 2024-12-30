@@ -1,0 +1,70 @@
+@string/appbar_scrolling_view_behavior;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\fragment_backstack.xml
+@string/appbar_scrolling_view_behavior;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\navigationlayout.xml
+adaptive-icon;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
+adaptive-icon;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+alpha;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\enterfromleft.xml
+alpha;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\exittoleft.xml
+alpha;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_enter_anim.xml
+alpha;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_exit_anim.xml
+alpha;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_pop_enter_anim.xml
+alpha;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_pop_exit_anim.xml
+androidx.coordinatorlayout.widget.CoordinatorLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\layout\shellcontent.xml
+androidx.coordinatorlayout.widget.CoordinatorLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\navigationlayout.xml
+androidx.drawerlayout.widget.DrawerLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\drawer_layout.xml
+androidx.fragment.app.FragmentContainerView;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\fragment_backstack.xml
+androidx.fragment.app.FragmentContainerView;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\navigationlayout.xml
+attr;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\values\attrs.xml
+attr;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\attr.xml
+background;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
+background;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+cache-path;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\160\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+color;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\colors.xml
+color;obj\Debug\net8.0-android\res\values\colors.xml
+com.google.android.material.appbar.AppBarLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\layout\flyoutcontent.xml
+com.google.android.material.appbar.AppBarLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\layout\shellcontent.xml
+com.google.android.material.appbar.AppBarLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\layout\navigationlayout.xml
+com.google.android.material.appbar.MaterialToolbar;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\layout\toolbar.xml
+com.google.android.material.tabs.TabLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\layout\tabbar.xml
+declare-styleable;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\values\attrs.xml
+declare-styleable;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\attr.xml
+external-cache-path;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\160\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+external-path;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\160\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+foreground;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
+foreground;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+item;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\values\styles.xml
+item;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\drawable\maui_splash.xml
+item;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\styles.xml
+layer-list;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\drawable\maui_splash.xml
+layer-list;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\drawable\maui_splash_image.xml
+microsoft.maui.controls.platform.compatibility.ShellFlyoutLayout;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\layout\flyoutcontent.xml
+monochrome;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
+monochrome;obj\Debug\net8.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+paths;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\160\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\values\attrs.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\values\styles.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\values\strings.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\158\jl\res\values\values.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\attr.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\colors.xml
+resources;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\styles.xml
+resources;obj\Debug\net8.0-android\res\values\colors.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\enterfromleft.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\enterfromright.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\exittoleft.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\exittoright.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_enter_anim.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_exit_anim.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_pop_enter_anim.xml
+set;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_pop_exit_anim.xml
+string;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\values\strings.xml
+string;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\158\jl\res\values\values.xml
+style;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\156\jl\res\values\styles.xml
+style;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\values\styles.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\enterfromleft.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\enterfromright.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\exittoleft.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\157\jl\res\anim\exittoright.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_enter_anim.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_exit_anim.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_pop_enter_anim.xml
+translate;E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\lp\159\jl\res\anim\nav_default_pop_exit_anim.xml

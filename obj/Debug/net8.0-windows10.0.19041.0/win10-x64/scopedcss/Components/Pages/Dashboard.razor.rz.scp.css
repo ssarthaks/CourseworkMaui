@@ -1,0 +1,150 @@
+
+.dashboard[b-wbmb3dhwr8] {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card[b-wbmb3dhwr8] {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.balance[b-wbmb3dhwr8] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.balance-title[b-wbmb3dhwr8] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.balance-amount[b-wbmb3dhwr8] {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.metrics[b-wbmb3dhwr8] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.metric[b-wbmb3dhwr8] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.metric-header[b-wbmb3dhwr8] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metric-title[b-wbmb3dhwr8] {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.metric-icon[b-wbmb3dhwr8] {
+    width: 1rem;
+    height: 1rem;
+}
+
+.metric-amount[b-wbmb3dhwr8] {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.inflow[b-wbmb3dhwr8] {
+    color: #22c55e;
+}
+
+.outflow[b-wbmb3dhwr8] {
+    color: #ef4444;
+}
+
+.debt[b-wbmb3dhwr8] {
+    color: #eab308;
+}
+
+.graph[b-wbmb3dhwr8] {
+    padding: 1.5rem;
+}
+
+.graph-title[b-wbmb3dhwr8] {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.chart[b-wbmb3dhwr8] {
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.bar-group[b-wbmb3dhwr8] {
+    display: flex;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.bar[b-wbmb3dhwr8] {
+    flex-grow: 1;
+    background-color: #fb923c;
+    transition: height 0.3s ease;
+}
+
+    .bar.outflow[b-wbmb3dhwr8] {
+        background-color: #fdba74;
+    }
+
+    .bar.debt[b-wbmb3dhwr8] {
+        background-color: #fed7aa;
+    }
+
+.x-axis[b-wbmb3dhwr8] {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+}
+
+.y-axis[b-wbmb3dhwr8] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+    text-align: right;
+}
+
+.legend[b-wbmb3dhwr8] {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.legend-item[b-wbmb3dhwr8] {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.legend-color[b-wbmb3dhwr8] {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+}

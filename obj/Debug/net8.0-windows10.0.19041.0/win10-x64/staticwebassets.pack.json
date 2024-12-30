@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
+      "PackagePath": "staticwebassets\\ExpenwiseTracker.styles.css"
+    },
+    {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.ExpenwiseTracker.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.ExpenwiseTracker.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.ExpenwiseTracker.props",
+      "PackagePath": "build\\ExpenwiseTracker.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.ExpenwiseTracker.props",
+      "PackagePath": "buildMultiTargeting\\ExpenwiseTracker.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.ExpenwiseTracker.props",
+      "PackagePath": "buildTransitive\\ExpenwiseTracker.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
