@@ -4,17 +4,19 @@
 @using ExpenwiseTracker.Model
 @using ExpenwiseTracker.Services
 @inject TransactionService TransactionService
+@using MudBlazor
 
 <div class="add-transactions-container">
     <h1 class="add-transactions-title">Add Transaction</h1>
 
-    @if (!string.IsNullOrEmpty(NotificationMessage))
+    @if (!string.IsNullOrEmpty(NotifyUser))
     {
-            <div class="alert @NotificationClass">
-            @NotificationMessage
-            </div>
+        <div class="alert @NotifyUserClass">
+            @NotifyUser
+        </div>
     }
 
+    <!-- Transaction Form -->
     <EditForm Model="@transaction" OnValidSubmit="SubmitTransaction">
         <div class="add-transactions-form-card">
             <div class="add-transactions-form-row">
@@ -58,83 +60,129 @@
 
             @if (transaction.Type == "Debt")
             {
-                    <div class="add-transactions-form-row">
-                        <div class="add-transactions-form-group">
-                            <label for="source">Source</label>
-                            <InputText id="source" @bind-Value="transaction.Source" class="form-control" />
-                            <ValidationMessage For="@(() => transaction.Source)" />
-                        </div>
-
-                        <div class="add-transactions-form-group">
-                            <label for="dueDate">Due Date</label>
-                            <InputDate id="dueDate" @bind-Value="transaction.DueDate" class="form-control" />
-                            <ValidationMessage For="@(() => transaction.DueDate)" />
-                        </div>
+                <div class="add-transactions-form-row">
+                    <div class="add-transactions-form-group">
+                        <label for="source">Source</label>
+                        <InputText id="source" @bind-Value="transaction.Source" class="form-control" />
+                        <ValidationMessage For="@(() => transaction.Source)" />
                     </div>
+
+                    <div class="add-transactions-form-group">
+                        <label for="dueDate">Due Date</label>
+                        <InputDate id="dueDate" @bind-Value="transaction.DueDate" class="form-control" />
+                        <ValidationMessage For="@(() => transaction.DueDate)" />
+                    </div>
+                </div>
             }
 
-            <button type="submit" class="btn btn-primary" disabled="@IsSubmitDisabled()">Save</button>
+            <button type="submit" class="btn btn-primary" disabled="@IsSubmitDisabled()">Add Transaction</button>
         </div>
     </EditForm>
+
+    <!-- Pagination Table for Transactions -->
+    <MudTable Items="@paginatedTransactions" Striped="true" Hover="true" Bordered="true" Paginated="true" RowsPerPage="5" CurrentPage="@currentPage" OnPageChanged="OnPageChanged">
+        <HeaderContent>
+            <MudTh>Type</MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Amount</MudTh>
+            <MudTh>Tag</MudTh>
+            <MudTh>Notes</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Type</MudTd>
+            <MudTd>@context.Name</MudTd>
+            <MudTd>@context.Amount</MudTd>
+            <MudTd>@context.Tag</MudTd>
+            <MudTd>@context.Notes</MudTd>
+        </RowTemplate>
+    </MudTable>
+
 </div>
 
 @code {
     private Transaction transaction = new Transaction();
-    private string NotificationMessage;
-    private string NotificationClass;
+    private string NotifyUser;
+    private string NotifyUserClass;
     private bool isSubmitDisabled = false;
 
-    // This will hold the current balance of the user
+    // To hold the full list of transactions (can be large)
+    private List<Transaction> allTransactions = new List<Transaction>();
+
+    // To hold the currently paginated transactions
+    private List<Transaction> paginatedTransactions = new List<Transaction>();
+
+    // Pagination state
+    private int currentPage = 0;
+    private const int rowsPerPage = 5;
     private double userBalance;
 
-    // On initialization, check the user's balance
+    // On initialization, fetch transactions and balance
     protected override async Task OnInitializedAsync()
     {
         try
         {
             userBalance = await TransactionService.CalculateUserBalanceAsync();
+            allTransactions = await TransactionService.RetrieveAllTransactions();
+            UpdatePagination();
         }
         catch (Exception ex)
         {
-            NotificationMessage = "Error fetching balance: " + ex.Message;
-            NotificationClass = "alert-danger";
+            NotifyUser = "Error fetching balance: " + ex.Message;
+            NotifyUserClass = "alert-danger";
         }
     }
 
+    // Handle transaction submission
     private async Task SubmitTransaction()
     {
         try
         {
-            // Check for insufficient balance before proceeding
             if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
             {
-                NotificationMessage = "Insufficient balance!";
-                NotificationClass = "alert-danger";
-                StateHasChanged();  // Explicitly trigger a re-render to update the UI with the message
-                return; // Do not proceed with transaction if balance is insufficient
+                NotifyUser = "Insufficient balance!";
+                NotifyUserClass = "alert-danger";
+                StateHasChanged();
+                return;
             }
 
-            // Add the transaction
             await TransactionService.AddTransactionAsync(transaction);
-
-            // Success notification
-            NotificationMessage = "Transaction added successfully!";
-            NotificationClass = "alert-success";
-
-            // Reset the form after success
+            userBalance = await TransactionService.CalculateUserBalanceAsync();
+            allTransactions = await TransactionService.RetrieveAllTransactions();
+            UpdatePagination(); // Update pagination after adding a transaction
+            NotifyUser = "Transaction added successfully!";
+            NotifyUserClass = "alert-success";
             transaction = new Transaction();
         }
         catch (Exception ex)
         {
-            NotificationMessage = "Error adding transaction: " + ex.Message;
-            NotificationClass = "alert-danger";
+            NotifyUser = "Error adding transaction: " + ex.Message;
+            NotifyUserClass = "alert-danger";
         }
     }
 
+    // Handle pagination page change
+    private void OnPageChanged(int newPage)
+    {
+        currentPage = newPage;
+        UpdatePagination();
+    }
 
-    // Disable submit if the transaction amount is greater than the user's balance
+    // Method to update the paginated transactions based on the current page
+    private void UpdatePagination()
+    {
+        int skip = currentPage * rowsPerPage;
+        paginatedTransactions = allTransactions.Skip(skip).Take(rowsPerPage).ToList();
+    }
+
+    // Disable submit if transaction exceeds balance
     private bool IsSubmitDisabled()
     {
-        return (transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance;
+        if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
+        {
+            NotifyUser = "Error: Transaction amount exceeds balance.";
+            NotifyUserClass = "alert-danger";
+            return true;
+        }
+        return false;
     }
 }

@@ -682,40 +682,74 @@ button[b-00srd1ojka] {
     background-color: #fff3cd;
     color: #856404;
 }
-/* /Components/Pages/TransactionsPage.razor.rz.scp.css */
-body[b-wlao8lxpbt] {
+
+/* Pagination Controls */
+.pagination-controls[b-7f1u4othbu] {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
 }
-.transactions-container[b-wlao8lxpbt] {
+
+    .pagination-controls button[b-7f1u4othbu] {
+        padding: 8px 16px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        background-color: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .pagination-controls button:disabled[b-7f1u4othbu] {
+            background-color: #b0c4de;
+            cursor: not-allowed;
+        }
+
+        .pagination-controls button:hover:not(:disabled)[b-7f1u4othbu] {
+            background-color: #0056b3;
+        }
+
+    .pagination-controls span[b-7f1u4othbu] {
+        font-size: 14px;
+        color: #333;
+    }
+/* /Components/Pages/TransactionsHistory.razor.rz.scp.css */
+body[b-7ixun8buwn] {
+}
+.transactions-container[b-7ixun8buwn] {
     padding: 1rem;
     overflow-y: auto;
 }
 
-.transactions-header[b-wlao8lxpbt] {
+.transactions-header[b-7ixun8buwn] {
     color: #2c2e35;
     margin-bottom: 1.5rem;
     font-size: 28px;
     font-weight: 700;
 }
 
-.filters[b-wlao8lxpbt] {
+.filters[b-7ixun8buwn] {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
 }
 
-    .filters input[b-wlao8lxpbt],
-    .filters select[b-wlao8lxpbt] {
+    .filters input[b-7ixun8buwn],
+    .filters select[b-7ixun8buwn] {
         padding: 0.5rem;
         border: 1px solid #ddd;
         border-radius: 4px;
         font-size: 0.9rem;
     }
 
-.search-input[b-wlao8lxpbt] {
+.search-input[b-7ixun8buwn] {
     width: 250px;
 }
 
-.transactions-table[b-wlao8lxpbt] {
+.transactions-table[b-7ixun8buwn] {
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -724,7 +758,7 @@ body[b-wlao8lxpbt] {
     overflow: hidden;
 }
 
-    .transactions-table th[b-wlao8lxpbt] {
+    .transactions-table th[b-7ixun8buwn] {
         text-align: left;
         padding: 1rem;
         background-color: #f9f9f9;
@@ -733,12 +767,12 @@ body[b-wlao8lxpbt] {
         font-weight: 500;
     }
 
-    .transactions-table td[b-wlao8lxpbt] {
+    .transactions-table td[b-7ixun8buwn] {
         padding: 1rem;
         border-bottom: 1px solid #eee;
     }
 
-.transaction-type[b-wlao8lxpbt] {
+.transaction-type[b-7ixun8buwn] {
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
     font-size: 0.85rem;
@@ -746,22 +780,22 @@ body[b-wlao8lxpbt] {
     display: inline-block;
 }
 
-.type-inflow[b-wlao8lxpbt] {
+.type-inflow[b-7ixun8buwn] {
     background-color: #e6f4ea;
     color: #1e7e34;
 }
 
-.type-outflow[b-wlao8lxpbt] {
+.type-outflow[b-7ixun8buwn] {
     background-color: #ffebee;
     color: #d32f2f;
 }
 
-.type-debt[b-wlao8lxpbt] {
+.type-debt[b-7ixun8buwn] {
     background-color: #fff3cd;
     color: #856404;
 }
 
-.tag[b-wlao8lxpbt] {
+.tag[b-7ixun8buwn] {
     background-color: #f8f9fa;
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
@@ -770,14 +804,48 @@ body[b-wlao8lxpbt] {
     display: inline-block;
 }
 
-.amount[b-wlao8lxpbt] {
+.amount[b-7ixun8buwn] {
     font-family: monospace;
     font-size: 1rem;
 }
 
-button[b-wlao8lxpbt],
-.search-input[b-wlao8lxpbt],
-.filter-select[b-wlao8lxpbt],
-.filter-date[b-wlao8lxpbt] {
+button[b-7ixun8buwn],
+.search-input[b-7ixun8buwn],
+.filter-select[b-7ixun8buwn],
+.filter-date[b-7ixun8buwn] {
     margin-right: 10px;
 }
+
+/* Pagination Controls */
+.pagination-controls[b-7ixun8buwn] {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .pagination-controls button[b-7ixun8buwn] {
+        padding: 8px 16px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        background-color: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .pagination-controls button:disabled[b-7ixun8buwn] {
+            background-color: #b0c4de;
+            cursor: not-allowed;
+        }
+
+        .pagination-controls button:hover:not(:disabled)[b-7ixun8buwn] {
+            background-color: #0056b3;
+        }
+
+    .pagination-controls span[b-7ixun8buwn] {
+        font-size: 14px;
+        color: #333;
+    }

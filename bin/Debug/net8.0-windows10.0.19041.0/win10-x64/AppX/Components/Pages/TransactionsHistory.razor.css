@@ -96,3 +96,37 @@ button,
 .filter-date {
     margin-right: 10px;
 }
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .pagination-controls button {
+        padding: 8px 16px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        background-color: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .pagination-controls button:disabled {
+            background-color: #b0c4de;
+            cursor: not-allowed;
+        }
+
+        .pagination-controls button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+
+    .pagination-controls span {
+        font-size: 14px;
+        color: #333;
+    }

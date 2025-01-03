@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ExpenwiseTracker.Services
 {
-    public class DatabaseService
+    public class DbConnectionService
     {
         private readonly SQLiteConnection _connection;
 
-        public DatabaseService(string dbPath)
+        public DbConnectionService(string dbPath)
         {
             // Initialize SQLite connection
             _connection = new SQLiteConnection(dbPath);

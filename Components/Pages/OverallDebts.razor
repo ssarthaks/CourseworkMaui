@@ -1,16 +1,18 @@
-﻿@page "/overalldebts" 
-@inject ExpenwiseTracker.Services.DatabaseService DatabaseService
+﻿@page "/overalldebts"
+@inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @using ExpenwiseTracker.Model;
 
 <div class="debt-container">
-<h1 class="debt-header">Overall Debt Calculation</h1>
-<div class="filters">
-    <label for="searchName">Search by Name:</label>
-    <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+    <h1 class="debt-header">Overall Debt Calculation</h1>
 
-    <label for="filterDate">Filter by Date:</label>
-    <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
-</div>
+    <!-- Filters Section -->
+    <div class="filters">
+        <label for="searchName">Search by Name:</label>
+        <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+
+        <label for="filterDate">Filter by Date:</label>
+        <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+    </div>
 
     @if (filteredTransactions == null)
     {
@@ -25,8 +27,8 @@
         <table class="debt-table">
             <thead>
                 <tr>
-                        <th>ID</th>
-                        <th>Date</th>
+                    <th>ID</th>
+                    <th>Date</th>
                     <th>Title</th>
                     <th>Type</th>
                     <th>Amount</th>
@@ -34,33 +36,48 @@
                     <th>Source</th>
                     <th>Due Date</th>
                     <th>Clear Debt</th>
-
                 </tr>
             </thead>
             <tbody>
-                @foreach (var transaction in filteredTransactions)
+                @foreach (var transaction in paginatedTransactions)
                 {
-                        <tr>
-                                <td>@transaction.Id</td>
-                                <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
-                            <td>@transaction.Name</td>
-                                <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
-                            <td class="amount">NPR.@transaction.Amount</td>
-                                <td><span class="tag">@transaction.Tag</span></td>
-                            <td>@transaction.Source</td>
-                            <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
-                                    <td><button class="clear-debt-btn">Clear Debt</button></td>
-                        </tr>
+                    <tr>
+                        <td>@transaction.Id</td>
+                        <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
+                        <td>@transaction.Name</td>
+                        <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
+                        <td class="amount">NPR.@transaction.Amount</td>
+                        <td><span class="tag">@transaction.Tag</span></td>
+                        <td>@transaction.Source</td>
+                        <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
+                        <td><button class="clear-debt-btn">Clear Debt</button></td>
+                    </tr>
                 }
             </tbody>
         </table>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-controls">
+            <button @onclick="PreviousPage" disabled="@IsPreviousButtonDisabled()">Previous</button>
+            <span>Page @currentPage of @totalPages</span>
+            <button @onclick="NextPage" disabled="@IsNextButtonDisabled()">Next</button>
+        </div>
     }
 </div>
+
 @code {
     private List<Transaction> transactions;
     private List<Transaction> filteredTransactions;
+    private List<Transaction> paginatedTransactions;
+
     private string searchName = string.Empty;
     private DateTime? selectedDate = null;
+
+    // Pagination state
+    private int currentPage = 1;
+    private const int itemsPerPage = 5;
+
+    private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
 
     protected override void OnInitialized()
     {
@@ -69,6 +86,9 @@
 
         // Filter only "Debt" transactions initially
         filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
+
+        // Update pagination after initial load
+        UpdatePagination();
     }
 
     private string GetTransactionTypeClass(string type)
@@ -80,9 +100,10 @@
         };
     }
 
+    // Filter logic
     private void ApplyFilters()
     {
-        // Apply additional filters to "Debt" transactions only
+        // Filter by "Debt" type only
         filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
 
         // Filter by name if provided
@@ -96,5 +117,38 @@
         {
             filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
+
+        // After applying filters, update the pagination
+        UpdatePagination();
     }
+
+    // Pagination logic
+    private void UpdatePagination()
+    {
+        // Calculate the items for the current page
+        int skip = (currentPage - 1) * itemsPerPage;
+        paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
+    }
+
+    private void NextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            UpdatePagination();
+        }
+    }
+
+    private void PreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            UpdatePagination();
+        }
+    }
+
+    private bool IsNextButtonDisabled() => currentPage >= totalPages;
+
+    private bool IsPreviousButtonDisabled() => currentPage <= 1;
 }

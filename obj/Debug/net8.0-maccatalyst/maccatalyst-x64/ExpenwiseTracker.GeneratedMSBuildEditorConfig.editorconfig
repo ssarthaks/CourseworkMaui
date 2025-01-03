@@ -3,6 +3,9 @@ build_property.EnableAotAnalyzer =
 build_property.EnableSingleFileAnalyzer = 
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudIllegalParameters = 
 build_property.TargetFramework = net8.0-maccatalyst
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -94,9 +97,9 @@ build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPdmVyYWxsRGVi
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = b-7f1u4othbu
 
-[E:/Application Development Weekly/Sarthak_Coursework_Final/ExpenwiseTracker/Components/Pages/TransactionsPage.razor]
+[E:/Application Development Weekly/Sarthak_Coursework_Final/ExpenwiseTracker/Components/Pages/TransactionsHistory.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFuc2FjdGlvbnNQYWdlLnJhem9y
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFuc2FjdGlvbnNIaXN0b3J5LnJhem9y
 build_metadata.AdditionalFiles.RelativePath = 
-build_metadata.AdditionalFiles.CssScope = b-wlao8lxpbt
+build_metadata.AdditionalFiles.CssScope = b-7ixun8buwn

@@ -13,6 +13,7 @@
           "Microsoft.Extensions.Logging.Debug": "8.0.1",
           "Microsoft.Maui.Controls": "8.0.83",
           "Microsoft.Maui.Controls.Compatibility": "8.0.83",
+          "MudBlazor": "7.15.0",
           "sqlite-net-pcl": "1.9.172",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.54"
         },
@@ -256,6 +257,28 @@
           "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.Localization/8.0.8": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Localization.Abstractions": "8.0.8",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Localization.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.824.36908"
+          }
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/8.0.8": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.824.36908"
           }
         }
       },
@@ -640,6 +663,19 @@
           }
         }
       },
+      "MudBlazor/7.15.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "8.0.10",
+          "Microsoft.AspNetCore.Components.Web": "8.0.10",
+          "Microsoft.Extensions.Localization": "8.0.8"
+        },
+        "runtime": {
+          "lib/net8.0/MudBlazor.dll": {
+            "assemblyVersion": "7.15.0.0",
+            "fileVersion": "7.15.0.0"
+          }
+        }
+      },
       "sqlite-net-pcl/1.9.172": {
         "dependencies": {
           "SQLitePCLRaw.bundle_green": "2.1.2"
@@ -854,6 +890,20 @@
       "path": "microsoft.extensions.filesystemglobbing/8.0.0",
       "hashPath": "microsoft.extensions.filesystemglobbing.8.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Localization/8.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n32ZGmc2UOv9R/xsBHQPOxBsqCSAAJSoMtFqoQ8zOegB2P+H6+773OyCWg4jRBkO/3dmCyBJXB0yLAOVW2/C/w==",
+      "path": "microsoft.extensions.localization/8.0.8",
+      "hashPath": "microsoft.extensions.localization.8.0.8.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Localization.Abstractions/8.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WYIsqP/A6dH/LWJznrvgoNPc7Q+CUJD0E78765GL3aonBtyFK1BKtPzBvvlnrr3SVqSO2r6xJCLgCEiCMG1gfA==",
+      "path": "microsoft.extensions.localization.abstractions/8.0.8",
+      "hashPath": "microsoft.extensions.localization.abstractions.8.0.8.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/8.0.1": {
       "type": "package",
       "serviceable": true,
@@ -993,6 +1043,13 @@
       "sha512": "sha512-qzzWG8rxZyzKzBuUdwr4ApezMINf+NT2b8EiEE5fchczNJJmDwlHImMWxX1pHK1W8Yby99alqLyC8DB0fIrhuA==",
       "path": "microsoft.windowsappsdk/1.5.240627000",
       "hashPath": "microsoft.windowsappsdk.1.5.240627000.nupkg.sha512"
+    },
+    "MudBlazor/7.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b2+hO7ZTGwsGhu9SoowuNe2ETeF1GzExpg/hIYR++rSh+vy4v/QD0iOsrATWv3LdFJXSgk3d1+XIr5srW3jBiA==",
+      "path": "mudblazor/7.15.0",
+      "hashPath": "mudblazor.7.15.0.nupkg.sha512"
     },
     "sqlite-net-pcl/1.9.172": {
       "type": "package",

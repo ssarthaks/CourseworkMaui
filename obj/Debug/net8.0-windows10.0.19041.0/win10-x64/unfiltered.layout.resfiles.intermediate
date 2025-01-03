@@ -1,10 +1,12 @@
+wwwroot\_content\MudBlazor\MudBlazor.min.css
+wwwroot\_content\MudBlazor\MudBlazor.min.js
 Components\Layout\MainLayout.razor.css
 Components\Layout\NavMenu.razor.css
 Components\Pages\AddTransaction.razor.css
 Components\Pages\Dashboard.razor.css
 Components\Pages\Login.razor.css
 Components\Pages\OverallDebts.razor.css
-Components\Pages\TransactionsPage.razor.css
+Components\Pages\TransactionsHistory.razor.css
 OpenSans-Regular.ttf
 appicon.ico
 appiconLargeTile.scale-100.png
@@ -63,7 +65,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\ExpenwiseTracker.styles.css
-wwwroot\ExpenwiseTracker.cigjdbjq9p.bundle.scp.css
+wwwroot\ExpenwiseTracker.tojpr4oy8r.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css

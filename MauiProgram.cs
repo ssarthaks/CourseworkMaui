@@ -5,6 +5,7 @@ using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 using ExpenwiseTracker.Services;
 using ExpenwiseTracker.Services.Interface;
+using MudBlazor.Services;
 
 namespace ExpenwiseTracker
 {
@@ -24,13 +25,13 @@ namespace ExpenwiseTracker
             builder.Services.AddMauiBlazorWebView();
 
             // Register DatabaseService with the database file path
-            builder.Services.AddScoped<DatabaseService>(serviceProvider =>
+            builder.Services.AddScoped<DbConnectionService>(serviceProvider =>
             {
                 // Specify the database file path
                 var dbPath = Path.Combine(FileSystem.AppDataDirectory, "expenwisetracker.db");
 
                 // Return a new instance of DatabaseService with the dbPath
-                return new DatabaseService(dbPath);
+                return new DbConnectionService(dbPath);
             });
 
 #if DEBUG
@@ -43,6 +44,9 @@ namespace ExpenwiseTracker
 
             // Register TransactionService (if needed, add it like this)
             builder.Services.AddScoped<TransactionService>();
+
+            //MudBlazor Injecting
+            builder.Services.AddMudServices();
 
             return builder.Build();
         }

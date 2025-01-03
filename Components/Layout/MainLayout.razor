@@ -1,6 +1,10 @@
 ﻿@using ExpenwiseTracker.Services
+@using MudBlazor
 @inherits LayoutComponentBase
 @inject TransactionService TransactionService
+
+<MudBlazor.MudDialogProvider />
+<MudSnackbarProvider />
 
 <div class="page" style="background-color: #E9ECFE; height:100vh; overflow:hidden;">
     <div class="sidebar">
@@ -22,15 +26,30 @@
 @code {
     private double totalBalance;
 
+    // Override OnInitializedAsync to fetch balance when the component is first loaded
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            totalBalance = await TransactionService.CalculateUserBalanceAsync(); // Fetch balance from your service
+            await UpdateBalance();
         }
         catch (Exception ex)
         {
-            // Handle error
+            // Handle error (e.g., log)
         }
+    }
+
+    // Method to fetch and update the balance
+    private async Task UpdateBalance()
+    {
+        totalBalance = await TransactionService.CalculateUserBalanceAsync();
+        StateHasChanged();  // This triggers a UI refresh after the balance is updated
+    }
+
+    // Call this method when a transaction is added
+    public async Task OnTransactionAdded()
+    {
+        // Add the new transaction to the service, then refresh the balance
+        await UpdateBalance();
     }
 }

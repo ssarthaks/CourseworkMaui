@@ -5,7 +5,6 @@ E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\Dashboard.razor.rz.scp.css
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\Login.razor.rz.scp.css
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\OverallDebts.razor.rz.scp.css
-E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\TransactionsPage.razor.rz.scp.css
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\ExpenwiseTracker.styles.css
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\ExpenwiseTracker.bundle.scp.css
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.json
@@ -220,3 +219,8 @@ E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Localization.dll
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Localization.Abstractions.dll
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MudBlazor.dll
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenwiseTracker.sourcelink.json
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\TransactionsHistory.razor.rz.scp.css

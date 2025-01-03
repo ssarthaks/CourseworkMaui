@@ -8,7 +8,7 @@ namespace ExpenwiseTracker.Services
     {
         private readonly SQLiteConnection _connection;
 
-        public TransactionService(DatabaseService databaseService)
+        public TransactionService(DbConnectionService databaseService)
         {
             _connection = databaseService.EstablishConnection();
         }

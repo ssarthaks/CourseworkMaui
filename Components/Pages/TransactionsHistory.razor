@@ -1,9 +1,10 @@
 ﻿@page "/transactionhistory"
 @using ExpenwiseTracker.Model
-@inject ExpenwiseTracker.Services.DatabaseService DatabaseService
+@inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
 
+    <!-- Filters Section -->
     <div class="filters">
         <label for="searchName">Search by Name:</label>
         <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
@@ -43,7 +44,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var transaction in filteredTransactions)
+                @foreach (var transaction in paginatedTransactions)
                 {
                     <tr>
                         <td>@transaction.Id</td>
@@ -51,27 +52,43 @@
                         <td>@transaction.Name</td>
                         <td class="amount">NPR.@transaction.Amount</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type.Substring(0, 1).ToUpper()@transaction.Type.Substring(1).ToLower()</span></td>
-
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Notes</td>
                     </tr>
                 }
             </tbody>
         </table>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-controls">
+            <button @onclick="PreviousPage" disabled="@IsPreviousButtonDisabled()">Previous</button>
+            <span>Page @currentPage of @totalPages</span>
+            <button @onclick="NextPage" disabled="@IsNextButtonDisabled()">Next</button>
+        </div>
     }
 </div>
+
 @code {
     private List<Transaction> transactions;
     private List<Transaction> filteredTransactions;
+    private List<Transaction> paginatedTransactions;
+
     private string searchName = string.Empty;
     private string selectedType = string.Empty;
     private DateTime? selectedDate = null;
+
+    // Pagination state
+    private int currentPage = 1;
+    private const int itemsPerPage = 5;
+
+    private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
 
     protected override void OnInitialized()
     {
         // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
         filteredTransactions = transactions;
+        UpdatePagination();
     }
 
     private string GetTransactionTypeClass(string type)
@@ -85,6 +102,7 @@
         };
     }
 
+    // Filter logic
     private void ApplyFilters()
     {
         filteredTransactions = transactions;
@@ -106,5 +124,38 @@
         {
             filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
+
+        // After applying filters, update the pagination
+        UpdatePagination();
     }
+
+    // Pagination logic
+    private void UpdatePagination()
+    {
+        // Calculate the items for the current page
+        int skip = (currentPage - 1) * itemsPerPage;
+        paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
+    }
+
+    private void NextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+            UpdatePagination();
+        }
+    }
+
+    private void PreviousPage()
+    {
+        if (currentPage > 1)
+        {
+            currentPage--;
+            UpdatePagination();
+        }
+    }
+
+    private bool IsNextButtonDisabled() => currentPage >= totalPages;
+
+    private bool IsPreviousButtonDisabled() => currentPage <= 1;
 }
