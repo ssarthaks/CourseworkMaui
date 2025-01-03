@@ -16,14 +16,6 @@ body {
     text-align: center;
 }
 
-input:invalid {
-    border-color: #e74c3c; /* Red border for invalid fields */
-}
-
-input:focus:invalid {
-    outline: none;
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); /* Subtle glow effect for invalid input */
-}
 
 .add-transactions-form-card {
     background: white;

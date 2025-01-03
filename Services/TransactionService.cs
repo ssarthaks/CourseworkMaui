@@ -38,10 +38,10 @@ namespace ExpenwiseTracker.Services
 
             // Calculate balance: Sum of Credit minus Debit (or debt if applicable)
             double balance = transactions
-                .Where(t => t.Type == "Credit")
+                .Where(t => t.Type == "Credit" || t.Type == "Debt")
                 .Sum(t => t.Amount) -
                 transactions
-                .Where(t => t.Type == "Debit" || t.Type == "Debt")
+                .Where(t => t.Type == "Debit")
                 .Sum(t => t.Amount);
 
             return balance;

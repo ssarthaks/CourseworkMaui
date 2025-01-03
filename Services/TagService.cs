@@ -26,6 +26,19 @@ namespace ExpenwiseTracker.Services
         public async Task AddTagAsync(Tag tag)
         {
             var dbConnection = _dbConnectionService.EstablishConnection();
+
+            // Check if the tag already exists
+            var existingTag = await Task.Run(() =>
+                dbConnection.Table<Tag>().FirstOrDefault(t => t.Name == tag.Name)
+            );
+
+            if (existingTag != null)
+            {
+                // Tag already exists, handle accordingly (e.g., notify user or return)
+                return;
+            }
+
+            // Add the new tag if it doesn't exist
             await Task.Run(() => dbConnection.Insert(tag)); // Assuming Insert is an async operation
         }
     }

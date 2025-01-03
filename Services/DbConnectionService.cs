@@ -14,13 +14,14 @@ namespace ExpenwiseTracker.Services
         private readonly SQLiteConnection _connection;
 
         public DbConnectionService(string dbPath)
+
         {
             // Initialize SQLite connection
             _connection = new SQLiteConnection(dbPath);
 
             // Create table if it doesn't exist
             _connection.CreateTable<Transaction>();
-            _connection.CreateTable<Tag>(); 
+            _connection.CreateTable<Tag>();
         }
 
         public SQLiteConnection EstablishConnection()

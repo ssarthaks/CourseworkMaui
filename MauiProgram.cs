@@ -28,7 +28,7 @@ namespace ExpenwiseTracker
             builder.Services.AddScoped<DbConnectionService>(serviceProvider =>
             {
                 // Specify the database file path
-                var dbPath = Path.Combine(FileSystem.AppDataDirectory, "expenwisetracker.db");
+                var dbPath = Path.Combine(FileSystem.AppDataDirectory, "sarthakcoursework.db");
 
                 // Return a new instance of DatabaseService with the dbPath
                 return new DbConnectionService(dbPath);

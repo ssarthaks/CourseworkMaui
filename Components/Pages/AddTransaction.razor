@@ -50,19 +50,19 @@
                         <label for="tag">Tag</label>
                         <InputSelect @bind-Value="selectedTag" class="form-control" id="tag">
                             <option value="">Select Tag</option>
-                                            @foreach (var tag in availableTags)
-                                            {
-                                    <option value="@tag.Name">@tag.Name</option>
-                                            }
+                            @foreach (var tag in availableTags)
+                            {
+                                <option value="@tag.Name">@tag.Name</option>
+                            }
                             <option value="Other">Other</option>
                         </InputSelect>
                         <ValidationMessage For="@(() => selectedTag)" />
 
-                                        @if (selectedTag == "Other")
-                                        {
-                                <InputText id="customTag" @bind-Value="customTag" class="form-control" placeholder="Enter custom tag" />
-                                <ValidationMessage For="@(() => customTag)" />
-                                        }
+                        @if (selectedTag == "Other")
+                        {
+                            <InputText id="customTag" @bind-Value="customTag" class="form-control" placeholder="Enter custom tag" />
+                            <ValidationMessage For="@(() => customTag)" />
+                        }
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
             }
 
             // Check for sufficient balance before adding transaction
-            if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
+            if (transaction.Type == "Debit" && transaction.Amount > userBalance)
             {
                 NotifyUser = "Insufficient balance!";
                 NotifyUserClass = "alert-danger";
@@ -181,7 +181,7 @@
     {
         try
         {
-            if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
+            if (transaction.Type == "Debit"  && transaction.Amount > userBalance)
             {
                 NotifyUser = "Transaction amount exceeds balance.";
                 NotifyUserClass = "alert-danger";
