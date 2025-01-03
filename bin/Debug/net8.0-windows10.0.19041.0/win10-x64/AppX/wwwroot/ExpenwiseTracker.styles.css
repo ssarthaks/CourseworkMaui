@@ -576,145 +576,148 @@ button[b-00srd1ojka] {
     }
 }
 /* /Components/Pages/OverallDebts.razor.rz.scp.css */
+/* General Styling */
+body[b-7f1u4othbu] {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
 
+/* Debt Container */
 .debt-container[b-7f1u4othbu] {
-    padding: 1rem;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .debt-header[b-7f1u4othbu] {
-    color: #2c2e35;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
 }
 
+/* Filters Section */
 .filters[b-7f1u4othbu] {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
+
+    .filters label[b-7f1u4othbu] {
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+    }
 
     .filters input[b-7f1u4othbu],
     .filters select[b-7f1u4othbu] {
         padding: 0.5rem;
-        border: 1px solid #ddd;
+        font-size: 14px;
+        border: 1px solid #ccc;
         border-radius: 4px;
-        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-.search-input[b-7f1u4othbu] {
-    width: 250px;
-}
+        .filters input:focus[b-7f1u4othbu],
+        .filters select:focus[b-7f1u4othbu] {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 5px rgba(0, 120, 212, 0.3);
+        }
 
+    .filters .filter-group[b-7f1u4othbu] {
+        flex: 1;
+        min-width: 250px;
+    }
+
+/* Table Styles */
 .debt-table[b-7f1u4othbu] {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     border-collapse: collapse;
-    overflow: hidden;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    background-color: #fff;
 }
 
-    .debt-table th[b-7f1u4othbu] {
+    .debt-table thead th[b-7f1u4othbu] {
+        background-color: #0078d4;
+        color: #fff;
         text-align: left;
-        padding: 1rem;
-        background-color: #f9f9f9;
-        border-bottom: 1px solid #eee;
-        color: #666;
-        font-weight: 500;
+        padding: 0.75rem;
+        border-bottom: 2px solid #ddd;
     }
+
+    .debt-table tbody tr[b-7f1u4othbu] {
+        border-bottom: 1px solid #ddd;
+    }
+
+        .debt-table tbody tr:nth-child(even)[b-7f1u4othbu] {
+            background-color: #f3f3f3;
+        }
 
     .debt-table td[b-7f1u4othbu] {
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
+        padding: 0.75rem;
+        text-align: left;
     }
 
-.amount[b-7f1u4othbu] {
-    font-family: monospace;
-    font-size: 1rem;
-}
+    .debt-table .transaction-type.type-debt[b-7f1u4othbu] {
+        color: #d9534f;
+        font-weight: bold;
+    }
 
-.tag[b-7f1u4othbu] {
-    background-color: #f8f9fa;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.85rem;
-    color: #495057;
-    display: inline-block;
-}
+    .debt-table .amount[b-7f1u4othbu] {
+        color: #5cb85c;
+        font-weight: bold;
+    }
 
 .clear-debt-btn[b-7f1u4othbu] {
-    background-color: #D4AF37;
-    color: white;
-    border: none;
     padding: 0.5rem 1rem;
-    border-radius: 1rem;
+    background-color: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: background-color 0.2s;
 }
 
     .clear-debt-btn:hover[b-7f1u4othbu] {
-        background-color: #C4A137;
+        background-color: #005bb5;
     }
-
-.status-cleared[b-7f1u4othbu] {
-    background-color: #f8f9fa;
-    color: #495057;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    font-size: 0.85rem;
-}
-
-
-.transaction-type[b-7f1u4othbu] {
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    display: inline-block;
-}
-
-
-.type-debt[b-7f1u4othbu] {
-    background-color: #fff3cd;
-    color: #856404;
-}
 
 /* Pagination Controls */
 .pagination-controls[b-7f1u4othbu] {
     display: flex;
     justify-content: center;
-    gap: 10px;
     align-items: center;
-    margin-top: 20px;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
     .pagination-controls button[b-7f1u4othbu] {
-        padding: 8px 16px;
-        font-size: 14px;
-        border: 1px solid #ddd;
-        background-color: #007bff;
-        color: white;
+        padding: 0.5rem 1rem;
+        background-color: #0078d4;
+        color: #fff;
+        border: none;
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
     }
 
         .pagination-controls button:disabled[b-7f1u4othbu] {
-            background-color: #b0c4de;
+            background-color: #ccc;
             cursor: not-allowed;
         }
 
-        .pagination-controls button:hover:not(:disabled)[b-7f1u4othbu] {
-            background-color: #0056b3;
-        }
-
     .pagination-controls span[b-7f1u4othbu] {
-        font-size: 14px;
-        color: #333;
+        font-weight: bold;
     }
 /* /Components/Pages/TransactionsHistory.razor.rz.scp.css */
 body[b-7ixun8buwn] {
@@ -733,16 +736,56 @@ body[b-7ixun8buwn] {
 
 .filters[b-7ixun8buwn] {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
 
-    .filters input[b-7ixun8buwn],
-    .filters select[b-7ixun8buwn] {
+.filter-group[b-7ixun8buwn] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+    .filter-group label[b-7ixun8buwn] {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .filter-group input[b-7ixun8buwn],
+    .filter-group select[b-7ixun8buwn] {
         padding: 0.5rem;
-        border: 1px solid #ddd;
+        font-size: 14px;
+        border: 1px solid #ccc;
         border-radius: 4px;
-        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        .filter-group input:focus[b-7ixun8buwn],
+        .filter-group select:focus[b-7ixun8buwn] {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 3px rgba(0, 120, 212, 0.3);
+        }
+
+.filters .filter-group[b-7ixun8buwn] {
+    flex-grow: 1;
+}
+
+    .filters .filter-group input[type="text"][b-7ixun8buwn] {
+        width: calc(100% - 2rem);
+    }
+
+    .filters .filter-group select[b-7ixun8buwn] {
+        width: 100%;
     }
 
 .search-input[b-7ixun8buwn] {

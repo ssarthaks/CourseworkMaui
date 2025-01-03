@@ -7,11 +7,15 @@
 
     <!-- Filters Section -->
     <div class="filters">
-        <label for="searchName">Search by Name:</label>
-        <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+        <div class="filter-group">
+            <label for="searchName">Search by Name:</label>
+            <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+        </div>
 
-        <label for="filterDate">Filter by Date:</label>
-        <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+        <div class="filter-group">
+            <label for="filterDate">Filter by Date:</label>
+            <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+        </div>
     </div>
 
     @if (filteredTransactions == null)

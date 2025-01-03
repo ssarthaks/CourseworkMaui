@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "p/9NU9QCcEp+5KB+7D9xfJIN4N7EU13rGQIYThogc1o=",
+  "Hash": "9n9jd6AmRjHpYg9/meBfRrYS58lkXsJyvjci1P3+KYQ=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "wpai86okp2",
-      "Integrity": "PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=",
+      "Fingerprint": "tojpr4oy8r",
+      "Integrity": "7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "wpai86okp2",
-      "Integrity": "PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=",
+      "Fingerprint": "tojpr4oy8r",
+      "Integrity": "7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -538,7 +538,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19738"
+          "Value": "21484"
         },
         {
           "Name": "Content-Type",
@@ -546,11 +546,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=\""
+          "Value": "\"7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 12:19:35 GMT"
+          "Value": "Fri, 03 Jan 2025 13:54:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -560,7 +560,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM="
+          "Value": "sha256-7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8="
         }
       ]
     },
@@ -575,7 +575,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19738"
+          "Value": "21484"
         },
         {
           "Name": "Content-Type",
@@ -583,11 +583,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=\""
+          "Value": "\"7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 12:19:35 GMT"
+          "Value": "Fri, 03 Jan 2025 13:54:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -597,12 +597,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM="
+          "Value": "sha256-7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.wpai86okp2.bundle.scp.css",
+      "Route": "ExpenwiseTracker.tojpr4oy8r.bundle.scp.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -612,7 +612,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19738"
+          "Value": "21484"
         },
         {
           "Name": "Content-Type",
@@ -620,11 +620,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=\""
+          "Value": "\"7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 12:19:35 GMT"
+          "Value": "Fri, 03 Jan 2025 13:54:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -634,7 +634,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "wpai86okp2"
+          "Value": "tojpr4oy8r"
         },
         {
           "Name": "label",
@@ -642,12 +642,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM="
+          "Value": "sha256-7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.wpai86okp2.styles.css",
+      "Route": "ExpenwiseTracker.tojpr4oy8r.styles.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -657,7 +657,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19738"
+          "Value": "21484"
         },
         {
           "Name": "Content-Type",
@@ -665,11 +665,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=\""
+          "Value": "\"7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 12:19:35 GMT"
+          "Value": "Fri, 03 Jan 2025 13:54:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -679,7 +679,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "wpai86okp2"
+          "Value": "tojpr4oy8r"
         },
         {
           "Name": "label",
@@ -687,7 +687,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM="
+          "Value": "sha256-7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8="
         }
       ]
     },

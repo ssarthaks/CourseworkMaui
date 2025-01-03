@@ -6,19 +6,25 @@
 
     <!-- Filters Section -->
     <div class="filters">
-        <label for="searchName">Search by Name:</label>
-        <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+        <div class="filter-group">
+            <label for="searchName">Search by Name:</label>
+            <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+        </div>
 
-        <label for="filterType">Filter by Type:</label>
-        <select id="filterType" @bind="selectedType" @bind:event="onchange">
-            <option value="">All Types</option>
-            <option value="Debit">Debit</option>
-            <option value="Credit">Credit</option>
-            <option value="Debt">Debt</option>
-        </select>
+        <div class="filter-group">
+            <label for="filterType">Filter by Type:</label>
+            <select id="filterType" @bind="selectedType" @bind:event="onchange">
+                <option value="">All Types</option>
+                <option value="Debit">Debit</option>
+                <option value="Credit">Credit</option>
+                <option value="Debt">Debt</option>
+            </select>
+        </div>
 
-        <label for="filterDate">Filter by Date:</label>
-        <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+        <div class="filter-group">
+            <label for="filterDate">Filter by Date:</label>
+            <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+        </div>
     </div>
 
     @if (filteredTransactions == null)

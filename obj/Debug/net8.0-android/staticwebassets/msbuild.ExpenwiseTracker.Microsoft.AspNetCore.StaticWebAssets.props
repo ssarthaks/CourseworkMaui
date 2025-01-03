@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>wpai86okp2</Fingerprint>
-      <Integrity>PJmeCyGW3v2TJPKlvYq72wFvX2TsO9pOBRl3qGDkHlM=</Integrity>
+      <Fingerprint>tojpr4oy8r</Fingerprint>
+      <Integrity>7bpye3obiHE5VVn7uZMRK2gSDTg/xaJahtvru3dhnq8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ExpenwiseTracker.styles.css'))</OriginalItemSpec>
