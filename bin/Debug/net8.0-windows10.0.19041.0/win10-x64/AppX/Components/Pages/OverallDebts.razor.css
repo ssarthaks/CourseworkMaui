@@ -1,6 +1,6 @@
 ﻿
 .debt-container {
-    padding: 1rem;
+    padding: 0rem 0.5rem;
 }
 
 .debt-header {
@@ -88,7 +88,7 @@
     }
 
     .debt-table td {
-        padding: 1rem;
+        padding: 0.8rem 1rem;
         border-bottom: 1px solid #eee;
     }
 

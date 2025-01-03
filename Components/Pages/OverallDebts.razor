@@ -7,6 +7,11 @@
 
     <h1 class="debt-header">Overall Debt Calculation</h1>
     @* <h3>Current Balance: NPR.@currentBalance</h3> *@
+      <div style="display:flex; justify-content:space-between;">
+        <p style="color:red;">Total Debt Count: @totalDebtCount</p>
+        <p style="color:green;">Paid Debt Count: @paidDebtCount</p>
+        <p style="color:#a88b2c;">Remaining Debt Count: @remainingDebtCount</p>
+    </div>
 
     <!-- Filters Section -->
     <div class="filters">
@@ -60,7 +65,7 @@
                         <td>
                             @if (transaction.IsPaid)
                             {
-                                <button class="cleared-btn" disabled>Cleared</button>
+                                <p style="color: #999; font-style: italic; text-decoration: line-through; pointer-events: none;">Cleared</p>
                             }
                             else
                             {
@@ -85,10 +90,16 @@
     private List<Transaction> transactions;
     private List<Transaction> filteredTransactions;
     private List<Transaction> paginatedTransactions;
+
     private double currentBalance;
 
     private string searchName = string.Empty;
     private DateTime? selectedDate = null;
+
+    // Debt counts
+    private int totalDebtCount;
+    private int paidDebtCount;
+    private int remainingDebtCount;
 
     // Pagination state
     private int currentPage = 1;
@@ -103,6 +114,9 @@
 
         // Filter only "Debt" transactions initially
         filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
+
+        // Calculate debt counts
+        CalculateDebtCounts();
 
         // Update pagination after initial load
         UpdatePagination();
@@ -135,8 +149,19 @@
             filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
 
+        // Recalculate debt counts after applying filters
+        CalculateDebtCounts();
+
         // After applying filters, update the pagination
         UpdatePagination();
+    }
+
+    // Calculate total debt, paid debt, and remaining debt counts
+    private void CalculateDebtCounts()
+    {
+        totalDebtCount = filteredTransactions.Count;
+        paidDebtCount = filteredTransactions.Count(t => t.IsPaid);
+        remainingDebtCount = totalDebtCount - paidDebtCount;
     }
 
     // Pagination logic
@@ -178,11 +203,12 @@
         // Update the transaction in the database
         DatabaseService.EstablishConnection().Update(transaction);
 
-        // Deduct the amount from the user's balance
-        // currentBalance = await TransactionService.CalculateUserBalanceAsync();
+        // Recalculate debt counts
+        CalculateDebtCounts();
 
         // Refresh the transaction list to reflect changes
         transactions = DatabaseService.RetrieveAllTransactions();
+        filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
         UpdatePagination();
     }
 }

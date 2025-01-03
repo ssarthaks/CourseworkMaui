@@ -1,41 +1,143 @@
 ﻿@page "/"
+@using ExpenwiseTracker.Model
+@inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
+@inject ExpenwiseTracker.Services.TransactionService TransactionService
 
 <div class="dashboard">
-    <div class="card balance">
-        <div class="balance-title">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /><path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /><path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></svg>
-            Current Balance
-        </div>
-        <div class="balance-amount">Nrs. 50000</div>
-    </div>
     <div class="metrics">
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Inflow</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow"><path d="m18 15-6-6-6 6" /></svg>
             </div>
-            <div class="metric-amount inflow">Nrs. 50000.00</div>
+            <div class="metric-amount inflow">Nrs. @totalInflow</div>
         </div>
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Outflow</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon outflow"><path d="m6 9 6 6 6-6" /></svg>
             </div>
-            <div class="metric-amount outflow">Nrs. 30000.00</div>
+            <div class="metric-amount outflow">Nrs. @totalOutflow</div>
         </div>
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Debts</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon debt"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
             </div>
-            <div class="metric-amount debt">Nrs. 155000.00</div>
+            <div class="metric-amount debt">Nrs. @totalDebts</div>
         </div>
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Cleared Debts</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow"><path d="M20 6 9 17l-5-5" /></svg>
             </div>
-            <div class="metric-amount inflow">Nrs. 5000.00</div>
+            <div class="metric-amount inflow">Nrs. @clearedDebts</div>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="statistics-column">
+            <div class="stat-card">
+                <div class="stat-title">Inflow Statistics</div>
+                <div class="stat-row">
+                    <span>Highest:</span>
+                    <span class="amount-green">Nrs. @highestInflow</span>
+                </div>
+                <div class="stat-row">
+                    <span>Lowest:</span>
+                    <span class="amount-green">Nrs. @lowestInflow</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">Outflow Statistics</div>
+                <div class="stat-row">
+                    <span>Highest:</span>
+                    <span class="amount-red">Nrs. @highestOutflow</span>
+                </div>
+                <div class="stat-row">
+                    <span>Lowest:</span>
+                    <span class="amount-red">Nrs. @lowestOutflow</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-title">Debt Statistics</div>
+                <div class="stat-row">
+                    <span>Highest:</span>
+                    <span class="amount-yellow">Nrs. @highestDebt</span>
+                </div>
+                <div class="stat-row">
+                    <span>Lowest:</span>
+                    <span class="amount-yellow">Nrs. @lowestDebt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="transactions-card">
+            <div class="stat-title">Top 5 Transactions</div>
+            @foreach (var transaction in topTransactions)
+            {
+                <div class="transaction-item">
+                    <span>@transaction.Date.ToString("yyyy-MM-dd")</span>
+                    <span>@transaction.Name</span>
+                    <span class="tag @transaction.Tag.ToLower()">@transaction.Tag</span>
+                    <span class="amount-@(transaction.Amount >= 0 ? "green" : "red")">Nrs. @transaction.Amount</span>
+                </div>
+            }
         </div>
     </div>
 </div>
+
+@code {
+    private double currentBalance;
+    private double totalInflow;
+    private double totalOutflow;
+    private double totalDebts;
+    private double clearedDebts;
+
+    private double highestInflow;
+    private double lowestInflow;
+    private double highestOutflow;
+    private double lowestOutflow;
+    private double highestDebt;
+    private double lowestDebt;
+
+    private List<Transaction> topTransactions = new List<Transaction>();
+
+    protected override void OnInitialized()
+    {
+        LoadDashboardData();
+    }
+
+    private async Task LoadDashboardData()
+    {
+        // Fetch transactions from the database
+        var transactions = DatabaseService.RetrieveAllTransactions();
+
+        // Current balance calculation
+        currentBalance = transactions.Sum(t => t.Amount);
+
+        // Filter transactions based on types
+        var inflows = transactions.Where(t => t.Amount > 0).ToList();
+        var outflows = transactions.Where(t => t.Amount < 0).ToList();
+        var debts = transactions.Where(t => t.Type == "Debt").ToList();
+
+        // Calculate total inflow, outflow, and debts
+        totalInflow = inflows.Sum(t => t.Amount);
+        totalOutflow = outflows.Sum(t => t.Amount);
+        totalDebts = debts.Sum(t => t.Amount);
+        clearedDebts = debts.Where(t => t.IsPaid).Sum(t => t.Amount);
+
+        // Statistics calculations
+        highestInflow = inflows.Max(t => t.Amount);
+        lowestInflow = inflows.Min(t => t.Amount);
+        highestOutflow = outflows.Max(t => t.Amount);
+        lowestOutflow = outflows.Min(t => t.Amount);
+        highestDebt = debts.Max(t => t.Amount);
+        lowestDebt = debts.Min(t => t.Amount);
+
+        // Get top 5 recent transactions
+        topTransactions = transactions.OrderByDescending(t => t.Date).Take(5).ToList();
+    }
+}

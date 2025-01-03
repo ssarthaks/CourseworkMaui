@@ -75,7 +75,7 @@ main[b-y5kocglxly] {
         }
 
     .top-row[b-y5kocglxly], article[b-y5kocglxly] {
-        padding-left: 1.3rem !important;
+        padding-left: 1rem !important;
         padding-right: 1.3rem !important;
     }
 }
@@ -483,6 +483,151 @@ button[b-oniilsihrt] {
     height: 1rem;
     border-radius: 0.25rem;
 }
+
+body[b-wbmb3dhwr8] {
+    background-color: #f5f5ff;
+    padding: 20px;
+}
+
+.dashboard[b-wbmb3dhwr8] {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.balance-card[b-wbmb3dhwr8] {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balance-title[b-wbmb3dhwr8] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+}
+
+.balance-amount[b-wbmb3dhwr8] {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.metrics-grid[b-wbmb3dhwr8] {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metric-card[b-wbmb3dhwr8] {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.metric-title[b-wbmb3dhwr8] {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.metric-amount[b-wbmb3dhwr8] {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.amount-green[b-wbmb3dhwr8] {
+    color: #2e7d32;
+}
+
+.amount-red[b-wbmb3dhwr8] {
+    color: #d32f2f;
+}
+
+.amount-yellow[b-wbmb3dhwr8] {
+    color: #f9a825;
+}
+
+.dashboard-content[b-wbmb3dhwr8] {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+}
+
+.statistics-column[b-wbmb3dhwr8] {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-card[b-wbmb3dhwr8] {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.stat-title[b-wbmb3dhwr8] {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.stat-row[b-wbmb3dhwr8] {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.transactions-card[b-wbmb3dhwr8] {
+    background: white;
+    padding: 20px 20px 0px 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.transaction-item[b-wbmb3dhwr8] {
+    background: #f8f9fe;
+    padding: 21px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 15px;
+}
+
+.tag[b-wbmb3dhwr8] {
+    background: #9e9e9e;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+    .tag.finance[b-wbmb3dhwr8] {
+        background: #757575;
+    }
+
+    .tag.party[b-wbmb3dhwr8] {
+        background: #9e9e9e;
+    }
+
+    .tag.salary[b-wbmb3dhwr8] {
+        background: #bdbdbd;
+    }
+
+    .tag.emi[b-wbmb3dhwr8] {
+        background: #757575;
+    }
 /* /Components/Pages/Login.razor.rz.scp.css */
 body[b-00srd1ojka] {
 }
@@ -613,7 +758,7 @@ button[b-00srd1ojka] {
 /* /Components/Pages/OverallDebts.razor.rz.scp.css */
 
 .debt-container[b-7f1u4othbu] {
-    padding: 1rem;
+    padding: 0rem 0.5rem;
 }
 
 .debt-header[b-7f1u4othbu] {
@@ -701,7 +846,7 @@ button[b-00srd1ojka] {
     }
 
     .debt-table td[b-7f1u4othbu] {
-        padding: 1rem;
+        padding: 0.8rem 1rem;
         border-bottom: 1px solid #eee;
     }
 
@@ -795,7 +940,7 @@ button[b-00srd1ojka] {
 body[b-7ixun8buwn] {
 }
 .transactions-container[b-7ixun8buwn] {
-    padding: 1rem;
+    padding: 0rem 0.5rem;
     overflow-y: auto;
 }
 

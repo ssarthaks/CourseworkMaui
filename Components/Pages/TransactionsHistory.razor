@@ -3,7 +3,7 @@
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
-
+    <p style="color:red;">Total Transactions: @totalTransactions</p>
     <!-- Filters Section -->
     <div class="filters">
         <div class="filter-group">
@@ -78,6 +78,7 @@
     private List<Transaction> transactions;
     private List<Transaction> filteredTransactions;
     private List<Transaction> paginatedTransactions;
+    private int totalTransactions;
 
     private string searchName = string.Empty;
     private string selectedType = string.Empty;
@@ -94,6 +95,10 @@
         // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
         filteredTransactions = transactions;
+
+        // Calculate the total number of transactions
+        totalTransactions = transactions.Count;
+
         UpdatePagination();
     }
 

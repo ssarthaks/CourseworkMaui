@@ -1,7 +1,7 @@
 ﻿body {
 }
 .transactions-container {
-    padding: 1rem;
+    padding: 0rem 0.5rem;
     overflow-y: auto;
 }
 
