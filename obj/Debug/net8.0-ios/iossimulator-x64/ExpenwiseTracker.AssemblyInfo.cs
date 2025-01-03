@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpenwiseTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+ad76702b24ce53e46bfa8c89d86b26c29823df6b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0d394e3890af3b0773e1f3c449cde6e18a42276f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpenwiseTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpenwiseTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

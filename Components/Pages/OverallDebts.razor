@@ -1,9 +1,12 @@
 ﻿@page "/overalldebts"
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @using ExpenwiseTracker.Model;
+@inject ExpenwiseTracker.Services.TransactionService TransactionService
 
 <div class="debt-container">
+
     <h1 class="debt-header">Overall Debt Calculation</h1>
+    @* <h3>Current Balance: NPR.@currentBalance</h3> *@
 
     <!-- Filters Section -->
     <div class="filters">
@@ -54,7 +57,16 @@
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Source</td>
                         <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
-                        <td><button class="clear-debt-btn">Clear Debt</button></td>
+                        <td>
+                            @if (transaction.IsPaid)
+                            {
+                                <button class="cleared-btn" disabled>Cleared</button>
+                            }
+                            else
+                            {
+                                <button class="clear-debt-btn" @onclick="() => ClearDebt(transaction)">Clear Debt</button>
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>
@@ -73,6 +85,7 @@
     private List<Transaction> transactions;
     private List<Transaction> filteredTransactions;
     private List<Transaction> paginatedTransactions;
+    private double currentBalance;
 
     private string searchName = string.Empty;
     private DateTime? selectedDate = null;
@@ -155,4 +168,21 @@
     private bool IsNextButtonDisabled() => currentPage >= totalPages;
 
     private bool IsPreviousButtonDisabled() => currentPage <= 1;
+
+    // Clear the debt when button is clicked
+    private async Task ClearDebt(Transaction transaction)
+    {
+        // Mark the transaction as paid in the database
+        transaction.IsPaid = true;
+
+        // Update the transaction in the database
+        DatabaseService.EstablishConnection().Update(transaction);
+
+        // Deduct the amount from the user's balance
+        // currentBalance = await TransactionService.CalculateUserBalanceAsync();
+
+        // Refresh the transaction list to reflect changes
+        transactions = DatabaseService.RetrieveAllTransactions();
+        UpdatePagination();
+    }
 }

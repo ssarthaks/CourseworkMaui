@@ -126,6 +126,10 @@
         try
         {
             transaction.Date = DateTime.Now;
+            if(transaction.Type == "Debt")
+            {
+                transaction.IsPaid = false;
+            }
             // If "Other" is selected, add the custom tag to the transaction and save it
             if (selectedTag == "Other")
             {

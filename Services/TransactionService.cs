@@ -36,9 +36,9 @@ namespace ExpenwiseTracker.Services
                 return 0; // No transactions found, so balance is 0
             }
 
-            // Calculate balance: Sum of Credit minus Debit (or debt if applicable)
+            // Calculate balance: Sum of Credit and Debt minus Debit (exclude paid debts)
             double balance = transactions
-                .Where(t => t.Type == "Credit" || t.Type == "Debt")
+                .Where(t => (t.Type == "Credit" || t.Type == "Debt") && !t.IsPaid) // Exclude paid debts
                 .Sum(t => t.Amount) -
                 transactions
                 .Where(t => t.Type == "Debit")
