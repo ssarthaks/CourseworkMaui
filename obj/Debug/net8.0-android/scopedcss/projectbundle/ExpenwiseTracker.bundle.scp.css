@@ -224,6 +224,7 @@ body[b-oniilsihrt] {
     text-align: center;
 }
 
+
 .add-transactions-form-card[b-oniilsihrt] {
     background: white;
     padding: 40px;
@@ -235,11 +236,12 @@ body[b-oniilsihrt] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .add-transactions-form-group[b-oniilsihrt] {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    width: 100%; /* Ensure it takes up the full container width */
 }
 
 label[b-oniilsihrt] {
@@ -250,7 +252,7 @@ label[b-oniilsihrt] {
 }
 
 input[b-oniilsihrt], select[b-oniilsihrt], textarea[b-oniilsihrt] {
-    width: 100%;
+    width: 100%; /* Make sure inputs and select are full width */
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -264,12 +266,45 @@ select[b-oniilsihrt] {
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
+    padding-right: 36px; /* Space for the dropdown icon */
 }
 
-textarea[b-oniilsihrt] {
-    min-height: 120px;
-    resize: vertical;
+.add-transactions-form-group select[b-oniilsihrt] {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+    transition: border-color 0.3s;
 }
+
+    .add-transactions-form-group select:focus[b-oniilsihrt] {
+        border-color: #5755d9;
+        outline: none;
+    }
+
+.add-transactions-form-group input[b-oniilsihrt], .add-transactions-form-group textarea[b-oniilsihrt] {
+    background-color: #f9f9f9;
+}
+
+    .add-transactions-form-group input:focus[b-oniilsihrt], .add-transactions-form-group textarea:focus[b-oniilsihrt] {
+        border-color: #5755d9;
+        outline: none;
+    }
+
+/* Styling the 'Other' custom tag input */
+input#customTag[b-oniilsihrt] {
+    margin-top: 8px;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+}
+
+    input#customTag:focus[b-oniilsihrt] {
+        border-color: #5755d9;
+        outline: none;
+    }
 
 button[b-oniilsihrt] {
     width: 100%;
@@ -591,16 +626,56 @@ button[b-00srd1ojka] {
 
 .filters[b-7f1u4othbu] {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
 
-    .filters input[b-7f1u4othbu],
-    .filters select[b-7f1u4othbu] {
+.filter-group[b-7f1u4othbu] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+    .filter-group label[b-7f1u4othbu] {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .filter-group input[b-7f1u4othbu],
+    .filter-group select[b-7f1u4othbu] {
         padding: 0.5rem;
-        border: 1px solid #ddd;
+        font-size: 14px;
+        border: 1px solid #ccc;
         border-radius: 4px;
-        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        .filter-group input:focus[b-7f1u4othbu],
+        .filter-group select:focus[b-7f1u4othbu] {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 3px rgba(0, 120, 212, 0.3);
+        }
+
+.filters .filter-group[b-7f1u4othbu] {
+    flex-grow: 1;
+}
+
+    .filters .filter-group input[type="text"][b-7f1u4othbu] {
+        width: calc(100% - 2rem);
+    }
+
+    .filters .filter-group select[b-7f1u4othbu] {
+        width: 100%;
     }
 
 .search-input[b-7f1u4othbu] {
@@ -733,16 +808,56 @@ body[b-7ixun8buwn] {
 
 .filters[b-7ixun8buwn] {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
 
-    .filters input[b-7ixun8buwn],
-    .filters select[b-7ixun8buwn] {
+.filter-group[b-7ixun8buwn] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+    .filter-group label[b-7ixun8buwn] {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .filter-group input[b-7ixun8buwn],
+    .filter-group select[b-7ixun8buwn] {
         padding: 0.5rem;
-        border: 1px solid #ddd;
+        font-size: 14px;
+        border: 1px solid #ccc;
         border-radius: 4px;
-        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        .filter-group input:focus[b-7ixun8buwn],
+        .filter-group select:focus[b-7ixun8buwn] {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 3px rgba(0, 120, 212, 0.3);
+        }
+
+.filters .filter-group[b-7ixun8buwn] {
+    flex-grow: 1;
+}
+
+    .filters .filter-group input[type="text"][b-7ixun8buwn] {
+        width: calc(100% - 2rem);
+    }
+
+    .filters .filter-group select[b-7ixun8buwn] {
+        width: 100%;
     }
 
 .search-input[b-7ixun8buwn] {

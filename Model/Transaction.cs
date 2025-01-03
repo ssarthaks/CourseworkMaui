@@ -17,6 +17,7 @@ namespace ExpenwiseTracker.Model
         public string Tag { get; set; }
         public string Notes { get; set; } // Optional
         public string Source { get; set; } // For debts only
+        public Boolean IsPaid { get; set; } = false; // For debts only
         public DateTime? DueDate { get; set; } // For debts only
         public DateTime Date { get; set; } // No need for AutoIncrement here
     }

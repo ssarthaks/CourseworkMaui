@@ -44,6 +44,7 @@ namespace ExpenwiseTracker
 
             // Register TransactionService (if needed, add it like this)
             builder.Services.AddScoped<TransactionService>();
+            builder.Services.AddSingleton<TagService>();
 
             //MudBlazor Injecting
             builder.Services.AddMudServices();

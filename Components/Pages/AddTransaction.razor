@@ -4,6 +4,8 @@
 @using ExpenwiseTracker.Model
 @using ExpenwiseTracker.Services
 @inject TransactionService TransactionService
+@inject TagService TagService
+
 
 <div class="add-transactions-container">
     <h1 class="add-transactions-title">Add Transaction</h1>
@@ -43,10 +45,25 @@
                     <ValidationMessage For="@(() => transaction.Amount)" />
                 </div>
 
-                <div class="add-transactions-form-group">
-                    <label for="tag">Tag</label>
-                    <InputText id="tag" @bind-Value="transaction.Tag" class="form-control" />
-                    <ValidationMessage For="@(() => transaction.Tag)" />
+                <div class="add-transactions-form-row">
+                    <div class="add-transactions-form-group">
+                        <label for="tag">Tag</label>
+                        <InputSelect @bind-Value="selectedTag" class="form-control" id="tag">
+                            <option value="">Select Tag</option>
+                                            @foreach (var tag in availableTags)
+                                            {
+                                    <option value="@tag.Name">@tag.Name</option>
+                                            }
+                            <option value="Other">Other</option>
+                        </InputSelect>
+                        <ValidationMessage For="@(() => selectedTag)" />
+
+                                        @if (selectedTag == "Other")
+                                        {
+                                <InputText id="customTag" @bind-Value="customTag" class="form-control" placeholder="Enter custom tag" />
+                                <ValidationMessage For="@(() => customTag)" />
+                                        }
+                    </div>
                 </div>
             </div>
 
@@ -82,21 +99,24 @@
     private Transaction transaction = new Transaction();
     private string NotifyUser;
     private string NotifyUserClass;
-    private bool isSubmitDisabled = false;
+    private string selectedTag;
+    private string customTag;
+    private List<Tag> availableTags = new List<Tag>();
 
     // This will hold the current balance of the user
     private double userBalance;
 
-    // On initialization, check the user's balance
+    // On initialization, fetch available tags and user's balance
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            userBalance = await TransactionService.CalculateUserBalanceAsync();
+            availableTags = await TagService.GetAllTagsAsync(); // Use injected TagService
+            userBalance = await TransactionService.CalculateUserBalanceAsync(); // Fetch balance
         }
         catch (Exception ex)
         {
-            NotifyUser = "Error fetching balance: " + ex.Message;
+            NotifyUser = "Error fetching data: " + ex.Message;
             NotifyUserClass = "alert-danger";
         }
     }
@@ -105,28 +125,49 @@
     {
         try
         {
-            // Check for insufficient balance before proceeding
+            transaction.Date = DateTime.Now;
+            // If "Other" is selected, add the custom tag to the transaction and save it
+            if (selectedTag == "Other")
+            {
+                if (!string.IsNullOrWhiteSpace(customTag))
+                {
+                    var newTag = new Tag { Name = customTag };
+                    await TagService.AddTagAsync(newTag); // Use injected TagService
+                    transaction.Tag = customTag;
+
+                    // Optionally, add the custom tag to availableTags list for future use
+                    availableTags.Add(newTag);
+                }
+                else
+                {
+                    NotifyUser = "Custom tag is required!";
+                    NotifyUserClass = "alert-danger";
+                    return;
+                }
+            }
+            else
+            {
+                transaction.Tag = selectedTag; // Use selected tag
+            }
+
+            // Check for sufficient balance before adding transaction
             if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
             {
                 NotifyUser = "Insufficient balance!";
                 NotifyUserClass = "alert-danger";
-                StateHasChanged();  // Explicitly trigger a re-render to update the UI with the message
-                return; // Do not proceed with transaction if balance is insufficient
+                return;
             }
 
-            // Add the transaction
+            // Add the transaction to the database
             await TransactionService.AddTransactionAsync(transaction);
 
-            // Refresh the user's balance after adding the transaction
+            // Refresh the user's balance and reset the form
             userBalance = await TransactionService.CalculateUserBalanceAsync();
-            await OnTransactionAdded();
-
-            // Success notification
             NotifyUser = "Transaction added successfully!";
             NotifyUserClass = "alert-success";
-
-            // Reset the form after success
-            transaction = new Transaction();
+            transaction = new Transaction(); // Clear form fields
+            selectedTag = null; // Reset tag selection
+            customTag = null; // Reset custom tag field
         }
         catch (Exception ex)
         {
@@ -135,14 +176,14 @@
         }
     }
 
-    // Disable submit if the transaction amount is greater than the user's balance
+
     private bool IsSubmitDisabled()
     {
         try
         {
             if ((transaction.Type == "Debit" || transaction.Type == "Debt") && transaction.Amount > userBalance)
             {
-                NotifyUser = "Error: Transaction amount exceeds balance.";
+                NotifyUser = "Transaction amount exceeds balance.";
                 NotifyUserClass = "alert-danger";
                 return true;
             }
@@ -154,12 +195,5 @@
             NotifyUserClass = "alert-danger";
             return true; // Disable submit in case of an exception
         }
-    }
-
-    private async Task OnTransactionAdded()
-    {
-        // Refresh the balance after transaction has been added
-        userBalance = await TransactionService.CalculateUserBalanceAsync();
-        StateHasChanged(); // Re-render the UI to reflect the updated balance
     }
 }

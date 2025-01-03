@@ -16,6 +16,7 @@ body {
     text-align: center;
 }
 
+
 .add-transactions-form-card {
     background: white;
     padding: 40px;
@@ -27,11 +28,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .add-transactions-form-group {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    width: 100%; /* Ensure it takes up the full container width */
 }
 
 label {
@@ -42,7 +44,7 @@ label {
 }
 
 input, select, textarea {
-    width: 100%;
+    width: 100%; /* Make sure inputs and select are full width */
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -56,12 +58,45 @@ select {
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
+    padding-right: 36px; /* Space for the dropdown icon */
 }
 
-textarea {
-    min-height: 120px;
-    resize: vertical;
+.add-transactions-form-group select {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+    transition: border-color 0.3s;
 }
+
+    .add-transactions-form-group select:focus {
+        border-color: #5755d9;
+        outline: none;
+    }
+
+.add-transactions-form-group input, .add-transactions-form-group textarea {
+    background-color: #f9f9f9;
+}
+
+    .add-transactions-form-group input:focus, .add-transactions-form-group textarea:focus {
+        border-color: #5755d9;
+        outline: none;
+    }
+
+/* Styling the 'Other' custom tag input */
+input#customTag {
+    margin-top: 8px;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+}
+
+    input#customTag:focus {
+        border-color: #5755d9;
+        outline: none;
+    }
 
 button {
     width: 100%;

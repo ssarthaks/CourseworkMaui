@@ -224,6 +224,15 @@ body[b-oniilsihrt] {
     text-align: center;
 }
 
+input:invalid[b-oniilsihrt] {
+    border-color: #e74c3c; /* Red border for invalid fields */
+}
+
+input:focus:invalid[b-oniilsihrt] {
+    outline: none;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); /* Subtle glow effect for invalid input */
+}
+
 .add-transactions-form-card[b-oniilsihrt] {
     background: white;
     padding: 40px;
@@ -235,11 +244,12 @@ body[b-oniilsihrt] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .add-transactions-form-group[b-oniilsihrt] {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    width: 100%; /* Ensure it takes up the full container width */
 }
 
 label[b-oniilsihrt] {
@@ -250,7 +260,7 @@ label[b-oniilsihrt] {
 }
 
 input[b-oniilsihrt], select[b-oniilsihrt], textarea[b-oniilsihrt] {
-    width: 100%;
+    width: 100%; /* Make sure inputs and select are full width */
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -264,12 +274,45 @@ select[b-oniilsihrt] {
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
+    padding-right: 36px; /* Space for the dropdown icon */
 }
 
-textarea[b-oniilsihrt] {
-    min-height: 120px;
-    resize: vertical;
+.add-transactions-form-group select[b-oniilsihrt] {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+    transition: border-color 0.3s;
 }
+
+    .add-transactions-form-group select:focus[b-oniilsihrt] {
+        border-color: #5755d9;
+        outline: none;
+    }
+
+.add-transactions-form-group input[b-oniilsihrt], .add-transactions-form-group textarea[b-oniilsihrt] {
+    background-color: #f9f9f9;
+}
+
+    .add-transactions-form-group input:focus[b-oniilsihrt], .add-transactions-form-group textarea:focus[b-oniilsihrt] {
+        border-color: #5755d9;
+        outline: none;
+    }
+
+/* Styling the 'Other' custom tag input */
+input#customTag[b-oniilsihrt] {
+    margin-top: 8px;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+}
+
+    input#customTag:focus[b-oniilsihrt] {
+        border-color: #5755d9;
+        outline: none;
+    }
 
 button[b-oniilsihrt] {
     width: 100%;
@@ -576,50 +619,46 @@ button[b-00srd1ojka] {
     }
 }
 /* /Components/Pages/OverallDebts.razor.rz.scp.css */
-/* General Styling */
-body[b-7f1u4othbu] {
-    font-family: Arial, sans-serif;
-    color: #333;
-}
 
-/* Debt Container */
 .debt-container[b-7f1u4othbu] {
-    padding: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
 }
 
 .debt-header[b-7f1u4othbu] {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 24px;
-    font-weight: bold;
-    color: #444;
+    color: #2c2e35;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
-/* Filters Section */
 .filters[b-7f1u4othbu] {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 1.5rem;
     padding: 1rem;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
     border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
 
-    .filters label[b-7f1u4othbu] {
+.filter-group[b-7f1u4othbu] {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+    .filter-group label[b-7f1u4othbu] {
+        font-size: 14px;
         font-weight: bold;
-        margin-bottom: 0.3rem;
+        color: #333;
     }
 
-    .filters input[b-7f1u4othbu],
-    .filters select[b-7f1u4othbu] {
+    .filter-group input[b-7f1u4othbu],
+    .filter-group select[b-7f1u4othbu] {
         padding: 0.5rem;
         font-size: 14px;
         border: 1px solid #ccc;
@@ -628,96 +667,137 @@ body[b-7f1u4othbu] {
         box-sizing: border-box;
     }
 
-        .filters input:focus[b-7f1u4othbu],
-        .filters select:focus[b-7f1u4othbu] {
+        .filter-group input:focus[b-7f1u4othbu],
+        .filter-group select:focus[b-7f1u4othbu] {
             outline: none;
             border-color: #0078d4;
-            box-shadow: 0 0 5px rgba(0, 120, 212, 0.3);
+            box-shadow: 0 0 3px rgba(0, 120, 212, 0.3);
         }
 
-    .filters .filter-group[b-7f1u4othbu] {
-        flex: 1;
-        min-width: 250px;
-    }
-
-/* Table Styles */
-.debt-table[b-7f1u4othbu] {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-    font-size: 14px;
-    background-color: #fff;
+.filters .filter-group[b-7f1u4othbu] {
+    flex-grow: 1;
 }
 
-    .debt-table thead th[b-7f1u4othbu] {
-        background-color: #0078d4;
-        color: #fff;
+    .filters .filter-group input[type="text"][b-7f1u4othbu] {
+        width: calc(100% - 2rem);
+    }
+
+    .filters .filter-group select[b-7f1u4othbu] {
+        width: 100%;
+    }
+
+.search-input[b-7f1u4othbu] {
+    width: 250px;
+}
+
+.debt-table[b-7f1u4othbu] {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+    .debt-table th[b-7f1u4othbu] {
         text-align: left;
-        padding: 0.75rem;
-        border-bottom: 2px solid #ddd;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #eee;
+        color: #666;
+        font-weight: 500;
     }
-
-    .debt-table tbody tr[b-7f1u4othbu] {
-        border-bottom: 1px solid #ddd;
-    }
-
-        .debt-table tbody tr:nth-child(even)[b-7f1u4othbu] {
-            background-color: #f3f3f3;
-        }
 
     .debt-table td[b-7f1u4othbu] {
-        padding: 0.75rem;
-        text-align: left;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
     }
 
-    .debt-table .transaction-type.type-debt[b-7f1u4othbu] {
-        color: #d9534f;
-        font-weight: bold;
-    }
+.amount[b-7f1u4othbu] {
+    font-family: monospace;
+    font-size: 1rem;
+}
 
-    .debt-table .amount[b-7f1u4othbu] {
-        color: #5cb85c;
-        font-weight: bold;
-    }
+.tag[b-7f1u4othbu] {
+    background-color: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    color: #495057;
+    display: inline-block;
+}
 
 .clear-debt-btn[b-7f1u4othbu] {
-    padding: 0.5rem 1rem;
-    background-color: #0078d4;
-    color: #fff;
+    background-color: #D4AF37;
+    color: white;
     border: none;
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
     cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
 }
 
     .clear-debt-btn:hover[b-7f1u4othbu] {
-        background-color: #005bb5;
+        background-color: #C4A137;
     }
+
+.status-cleared[b-7f1u4othbu] {
+    background-color: #f8f9fa;
+    color: #495057;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+}
+
+
+.transaction-type[b-7f1u4othbu] {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+
+.type-debt[b-7f1u4othbu] {
+    background-color: #fff3cd;
+    color: #856404;
+}
 
 /* Pagination Controls */
 .pagination-controls[b-7f1u4othbu] {
     display: flex;
     justify-content: center;
+    gap: 10px;
     align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 20px;
 }
 
     .pagination-controls button[b-7f1u4othbu] {
-        padding: 0.5rem 1rem;
-        background-color: #0078d4;
-        color: #fff;
-        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        background-color: #007bff;
+        color: white;
         border-radius: 4px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
         .pagination-controls button:disabled[b-7f1u4othbu] {
-            background-color: #ccc;
+            background-color: #b0c4de;
             cursor: not-allowed;
         }
 
+        .pagination-controls button:hover:not(:disabled)[b-7f1u4othbu] {
+            background-color: #0056b3;
+        }
+
     .pagination-controls span[b-7f1u4othbu] {
-        font-weight: bold;
+        font-size: 14px;
+        color: #333;
     }
 /* /Components/Pages/TransactionsHistory.razor.rz.scp.css */
 body[b-7ixun8buwn] {
