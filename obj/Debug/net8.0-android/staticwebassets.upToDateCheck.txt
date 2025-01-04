@@ -1,3 +1,4 @@
+wwwroot\Assets\LoginBg.jpg
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map

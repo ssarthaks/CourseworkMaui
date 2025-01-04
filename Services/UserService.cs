@@ -6,6 +6,7 @@ namespace ExpenwiseTracker.Services
     public class UserService : IUserService
     {
         private List<User> _users;
+        private User _authenticatedUser;
 
         // Seeded user credentials
         public const string SeedUser = "admin";
@@ -26,11 +27,23 @@ namespace ExpenwiseTracker.Services
         {
             if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
             {
-                return false; // Return false if username or password is empty
+                return false;
             }
 
-            // Check if the provided username and password match any user in the list
-            return _users.Any(u => u.Username == user.Username && u.Password == user.Password);
+            var foundUser = _users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+            if (foundUser != null)
+            {
+                _authenticatedUser = foundUser;  // Store the authenticated user
+                return true;
+            }
+
+            return false;
+        }
+
+        // Add this method to your UserService for getting the current user after authentication
+        public User GetAuthenticatedUser()
+        {
+            return _authenticatedUser; // Return the authenticated user
         }
     }
 }

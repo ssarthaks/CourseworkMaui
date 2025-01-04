@@ -3,6 +3,7 @@
 @using ExpenwiseTracker.Services.Interface
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @inject ITransactionService TransactionService
+@inject IJSRuntime JSRuntime
 
 <div class="dashboard">
     <div class="metrics">
@@ -11,28 +12,28 @@
                 <div class="metric-title">Total Inflow</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow"><path d="m18 15-6-6-6 6" /></svg>
             </div>
-            <div class="metric-amount inflow">Nrs. @totalInflow</div>
+            <div class="metric-amount inflow">@userCurrency @totalInflow</div>
         </div>
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Outflow</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon outflow"><path d="m6 9 6 6 6-6" /></svg>
             </div>
-            <div class="metric-amount outflow">Nrs. @totalOutflow</div>
+            <div class="metric-amount outflow">@userCurrency @totalOutflow</div>
         </div>
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Debts</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon debt"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
             </div>
-            <div class="metric-amount debt">Nrs. @totalDebts</div>
+            <div class="metric-amount debt">@userCurrency @totalDebts</div>
         </div>
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Cleared Debts</div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow"><path d="M20 6 9 17l-5-5" /></svg>
             </div>
-            <div class="metric-amount inflow">Nrs. @clearedDebts</div>
+            <div class="metric-amount inflow">@userCurrency @clearedDebts</div>
         </div>
     </div>
 
@@ -42,11 +43,11 @@
                 <div class="stat-title">Inflow Statistics</div>
                 <div class="stat-row">
                     <span>Highest:</span>
-                    <span class="amount-green">Nrs. @highestInflow</span>
+                    <span class="amount-green">@userCurrency. @highestInflow</span>
                 </div>
                 <div class="stat-row">
                     <span>Lowest:</span>
-                    <span class="amount-green">Nrs. @lowestInflow</span>
+                    <span class="amount-green">@userCurrency. @lowestInflow</span>
                 </div>
             </div>
 
@@ -54,11 +55,11 @@
                 <div class="stat-title">Outflow Statistics</div>
                 <div class="stat-row">
                     <span>Highest:</span>
-                    <span class="amount-red">Nrs. @highestOutflow</span>
+                    <span class="amount-red">@userCurrency. @highestOutflow</span>
                 </div>
                 <div class="stat-row">
                     <span>Lowest:</span>
-                    <span class="amount-red">Nrs. @lowestOutflow</span>
+                    <span class="amount-red">@userCurrency. @lowestOutflow</span>
                 </div>
             </div>
 
@@ -66,11 +67,11 @@
                 <div class="stat-title">Debt Statistics</div>
                 <div class="stat-row">
                     <span>Highest:</span>
-                    <span class="amount-yellow">Nrs. @highestDebt</span>
+                    <span class="amount-yellow">@userCurrency. @highestDebt</span>
                 </div>
                 <div class="stat-row">
                     <span>Lowest:</span>
-                    <span class="amount-yellow">Nrs. @lowestDebt</span>
+                    <span class="amount-yellow">@userCurrency. @lowestDebt</span>
                 </div>
             </div>
         </div>
@@ -83,13 +84,12 @@
                     <span>@transaction.Date.ToString("yyyy-MM-dd")</span>
                     <span>@transaction.Name</span>
                     <span class="tag @(transaction.Tag?.ToLower() ?? "no-tag")">@transaction.Tag</span>
-                    <span class="amount-@(
+                    <span style="font-weight:500;" class="amount-@(
                         transaction.Type == "Credit" ? "green" :
                         transaction.Type == "Debit" ? "red" :
                         transaction.Type == "Debt" ? "yellow" : "default")">
-                        Nrs. @transaction.Amount
+                        @userCurrency. @transaction.Amount
                     </span>
-
                 </div>
             }
         </div>
@@ -112,14 +112,19 @@
 
     private List<Transaction> topTransactions = new List<Transaction>();
 
-    protected override void OnInitialized()
+    // Currency from sessionStorage
+    private string userCurrency = string.Empty;
+
+    protected override async Task OnInitializedAsync()
     {
-        LoadDashboardData();
+        // Fetch currency from sessionStorage and load dashboard data
+        userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
+        await LoadDashboardData();
     }
 
     private async Task LoadDashboardData()
     {
-        // Fetch transactions from the database
+        // Fetch transactions from the database asynchronously
         var transactions = DatabaseService.RetrieveAllTransactions();
 
         // Current balance calculation

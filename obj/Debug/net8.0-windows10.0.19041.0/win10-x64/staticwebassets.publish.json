@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/nM1p0B5ErLN15gRUPf+TabbVE/nHNJ7zDj1hKqeibI=",
+  "Hash": "UBUlvkgkBEhO5nIibNaYYKZQnX9Tk2SuamRToTW0CBg=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "6scmb1k4l3",
-      "Integrity": "ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24=",
+      "Fingerprint": "f4m3i4q2ca",
+      "Integrity": "v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,11 +94,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "6scmb1k4l3",
-      "Integrity": "ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24=",
+      "Fingerprint": "f4m3i4q2ca",
+      "Integrity": "v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "SourceId": "ExpenwiseTracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "Assets/LoginBg#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3so49rvbqv",
+      "Integrity": "c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\LoginBg.jpg"
     },
     {
       "Identity": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\app.css",
@@ -278,6 +299,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU="
+        }
+      ]
+    },
+    {
+      "Route": "Assets/LoginBg.3so49rvbqv.jpg",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12377638"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Dec 2024 11:26:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3so49rvbqv"
+        },
+        {
+          "Name": "label",
+          "Value": "Assets/LoginBg.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ="
+        }
+      ]
+    },
+    {
+      "Route": "Assets/LoginBg.jpg",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12377638"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Dec 2024 11:26:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ="
         }
       ]
     },
@@ -528,96 +631,6 @@
       ]
     },
     {
-      "Route": "ExpenwiseTracker.6scmb1k4l3.bundle.scp.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "27092"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 05:43:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "6scmb1k4l3"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.6scmb1k4l3.styles.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "27092"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 05:43:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "6scmb1k4l3"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24="
-        }
-      ]
-    },
-    {
       "Route": "ExpenwiseTracker.bundle.scp.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
       "Selectors": [],
@@ -628,7 +641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "27092"
+          "Value": "26303"
         },
         {
           "Name": "Content-Type",
@@ -636,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24=\""
+          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 05:43:48 GMT"
+          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -650,7 +663,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24="
+          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.f4m3i4q2ca.bundle.scp.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26303"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f4m3i4q2ca"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.f4m3i4q2ca.styles.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "26303"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f4m3i4q2ca"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
         }
       ]
     },
@@ -665,7 +768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "27092"
+          "Value": "26303"
         },
         {
           "Name": "Content-Type",
@@ -673,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24=\""
+          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 05:43:48 GMT"
+          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -687,7 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ykYEB6BIDjalHk/EZJD/bZ5hxrm3HmvVNOVxRtxCT24="
+          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
         }
       ]
     },

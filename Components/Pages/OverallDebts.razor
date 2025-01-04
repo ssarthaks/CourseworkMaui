@@ -1,15 +1,14 @@
 ﻿@page "/overalldebts"
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
+@inject IJSRuntime JSRuntime
 @using ExpenwiseTracker.Model;
 @using ExpenwiseTracker.Services.Interface
 @inject ITransactionService TransactionService
 
-
 <div class="debt-container">
 
     <h1 class="debt-header">Overall Debt Calculation</h1>
-    @* <h3>Current Balance: NPR.@currentBalance</h3> *@
-      <div style="display:flex; justify-content:space-between;">
+    <div style="display:flex; justify-content:space-between;">
         <p style="color:red;">Total Debt Count: @totalDebtCount</p>
         <p style="color:green;">Paid Debt Count: @paidDebtCount</p>
         <p style="color:#a88b2c;">Remaining Debt Count: @remainingDebtCount</p>
@@ -60,7 +59,7 @@
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
-                        <td class="amount">NPR.@transaction.Amount</td>
+                        <td class="amount">@FormatAmount(transaction.Amount)</td> <!-- Use FormatAmount method -->
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Source</td>
                         <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
@@ -103,14 +102,20 @@
     private int paidDebtCount;
     private int remainingDebtCount;
 
+    // Currency from sessionStorage
+    private string userCurrency = string.Empty;
+
     // Pagination state
     private int currentPage = 1;
     private const int itemsPerPage = 5;
 
     private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        // Retrieve the preferred currency from sessionStorage
+        userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
+
         // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
 
@@ -131,6 +136,12 @@
             "debt" => "type-debt",
             _ => "type-neutral"
         };
+    }
+
+    private string FormatAmount(double amount)
+    {
+        // Display the amount with the selected currency
+        return $"{userCurrency}. {amount:N2}";
     }
 
     // Filter logic

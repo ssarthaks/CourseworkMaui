@@ -1,11 +1,13 @@
 ﻿@page "/transactionhistory"
 @using ExpenwiseTracker.Model
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
-
+@inject ExpenwiseTracker.Services.Interface.IUserService UserService
+@inject IJSRuntime JSRuntime
 
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
     <p style="color:red;">Total Transactions: @totalTransactions</p>
+
     <!-- Filters Section -->
     <div class="filters">
         <div class="filter-group">
@@ -58,7 +60,7 @@
                         <td>@transaction.Id</td>
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
-                        <td class="amount">NPR.@transaction.Amount</td>
+                        <td class="amount">@FormatCurrency(transaction.Amount)</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type.Substring(0, 1).ToUpper()@transaction.Type.Substring(1).ToLower()</span></td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Notes</td>
@@ -92,8 +94,13 @@
 
     private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
 
-    protected override void OnInitialized()
+    private string userCurrency;
+
+    protected override async Task OnInitializedAsync()
     {
+        // Retrieve the currency from sessionStorage
+        userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
+
         // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
         filteredTransactions = transactions;
@@ -104,6 +111,7 @@
         UpdatePagination();
     }
 
+
     private string GetTransactionTypeClass(string type)
     {
         return type.ToLower() switch
@@ -113,6 +121,28 @@
             "debt" => "type-debt",
             _ => "type-neutral"
         };
+    }
+
+    // Format the amount based on the user's currency preference
+    private string FormatCurrency(double amount)
+    {
+        if (string.IsNullOrEmpty(userCurrency)) return $"{amount:0.00}"; // Fallback if no currency is set
+
+        switch (userCurrency.ToUpper())
+        {
+            case "USD":
+                return $"USD. {amount:0.00}";
+            case "EUR":
+                return $"EUR. {amount:0.00}";
+            case "GBP":
+                return $"GBP. {amount:0.00}";
+            case "INR":
+                return $"INR. {amount:0.00}";
+            case "NPR":
+                return $"NPR. {amount:0.00}";
+            default:
+                return $"{amount:0.00} {userCurrency}"; // Fallback for unknown currencies
+        }
     }
 
     // Filter logic

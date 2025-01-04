@@ -4,7 +4,9 @@
 @using ExpenwiseTracker.Services.Interface
 @inject NavigationManager NavigationManager
 @inject IUserService UserService
+@inject IJSRuntime JSRuntime
 
+<div class="login-page">
 <h3>Login</h3>
 
 <EditForm Model="loginModel" OnValidSubmit="AuthenticateUser">
@@ -14,11 +16,13 @@
     <div class="form-group">
         <label for="username">Username:</label>
         <InputText id="username" class="form-control" @bind-Value="loginModel.Username" />
+        <ValidationMessage For="@(() => loginModel.Username)" />
     </div>
 
     <div class="form-group">
         <label for="password">Password:</label>
         <InputText id="password" type="password" class="form-control" @bind-Value="loginModel.Password" />
+        <ValidationMessage For="@(() => loginModel.Password)" />
     </div>
 
     <div class="form-group">
@@ -27,27 +31,37 @@
             <option value="">Select Currency</option>
             @foreach (var currency in currencies)
             {
-                        <option value="@currency">@currency</option>
+                <option value="@currency">@currency</option>
             }
         </InputSelect>
+        <ValidationMessage For="@(() => loginModel.PreferredCurrency)" />
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
 
     @if (!string.IsNullOrEmpty(errorMessage))
     {
-                <div class="text-danger mt-2">@errorMessage</div>
+        <div class="text-danger mt-2">@errorMessage</div>
     }
 </EditForm>
-
+</div>
 @code {
     private LoginModel loginModel = new LoginModel();
     private string errorMessage;
-    private List<string> currencies = new List<string> { "USD", "EUR", "GBP", "INR" };
+    private List<string> currencies = new List<string> { "USD", "EUR", "GBP", "NPR", "INR" };
 
     private async Task AuthenticateUser()
     {
         errorMessage = string.Empty;
+
+        // Check if all fields are valid
+        if (string.IsNullOrWhiteSpace(loginModel.Username) ||
+            string.IsNullOrWhiteSpace(loginModel.Password) ||
+            string.IsNullOrWhiteSpace(loginModel.PreferredCurrency))
+        {
+            errorMessage = "Please fill out all the fields.";
+            return;
+        }
 
         if (UserService.AuthenticateUser(new User
             {
@@ -56,7 +70,10 @@
                 PreferredCurrency = loginModel.PreferredCurrency
             }))
         {
-            NavigationManager.NavigateTo("/");
+            // Save the currency in session storage
+            await JSRuntime.InvokeVoidAsync("sessionStorage.setItem", "preferredCurrency", loginModel.PreferredCurrency);
+
+            NavigationManager.NavigateTo("/"); // Redirect to home page after successful login
         }
         else
         {
@@ -64,10 +81,13 @@
         }
     }
 
+
     private class LoginModel
     {
         public string Username { get; set; }
+
         public string Password { get; set; }
+
         public string PreferredCurrency { get; set; }
     }
 }

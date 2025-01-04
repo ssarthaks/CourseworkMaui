@@ -5,5 +5,6 @@ namespace ExpenwiseTracker.Services.Interface
     public interface IUserService
     {
         bool AuthenticateUser(User user);
+        User GetAuthenticatedUser(); // Add this line to the interface
     }
 }
