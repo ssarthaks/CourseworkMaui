@@ -40,10 +40,22 @@ namespace ExpenwiseTracker.Services
             return false;
         }
 
+        // Implements Logout functionality
+        public void Logout()
+        {
+            _authenticatedUser = null; // Clear the authenticated user
+        }
+
         // Add this method to your UserService for getting the current user after authentication
         public User GetAuthenticatedUser()
         {
             return _authenticatedUser; // Return the authenticated user
+        }
+
+        // Check if a user is logged in
+        public bool IsUserAuthenticated()
+        {
+            return _authenticatedUser != null; // Return true if a user is authenticated
         }
     }
 }

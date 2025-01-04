@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Tz99vyfBcH7223wD+2R7v6nUscJi41yEjs2HIAM0I6o=",
+  "Hash": "aX4r1A8x8U62TqG2B4qdo8zhoKHUgmiGL/ZVnYV4TeE=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "kto1mi9teg",
-      "Integrity": "GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=",
+      "Fingerprint": "f6gz1yxy8f",
+      "Integrity": "WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "kto1mi9teg",
-      "Integrity": "GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=",
+      "Fingerprint": "f6gz1yxy8f",
+      "Integrity": "WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -641,7 +641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26303"
+          "Value": "26785"
         },
         {
           "Name": "Content-Type",
@@ -649,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
+          "Value": "\"WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
+          "Value": "Sat, 04 Jan 2025 08:41:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,12 +663,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
+          "Value": "sha256-WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.kto1mi9teg.bundle.scp.css",
+      "Route": "ExpenwiseTracker.f6gz1yxy8f.bundle.scp.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -678,7 +678,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26303"
+          "Value": "26785"
         },
         {
           "Name": "Content-Type",
@@ -686,11 +686,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
+          "Value": "\"WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
+          "Value": "Sat, 04 Jan 2025 08:41:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -700,7 +700,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "kto1mi9teg"
+          "Value": "f6gz1yxy8f"
         },
         {
           "Name": "label",
@@ -708,12 +708,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
+          "Value": "sha256-WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.kto1mi9teg.styles.css",
+      "Route": "ExpenwiseTracker.f6gz1yxy8f.styles.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -723,7 +723,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26303"
+          "Value": "26785"
         },
         {
           "Name": "Content-Type",
@@ -731,11 +731,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
+          "Value": "\"WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
+          "Value": "Sat, 04 Jan 2025 08:41:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -745,7 +745,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "kto1mi9teg"
+          "Value": "f6gz1yxy8f"
         },
         {
           "Name": "label",
@@ -753,7 +753,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
+          "Value": "sha256-WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs="
         }
       ]
     },
@@ -768,7 +768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26303"
+          "Value": "26785"
         },
         {
           "Name": "Content-Type",
@@ -776,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
+          "Value": "\"WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
+          "Value": "Sat, 04 Jan 2025 08:41:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -790,7 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
+          "Value": "sha256-WcqZPRK2AwzHPeQHUPOT5n4rN3Y3hlkKVRHjzX7LKMs="
         }
       ]
     },

@@ -1,4 +1,9 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using ExpenwiseTracker.Services.Interface
+@inject IUserService UserService
+@inject NavigationManager NavigationManager 
+
+
+<div class="top-row ps-3 navbar navbar-dark">
     <a class="logo-fluid" href="">
         <div class="container-fluid">
             <span class="bi bi-wallet nav-logo"></span>
@@ -31,10 +36,29 @@
                 <span class="bi bi-credit-card-2-front-fill" aria-hidden="true"></span> Overall Debts
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="auth/login">
-                <span aria-hidden="true"></span> Login
-            </NavLink>
-        </div>
+
+        @if (UserService.IsUserAuthenticated())
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="auth/login" @onclick="Logout">
+                    <span class="bi bi-box-arrow-in-left" aria-hidden="true"></span> Logout
+                </NavLink>
+            </div>
+        }
+        else
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="auth/login">
+                    <span class="bi bi-box-arrow-in-right" aria-hidden="true"></span> Login
+                </NavLink>
+            </div>
+        }
     </nav>
 </div>
+
+@code {
+    private void Logout()
+    {
+        UserService.Logout();
+    }
+}
