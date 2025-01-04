@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UBUlvkgkBEhO5nIibNaYYKZQnX9Tk2SuamRToTW0CBg=",
+  "Hash": "hv659zezj8px7LohartHuFOCRt7Lyn4V+FiitsLXK/M=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "f4m3i4q2ca",
-      "Integrity": "v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=",
+      "Fingerprint": "kto1mi9teg",
+      "Integrity": "GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "f4m3i4q2ca",
-      "Integrity": "v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=",
+      "Fingerprint": "kto1mi9teg",
+      "Integrity": "GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -649,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
+          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
+          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,12 +663,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
+          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.f4m3i4q2ca.bundle.scp.css",
+      "Route": "ExpenwiseTracker.kto1mi9teg.bundle.scp.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -686,11 +686,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
+          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
+          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -700,7 +700,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f4m3i4q2ca"
+          "Value": "kto1mi9teg"
         },
         {
           "Name": "label",
@@ -708,12 +708,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
+          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.f4m3i4q2ca.styles.css",
+      "Route": "ExpenwiseTracker.kto1mi9teg.styles.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -731,11 +731,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
+          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
+          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -745,7 +745,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f4m3i4q2ca"
+          "Value": "kto1mi9teg"
         },
         {
           "Name": "label",
@@ -753,7 +753,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
+          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
         }
       ]
     },
@@ -776,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM=\""
+          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 06:58:29 GMT"
+          "Value": "Sat, 04 Jan 2025 07:01:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -790,7 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-v5SS+xGyaDJhWfUYpTyl1w78Fm1eWEdJ1gx08RbQMCM="
+          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
         }
       ]
     },

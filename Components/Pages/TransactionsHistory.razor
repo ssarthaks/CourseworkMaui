@@ -26,6 +26,15 @@
         </div>
 
         <div class="filter-group">
+            <label for="sortDate">Sort by Date:</label>
+            <select id="sortDate" @bind="sortOrder" @bind:event="onchange">
+                <option value="desc">Newest to Oldest</option>
+                <option value="asc">Oldest to Newest</option>
+            </select>
+        </div>
+
+
+        <div class="filter-group">
             <label for="filterDate">Filter by Date:</label>
             <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
         </div>
@@ -87,6 +96,8 @@
     private string searchName = string.Empty;
     private string selectedType = string.Empty;
     private DateTime? selectedDate = null;
+    private string sortOrder = "asc"; 
+
 
     // Pagination state
     private int currentPage = 1;
@@ -98,18 +109,22 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // Retrieve the currency from sessionStorage
         userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
 
         // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
-        filteredTransactions = transactions;
 
-        // Calculate the total number of transactions
+        // Sort by the default sort order
+        transactions = sortOrder == "asc"
+            ? transactions.OrderBy(t => t.Date).ToList()
+            : transactions.OrderByDescending(t => t.Date).ToList();
+
+        filteredTransactions = transactions;
         totalTransactions = transactions.Count;
 
         UpdatePagination();
     }
+
 
 
     private string GetTransactionTypeClass(string type)
@@ -168,9 +183,15 @@
             filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
 
-        // After applying filters, update the pagination
+        // Sort transactions by date based on the selected sort order
+        filteredTransactions = sortOrder == "asc"
+            ? filteredTransactions.OrderBy(t => t.Date).ToList()
+            : filteredTransactions.OrderByDescending(t => t.Date).ToList();
+
+        // After applying filters and sorting, update the pagination
         UpdatePagination();
     }
+
 
     // Pagination logic
     private void UpdatePagination()
@@ -201,4 +222,4 @@
     private bool IsNextButtonDisabled() => currentPage >= totalPages;
 
     private bool IsPreviousButtonDisabled() => currentPage <= 1;
-}
+} 
