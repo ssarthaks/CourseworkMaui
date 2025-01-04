@@ -484,15 +484,6 @@ button[b-oniilsihrt] {
     border-radius: 0.25rem;
 }
 
-body[b-wbmb3dhwr8] {
-    background-color: #f5f5ff;
-    padding: 20px;
-}
-
-.dashboard[b-wbmb3dhwr8] {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 .balance-card[b-wbmb3dhwr8] {
     background: white;
@@ -585,6 +576,7 @@ body[b-wbmb3dhwr8] {
     justify-content: space-between;
     margin-bottom: 10px;
     color: #666;
+    font-weight:600;
 }
 
 .transactions-card[b-wbmb3dhwr8] {

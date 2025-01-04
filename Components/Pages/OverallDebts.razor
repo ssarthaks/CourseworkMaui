@@ -1,7 +1,9 @@
 ﻿@page "/overalldebts"
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @using ExpenwiseTracker.Model;
-@inject ExpenwiseTracker.Services.TransactionService TransactionService
+@using ExpenwiseTracker.Services.Interface
+@inject ITransactionService TransactionService
+
 
 <div class="debt-container">
 

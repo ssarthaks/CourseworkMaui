@@ -539,7 +539,7 @@
       <PackagePath>wwwroot\ExpenwiseTracker.styles.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\ExpenwiseTracker.bundle.scp.css">
-      <PackagePath>wwwroot\ExpenwiseTracker.ayk8atmeya.bundle.scp.css</PackagePath>
+      <PackagePath>wwwroot\ExpenwiseTracker.6scmb1k4l3.bundle.scp.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>

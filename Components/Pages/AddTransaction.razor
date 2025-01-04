@@ -3,8 +3,9 @@
 @inject NavigationManager Navigation
 @using ExpenwiseTracker.Model
 @using ExpenwiseTracker.Services
-@inject TransactionService TransactionService
-@inject TagService TagService
+@using ExpenwiseTracker.Services.Interface
+@inject ITransactionService TransactionService
+@inject ITagService TagService
 
 
 <div class="add-transactions-container">
@@ -48,7 +49,7 @@
                 <div class="add-transactions-form-row">
                     <div class="add-transactions-form-group">
                         <label for="tag">Tag</label>
-                        <InputSelect @bind-Value="selectedTag" class="form-control" id="tag">
+                        <InputSelect @bind-Value="selectedTag" required class="form-control" id="tag">
                             <option value="">Select Tag</option>
                             @foreach (var tag in availableTags)
                             {
@@ -60,7 +61,7 @@
 
                         @if (selectedTag == "Other")
                         {
-                            <InputText id="customTag" @bind-Value="customTag" class="form-control" placeholder="Enter custom tag" />
+                            <InputText id="customTag" @bind-Value="customTag" required class="form-control" placeholder="Enter custom tag" />
                             <ValidationMessage For="@(() => customTag)" />
                         }
                     </div>
@@ -70,7 +71,6 @@
             <div class="add-transactions-form-group">
                 <label for="notes">Notes</label>
                 <InputText id="notes" @bind-Value="transaction.Notes" class="form-control" />
-                <ValidationMessage For="@(() => transaction.Notes)" />
             </div>
 
             @if (transaction.Type == "Debt")
@@ -78,13 +78,13 @@
                 <div class="add-transactions-form-row">
                     <div class="add-transactions-form-group">
                         <label for="source">Source</label>
-                        <InputText id="source" @bind-Value="transaction.Source" class="form-control" />
+                        <InputText id="source" @bind-Value="transaction.Source" required class="form-control" />
                         <ValidationMessage For="@(() => transaction.Source)" />
                     </div>
 
                     <div class="add-transactions-form-group">
                         <label for="dueDate">Due Date</label>
-                        <InputDate id="dueDate" @bind-Value="transaction.DueDate" class="form-control" />
+                        <InputDate id="dueDate" @bind-Value="transaction.DueDate" required class="form-control" />
                         <ValidationMessage For="@(() => transaction.DueDate)" />
                     </div>
                 </div>
@@ -93,6 +93,7 @@
             <button type="submit" class="btn btn-primary" disabled="@IsSubmitDisabled()">Add Transaction</button>
         </div>
     </EditForm>
+
 </div>
 
 @code {

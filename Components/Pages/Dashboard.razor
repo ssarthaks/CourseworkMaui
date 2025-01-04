@@ -1,7 +1,8 @@
 ﻿@page "/"
 @using ExpenwiseTracker.Model
+@using ExpenwiseTracker.Services.Interface
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
-@inject ExpenwiseTracker.Services.TransactionService TransactionService
+@inject ITransactionService TransactionService
 
 <div class="dashboard">
     <div class="metrics">
@@ -81,8 +82,14 @@
                 <div class="transaction-item">
                     <span>@transaction.Date.ToString("yyyy-MM-dd")</span>
                     <span>@transaction.Name</span>
-                    <span class="tag @transaction.Tag.ToLower()">@transaction.Tag</span>
-                    <span class="amount-@(transaction.Amount >= 0 ? "green" : "red")">Nrs. @transaction.Amount</span>
+                    <span class="tag @(transaction.Tag?.ToLower() ?? "no-tag")">@transaction.Tag</span>
+                    <span class="amount-@(
+                        transaction.Type == "Credit" ? "green" :
+                        transaction.Type == "Debit" ? "red" :
+                        transaction.Type == "Debt" ? "yellow" : "default")">
+                        Nrs. @transaction.Amount
+                    </span>
+
                 </div>
             }
         </div>
@@ -116,11 +123,16 @@
         var transactions = DatabaseService.RetrieveAllTransactions();
 
         // Current balance calculation
-        currentBalance = transactions.Sum(t => t.Amount);
+        currentBalance = transactions
+            .Where(t => (t.Type == "Credit" || t.Type == "Debt") && !t.IsPaid) // Include only unpaid debts
+            .Sum(t => t.Amount) -
+            transactions
+            .Where(t => t.Type == "Debit")
+            .Sum(t => t.Amount);
 
         // Filter transactions based on types
-        var inflows = transactions.Where(t => t.Amount > 0).ToList();
-        var outflows = transactions.Where(t => t.Amount < 0).ToList();
+        var inflows = transactions.Where(t => t.Type == "Credit").ToList();
+        var outflows = transactions.Where(t => t.Type == "Debit").ToList();
         var debts = transactions.Where(t => t.Type == "Debt").ToList();
 
         // Calculate total inflow, outflow, and debts
@@ -129,15 +141,15 @@
         totalDebts = debts.Sum(t => t.Amount);
         clearedDebts = debts.Where(t => t.IsPaid).Sum(t => t.Amount);
 
-        // Statistics calculations
-        highestInflow = inflows.Max(t => t.Amount);
-        lowestInflow = inflows.Min(t => t.Amount);
-        highestOutflow = outflows.Max(t => t.Amount);
-        lowestOutflow = outflows.Min(t => t.Amount);
-        highestDebt = debts.Max(t => t.Amount);
-        lowestDebt = debts.Min(t => t.Amount);
+        // Statistics calculations (handle empty lists to avoid exceptions)
+        highestInflow = inflows.Any() ? inflows.Max(t => t.Amount) : 0;
+        lowestInflow = inflows.Any() ? inflows.Min(t => t.Amount) : 0;
+        highestOutflow = outflows.Any() ? outflows.Max(t => t.Amount) : 0;
+        lowestOutflow = outflows.Any() ? outflows.Min(t => t.Amount) : 0;
+        highestDebt = debts.Any() ? debts.Max(t => t.Amount) : 0;
+        lowestDebt = debts.Any() ? debts.Min(t => t.Amount) : 0;
 
         // Get top 5 recent transactions
-        topTransactions = transactions.OrderByDescending(t => t.Date).Take(5).ToList();
+        topTransactions = transactions.OrderByDescending(t => t.Amount).Take(5).ToList();
     }
 }
