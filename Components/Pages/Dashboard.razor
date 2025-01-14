@@ -7,6 +7,7 @@
 @inject IJSRuntime JSRuntime
 
 <div class="dashboard">
+    <!-- Current Balance Section -->
     <div class="current-balance-board">
         <div class="current-balance">
             <div>Username: </div>
@@ -17,42 +18,59 @@
             <div style="color:green; font-weight:700;">@userCurrency @currentBalance.ToString("F2")</div>
         </div>
     </div>
-    <!-- Blocks stating total inflow outflow debt -->
+
+    <!-- Metrics Section (Total Inflow, Outflow, Debts, and Cleared Debts) -->
     <div class="metrics">
+        <!-- Total Inflow Metric -->
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Inflow</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow"><path d="m18 15-6-6-6 6" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow">
+                    <path d="m18 15-6-6-6 6" />
+                </svg>
             </div>
             <div class="metric-amount inflow">@userCurrency @totalInflow</div>
         </div>
+
+        <!-- Total Outflow Metric -->
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Outflow</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon outflow"><path d="m6 9 6 6 6-6" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon outflow">
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
             </div>
             <div class="metric-amount outflow">@userCurrency @totalOutflow</div>
         </div>
+
+        <!-- Total Debts Metric -->
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Total Debts</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon debt"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon debt">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
             </div>
             <div class="metric-amount debt">@userCurrency @totalDebts</div>
         </div>
+
+        <!-- Cleared Debts Metric -->
         <div class="card metric">
             <div class="metric-header">
                 <div class="metric-title">Cleared Debts</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow"><path d="M20 6 9 17l-5-5" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="metric-icon inflow">
+                    <path d="M20 6 9 17l-5-5" />
+                </svg>
             </div>
             <div class="metric-amount inflow">@userCurrency @clearedDebts</div>
         </div>
     </div>
 
-    <!--2nd section, highestlowest and top 5 transactions -->
+    <!-- Statistics Section (Highest, Lowest Inflow/Outflow/Debt) -->
     <div class="dashboard-content">
-        <!-- Highest Lowest inflow outflow debt -->
         <div class="statistics-column">
+            <!-- Inflow Statistics -->
             <div class="stat-card">
                 <div class="stat-title">Inflow Statistics</div>
                 <div class="stat-row">
@@ -65,6 +83,7 @@
                 </div>
             </div>
 
+            <!-- Outflow Statistics -->
             <div class="stat-card">
                 <div class="stat-title">Outflow Statistics</div>
                 <div class="stat-row">
@@ -77,6 +96,7 @@
                 </div>
             </div>
 
+            <!-- Debt Statistics -->
             <div class="stat-card">
                 <div class="stat-title">Debt Statistics</div>
                 <div class="stat-row">
@@ -89,7 +109,8 @@
                 </div>
             </div>
         </div>
-        <!-- Top 5 transactions -->
+
+        <!-- Top 5 Transactions Section -->
         <div class="transactions-card">
             <div class="stat-title">Top 5 Transactions</div>
             @foreach (var transaction in topTransactions)
@@ -109,17 +130,27 @@
         </div>
     </div>
 
-    <!-- Mudblazor components -->
-    <div class="bargraph">
-        @if (Series.Any() && XAxisLabels.Any())
-        {
-            <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" Width="100%" Height="350px" @bind-SelectedIndex="selectedIndex"></MudChart>
-        }
-        else
-        {
-            <MudText Typo="Typo.h6">No data available to display the chart.</MudText>
-        }
+    <!-- MudBlazor Components Section -->
+    <div class="mudblazor-components">
+        <!-- Pie Chart -->
+        <div class="piechart">
+            <p>Pie Donut Representing Data Statistics</p>
+            <MudChart ChartType="ChartType.Donut" LegendPosition="@LegendPosition" Width="300px" Height="300px"
+                      InputData="@data" InputLabels="@labels">
+            </MudChart>
+        </div>
+
+        <!-- Bar Graph -->
+        <div class="bargraph">
+            @if (Series.Any() && XAxisLabels.Any())
+            {
+                <p>Bar Graph Representing Inflow, Outflow, and Debt</p>
+                <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" Width="100%" Height="calc(100% - 20px)"></MudChart>
+            }
+            else
+            {
+                <MudText Typo="Typo.h6">No data available to display the chart.</MudText>
+            }
+        </div>
     </div>
 </div>
-
-

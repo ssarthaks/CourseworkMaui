@@ -1,8 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using ExpenwiseTracker.Model;  // Add the necessary namespaces
-using System.IO;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
 using ExpenwiseTracker.Services;
 using ExpenwiseTracker.Services.Interface;
 using MudBlazor.Services;
@@ -27,10 +23,8 @@ namespace ExpenwiseTracker
             // Register DatabaseService with the database file path
             builder.Services.AddScoped<DbConnectionService>(serviceProvider =>
             {
-                // Specify the database file path
                 var dbPath = Path.Combine(FileSystem.AppDataDirectory, "sarthakcoursework.db");
 
-                // Return a new instance of DatabaseService with the dbPath
                 return new DbConnectionService(dbPath);
             });
 
@@ -39,15 +33,17 @@ namespace ExpenwiseTracker
             builder.Logging.AddDebug();
 #endif
 
-            // Register IUserService and its implementation UserService
+            // Register UserService and its Interface
             builder.Services.AddScoped<IUserService, UserService>();
 
-            // Register TransactionService (if needed, add it like this)
+            // Register TransactionService and its Interface
             builder.Services.AddScoped<ITransactionService, TransactionService>();
+
+
+            // Register TagService and its Interface
             builder.Services.AddScoped<ITagService, TagService>();
 
-
-            //MudBlazor Injecting
+            // MudBlazor Injecting
             builder.Services.AddMudServices();
 
             return builder.Build();

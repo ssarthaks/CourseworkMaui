@@ -10,6 +10,7 @@
 <div class="add-transactions-container">
     <h1 class="add-transactions-title">Add Transaction</h1>
 
+    <!-- Display notification if available -->
     @if (!string.IsNullOrEmpty(NotifyUser))
     {
         <div class="alert @NotifyUserClass">
@@ -19,6 +20,7 @@
 
     <EditForm Model="@transaction" OnValidSubmit="SubmitTransaction">
         <div class="add-transactions-form-card">
+            <!-- Transaction type and name input fields -->
             <div class="add-transactions-form-row">
                 <div class="add-transactions-form-group">
                     <label for="type">Type</label>
@@ -38,6 +40,7 @@
                 </div>
             </div>
 
+            <!-- Amount and tag input fields -->
             <div class="add-transactions-form-row">
                 <div class="add-transactions-form-group">
                     <label for="amount">Amount</label>
@@ -57,6 +60,7 @@
                     </InputSelect>
                     <ValidationMessage For="@(() => selectedTag)" />
 
+                    <!-- Input for custom tag if 'Other' is selected -->
                     @if (selectedTag == "Other")
                     {
                         <InputText id="customTag" @bind-Value="customTag" required class="form-control" placeholder="Enter custom tag" />
@@ -65,11 +69,13 @@
                 </div>
             </div>
 
+            <!-- Notes input field -->
             <div class="add-transactions-form-group">
                 <label for="notes">Notes</label>
                 <InputText id="notes" @bind-Value="transaction.Notes" class="form-control" />
             </div>
 
+            <!-- Debt specific fields (Source and Due Date) -->
             @if (transaction.Type == "Debt")
             {
                 <div class="add-transactions-form-row">
@@ -87,6 +93,7 @@
                 </div>
             }
 
+            <!-- Submit button with disabled state check -->
             <button type="submit" class="btn btn-primary" disabled="@IsSubmitDisabled()">Add Transaction</button>
         </div>
     </EditForm>

@@ -7,18 +7,24 @@ namespace ExpenwiseTracker.Services
     {
         private readonly DbConnectionService _dbConnectionService;
 
+        #region Constructor
+        // Initializes the TagService with a DbConnectionService and also initialize default tag 
         public TagService(DbConnectionService dbConnectionService)
         {
             _dbConnectionService = dbConnectionService;
             InitializeDefaultTags();
         }
+        #endregion
 
+        #region Get Tags and Add Tag
+        // Retrieves all tags from the database asynchronously.
         public async Task<List<Tag>> GetAllTags()
         {
             var dbConnection = _dbConnectionService.EstablishConnection();
             return await Task.Run(() => dbConnection.Table<Tag>().ToList());
         }
 
+        // Adds a new tag to the database if it does not already exist.
         public async Task AddTag(Tag tag)
         {
             var dbConnection = _dbConnectionService.EstablishConnection();
@@ -33,6 +39,10 @@ namespace ExpenwiseTracker.Services
             }
         }
 
+        #endregion
+
+        #region Initialize Default Tags
+        // Initializes default tags in the database if they do not already exist.
         private void InitializeDefaultTags()
         {
             var dbConnection = _dbConnectionService.EstablishConnection();
@@ -52,5 +62,6 @@ namespace ExpenwiseTracker.Services
                 }
             }
         }
+        #endregion
     }
 }

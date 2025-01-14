@@ -1,27 +1,25 @@
 using ExpenwiseTracker.Model;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 namespace ExpenwiseTracker.Components.Pages
 {
     public partial class AddTransaction
     {
         private Transaction transaction = new Transaction();
-        private string NotifyUser;
-        private string NotifyUserClass;
-        private string selectedTag;
-        private string customTag;
+        private string? NotifyUser;
+        private string? NotifyUserClass;
+        private string? selectedTag;
+        private string? customTag;
         private List<Tag> availableTags = new List<Tag>();
 
         private double userBalance;
 
+        #region OnInitializedAsync Method
+        // Method to fetch initial data like tags and balance when the component is initialized
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                availableTags = await TagService.GetAllTags();
-                userBalance = await TransactionService.CalculateUserBalance(); // Initial balance fetch
+                availableTags = await TagService.GetAllTags(); 
+                userBalance = await TransactionService.CalculateUserBalance(); 
             }
             catch (Exception ex)
             {
@@ -29,14 +27,15 @@ namespace ExpenwiseTracker.Components.Pages
                 NotifyUserClass = "alert-danger";
             }
         }
+        #endregion
 
+        #region SubmitTransaction Method
         private async Task SubmitTransaction()
         {
             try
             {
-                transaction.Date = DateTime.Now;
+                transaction.Date = DateTime.Now; 
 
-                // Recalculate balance dynamically based on the current transactions
                 userBalance = await TransactionService.CalculateUserBalance();
 
                 if (transaction.Type == "Debit" && transaction.Amount > userBalance)
@@ -48,7 +47,7 @@ namespace ExpenwiseTracker.Components.Pages
 
                 if (transaction.Type == "Debt")
                 {
-                    transaction.IsPaid = false;
+                    transaction.IsPaid = false; 
                 }
 
                 if (selectedTag == "Other" && !string.IsNullOrWhiteSpace(customTag))
@@ -57,11 +56,11 @@ namespace ExpenwiseTracker.Components.Pages
                     await TagService.AddTag(newTag);
                     transaction.Tag = customTag;
 
-                    availableTags.Add(newTag); // Add to local cache
+                    availableTags.Add(newTag); 
                 }
                 else if (selectedTag != "Other")
                 {
-                    transaction.Tag = selectedTag;
+                    transaction.Tag = selectedTag; 
                 }
                 else
                 {
@@ -74,9 +73,7 @@ namespace ExpenwiseTracker.Components.Pages
                 NotifyUser = "Transaction added successfully!";
                 NotifyUserClass = "alert-success";
 
-                // Reset balance after transaction
                 userBalance = await TransactionService.CalculateUserBalance();
-
                 ResetForm();
             }
             catch (Exception ex)
@@ -85,14 +82,20 @@ namespace ExpenwiseTracker.Components.Pages
                 NotifyUserClass = "alert-danger";
             }
         }
+        #endregion
 
+        #region ResetForm Method
+        // Method to reset form fields after successful transaction
         private void ResetForm()
         {
-            transaction = new Transaction();
-            selectedTag = null;
+            transaction = new Transaction(); 
+            selectedTag = null; 
             customTag = null;
         }
+        #endregion
 
+        #region IsSubmitDisabled Method
         private bool IsSubmitDisabled() => false;
+        #endregion
     }
 }

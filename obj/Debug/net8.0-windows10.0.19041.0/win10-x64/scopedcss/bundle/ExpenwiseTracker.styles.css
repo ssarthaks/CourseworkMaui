@@ -50,7 +50,7 @@ main[b-y5kocglxly] {
         }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 1024px) {
     .page[b-y5kocglxly] {
         flex-direction: row;
     }
@@ -125,9 +125,9 @@ main[b-y5kocglxly] {
     width: 1.25rem;
     height: 1.25rem;
     margin-right: 0.75rem;
-    vertical-align: middle; /* Fix alignment */
-    background-size: contain; /* Ensures image fits the box */
-    background-repeat: no-repeat; /* Prevent repeating */
+    vertical-align: middle; 
+    background-size: contain; 
+    background-repeat: no-repeat;
 }
 
 .bi-wallet[b-56xcxme6n4] {
@@ -201,15 +201,13 @@ main[b-y5kocglxly] {
     display: block;
 }
 
-@media (min-width: 641px) {
+@media (min-width: 1024px) {
     .navbar-toggler[b-56xcxme6n4] {
         display: none;
     }
 
     .nav-scrollable[b-56xcxme6n4] {
-        /* Never collapse the sidebar for wide screens */
         display: block;
-        /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
@@ -232,7 +230,6 @@ body[b-oniilsihrt] {
     font-weight: 700;
     text-align: center;
 }
-
 
 .add-transactions-form-card[b-oniilsihrt] {
     background: white;
@@ -342,13 +339,11 @@ button[b-oniilsihrt] {
     }
 }
 /* /Components/Pages/Dashboard.razor.rz.scp.css */
-
 html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     height: 100%;
     margin: 0;
     overflow-y: auto;
 }
-
 
 .dashboard[b-wbmb3dhwr8] {
     display: flex;
@@ -356,13 +351,23 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
-.bargraph[b-wbmb3dhwr8]{
-    padding:50px;
-    background-color: #ffffff;
+.mudblazor-components[b-wbmb3dhwr8] {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+}
 
+.piechart[b-wbmb3dhwr8], .bargraph[b-wbmb3dhwr8] {
+    height: 100%;
+    overflow: hidden; 
 }
 
 .current-balance-board[b-wbmb3dhwr8] {
@@ -481,13 +486,13 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     transition: height 0.3s ease;
 }
 
-    .bar.outflow[b-wbmb3dhwr8] {
-        background-color: #fdba74;
-    }
+.bar.outflow[b-wbmb3dhwr8] {
+    background-color: #fdba74;
+}
 
-    .bar.debt[b-wbmb3dhwr8] {
-        background-color: #fed7aa;
-    }
+.bar.debt[b-wbmb3dhwr8] {
+    background-color: #fed7aa;
+}
 
 .x-axis[b-wbmb3dhwr8] {
     display: flex;
@@ -521,7 +526,6 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     height: 1rem;
     border-radius: 0.25rem;
 }
-
 
 .balance-card[b-wbmb3dhwr8] {
     background: white;
@@ -584,17 +588,16 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
 }
 
 .dashboard-content[b-wbmb3dhwr8] {
-    display: grid;
-    grid-template-columns: 300px 1fr;
+    display: flex;
     gap: 20px;
     overflow-y: auto;
-    max-height: calc(100vh - 150px);
 }
 
 .statistics-column[b-wbmb3dhwr8] {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width:30%;
 }
 
 .stat-card[b-wbmb3dhwr8] {
@@ -624,6 +627,7 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     padding: 20px 20px 0px 20px;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width:100%;
 }
 
 .transaction-item[b-wbmb3dhwr8] {
@@ -645,21 +649,89 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     font-size: 12px;
 }
 
-    .tag.finance[b-wbmb3dhwr8] {
-        background: #757575;
+.tag.finance[b-wbmb3dhwr8] {
+    background: #757575;
+}
+
+.tag.party[b-wbmb3dhwr8] {
+    background: #9e9e9e;
+}
+
+.tag.salary[b-wbmb3dhwr8] {
+    background: #bdbdbd;
+}
+
+.tag.emi[b-wbmb3dhwr8] {
+    background: #757575;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .dashboard-content[b-wbmb3dhwr8] {
+        display:flex;
+        flex-direction:column;
+        height:100%;
     }
 
-    .tag.party[b-wbmb3dhwr8] {
-        background: #9e9e9e;
+    .statistics-column[b-wbmb3dhwr8]{
+        width:100%;
     }
 
-    .tag.salary[b-wbmb3dhwr8] {
-        background: #bdbdbd;
+    .transactions-card[b-wbmb3dhwr8]{
+        width:100%
     }
 
-    .tag.emi[b-wbmb3dhwr8] {
-        background: #757575;
+    .mudblazor-components[b-wbmb3dhwr8] {
+        grid-template-columns: 1fr;
+        gap:50px;
     }
+}
+
+@media (max-width: 768px) {
+    .dashboard[b-wbmb3dhwr8] {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .current-balance-board[b-wbmb3dhwr8] {
+        flex-direction: column;
+    }
+
+    .balance[b-wbmb3dhwr8] {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .metrics-grid[b-wbmb3dhwr8] {
+        grid-template-columns: 1fr;
+    }
+
+    .chart[b-wbmb3dhwr8] {
+        height: 200px;
+    }
+
+    .balance-card[b-wbmb3dhwr8], .metric-card[b-wbmb3dhwr8], .stat-card[b-wbmb3dhwr8], .transactions-card[b-wbmb3dhwr8] {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .balance-amount[b-wbmb3dhwr8] {
+        font-size: 18px;
+    }
+
+    .metric-amount[b-wbmb3dhwr8] {
+        font-size: 1rem;
+    }
+
+    .legend[b-wbmb3dhwr8] {
+        flex-direction: column;
+    }
+
+    .transactions-card[b-wbmb3dhwr8] {
+        padding: 15px;
+    }
+}
 /* /Components/Pages/Login.razor.rz.scp.css */
 /* Global styles */
 body[b-00srd1ojka] {

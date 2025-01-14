@@ -1,4 +1,5 @@
 ﻿@page "/overalldebts"
+
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @inject IJSRuntime JSRuntime
 @using ExpenwiseTracker.Model;
@@ -6,8 +7,15 @@
 @inject ITransactionService TransactionService
 
 <div class="debt-container">
+    <!-- Header for Overall Debt Calculation -->
     <h1 class="debt-header">Overall Debt Calculation</h1>
-    <p style="color:green; font-weight:700; font-size:20px;">Available Balance: @userCurrency @currentBalance.ToString("F2")</p>
+
+    <!-- Display the available balance -->
+    <p style="color:green; font-weight:700; font-size:20px;">
+        Available Balance: @userCurrency @currentBalance.ToString("F2")
+    </p>
+
+    <!-- Debt Statistics Section -->
     <div style="display:flex; justify-content:space-between;">
         <p style="color:red;">Total Debt Count: @totalDebtCount</p>
         <p style="color:green;">Paid Debt Count: @paidDebtCount</p>
@@ -17,6 +25,7 @@
     <!-- Filters Section -->
     <div class="filter-options">
         <div class="filters">
+
             <div class="filter-group">
                 <label for="searchName">Search by Name:</label>
                 <input type="text" id="searchName" @bind="searchName" placeholder="Enter name..." />
@@ -35,6 +44,7 @@
                 <input type="date" id="filterDate" @bind="selectedDate" />
             </div>
         </div>
+
         <div class="filter-buttons">
             <div class="filter-button">
                 <button @onclick="ApplyFilters" class="filter-btn">Apply Filter</button>
@@ -42,13 +52,13 @@
             <div class="filter-button">
                 <button @onclick="ExportToCsv" class="export-btn">Export to CSV</button>
             </div>
-
         </div>
     </div>
 
+    <!-- Conditional Content: Handle loading state and no data state -->
     @if (filteredTransactions == null)
     {
-        <p>Loading...</p>
+        <p>Loading...</p> 
     }
     else if (filteredTransactions.Count == 0)
     {
@@ -56,6 +66,7 @@
     }
     else
     {
+        <!-- Debt Table -->
         <table class="debt-table">
             <thead>
                 <tr>
@@ -71,17 +82,24 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Loop through and display each transaction -->
                 @foreach (var transaction in paginatedTransactions)
                 {
                     <tr>
                         <td>@transaction.Id</td>
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
-                        <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
+                        <td>
+                            <span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">
+                                @transaction.Type
+                            </span>
+                        </td>
                         <td class="amount">@userCurrency.@transaction.Amount</td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Source</td>
                         <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
+
+                        <!-- Clear Debt Button (only if debt is not already paid) -->
                         <td>
                             @if (transaction.IsPaid)
                             {
@@ -99,135 +117,12 @@
 
         <!-- Pagination Controls -->
         <div class="pagination-controls">
+            <!-- Previous Page Button -->
             <button @onclick="PreviousPage" disabled="@IsPreviousButtonDisabled()">Previous</button>
+            <!-- Display current page and total pages -->
             <span>Page @currentPage of @totalPages</span>
+            <!-- Next Page Button -->
             <button @onclick="NextPage" disabled="@IsNextButtonDisabled()">Next</button>
         </div>
     }
 </div>
-
-@code {
-    private List<Transaction> transactions = new();
-    private List<Transaction> filteredTransactions = new();
-    private List<Transaction> paginatedTransactions = new();
-
-    private double currentBalance;
-
-    private string searchName = string.Empty;
-    private DateTime? selectedDate = null;
-    private string sortOrder = "desc";
-
-    private int totalDebtCount;
-    private int paidDebtCount;
-    private int remainingDebtCount;
-
-    private string userCurrency = string.Empty;
-    private double availableBalance;
-
-    private int currentPage = 1;
-    private const int itemsPerPage = 5;
-
-    private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
-
-    protected override async Task OnInitializedAsync()
-    {
-        userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-        currentBalance = await TransactionService.CalculateUserBalance();
-        transactions = DatabaseService.RetrieveAllTransactions();
-        ApplyFilters();
-    }
-
-
-    private string GetTransactionTypeClass(string type) =>
-        type.ToLower() switch
-        {
-            "debt" => "type-debt",
-            _ => "type-neutral"
-        };
-
-    private void ApplyFilters()
-    {
-        filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
-
-        if (!string.IsNullOrWhiteSpace(searchName))
-        {
-            filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
-        }
-
-        if (selectedDate.HasValue)
-        {
-            filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
-        }
-
-        filteredTransactions = sortOrder switch
-        {
-            "asc" => filteredTransactions.OrderBy(t => t.Date).ToList(),
-            "desc" => filteredTransactions.OrderByDescending(t => t.Date).ToList(),
-            _ => filteredTransactions
-        };
-
-        CalculateDebtCounts();
-        UpdatePagination();
-    }
-
-    private void CalculateDebtCounts()
-    {
-        totalDebtCount = filteredTransactions.Count;
-        paidDebtCount = filteredTransactions.Count(t => t.IsPaid);
-        remainingDebtCount = totalDebtCount - paidDebtCount;
-    }
-
-    private void UpdatePagination()
-    {
-        int skip = (currentPage - 1) * itemsPerPage;
-        paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
-    }
-
-    private void NextPage()
-    {
-        if (currentPage < totalPages)
-        {
-            currentPage++;
-            UpdatePagination();
-        }
-    }
-
-    private void PreviousPage()
-    {
-        if (currentPage > 1)
-        {
-            currentPage--;
-            UpdatePagination();
-        }
-    }
-
-    private bool IsNextButtonDisabled() => currentPage >= totalPages;
-
-    private bool IsPreviousButtonDisabled() => currentPage <= 1;
-
-    private async Task ClearDebt(Transaction transaction)
-    {
-        transaction.IsPaid = true;
-        DatabaseService.EstablishConnection().Update(transaction);
-
-        // Recalculate current balance
-        currentBalance = await TransactionService.CalculateUserBalance();
-
-        CalculateDebtCounts();
-        transactions = DatabaseService.RetrieveAllTransactions();
-        ApplyFilters();
-    }
-
-
-    private async Task ExportToCsv()
-    {
-        var csvContent = "ID,Date,Title,Type,Amount,Tag,Source,DueDate,IsPaid\n" +
-            string.Join("\n", filteredTransactions.Select(t =>
-                $"{t.Id},{t.Date:MM/dd/yyyy},{t.Name},{t.Type},{t.Amount},{t.Tag},{t.Source},{t.DueDate:MM/dd/yyyy},{t.IsPaid}"));
-
-        var csvBytes = System.Text.Encoding.UTF8.GetBytes(csvContent);
-        var csvFileName = $"Debts_{DateTime.Now:yyyyMMddHHmmss}.csv";
-
-        await JSRuntime.InvokeVoidAsync("downloadFile", csvFileName, csvBytes);
-    }
-}

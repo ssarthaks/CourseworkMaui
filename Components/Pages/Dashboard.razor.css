@@ -1,10 +1,8 @@
-﻿
-html, body {
+﻿html, body {
     height: 100%;
     margin: 0;
     overflow-y: auto;
 }
-
 
 .dashboard {
     display: flex;
@@ -12,13 +10,23 @@ html, body {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
-.bargraph{
-    padding:50px;
-    background-color: #ffffff;
+.mudblazor-components {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+}
 
+.piechart, .bargraph {
+    height: 100%;
+    overflow: hidden; 
 }
 
 .current-balance-board {
@@ -137,13 +145,13 @@ html, body {
     transition: height 0.3s ease;
 }
 
-    .bar.outflow {
-        background-color: #fdba74;
-    }
+.bar.outflow {
+    background-color: #fdba74;
+}
 
-    .bar.debt {
-        background-color: #fed7aa;
-    }
+.bar.debt {
+    background-color: #fed7aa;
+}
 
 .x-axis {
     display: flex;
@@ -177,7 +185,6 @@ html, body {
     height: 1rem;
     border-radius: 0.25rem;
 }
-
 
 .balance-card {
     background: white;
@@ -240,17 +247,16 @@ html, body {
 }
 
 .dashboard-content {
-    display: grid;
-    grid-template-columns: 300px 1fr;
+    display: flex;
     gap: 20px;
     overflow-y: auto;
-    max-height: calc(100vh - 150px);
 }
 
 .statistics-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width:30%;
 }
 
 .stat-card {
@@ -280,6 +286,7 @@ html, body {
     padding: 20px 20px 0px 20px;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width:100%;
 }
 
 .transaction-item {
@@ -301,18 +308,86 @@ html, body {
     font-size: 12px;
 }
 
-    .tag.finance {
-        background: #757575;
+.tag.finance {
+    background: #757575;
+}
+
+.tag.party {
+    background: #9e9e9e;
+}
+
+.tag.salary {
+    background: #bdbdbd;
+}
+
+.tag.emi {
+    background: #757575;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .dashboard-content {
+        display:flex;
+        flex-direction:column;
+        height:100%;
     }
 
-    .tag.party {
-        background: #9e9e9e;
+    .statistics-column{
+        width:100%;
     }
 
-    .tag.salary {
-        background: #bdbdbd;
+    .transactions-card{
+        width:100%
     }
 
-    .tag.emi {
-        background: #757575;
+    .mudblazor-components {
+        grid-template-columns: 1fr;
+        gap:50px;
     }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .current-balance-board {
+        flex-direction: column;
+    }
+
+    .balance {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart {
+        height: 200px;
+    }
+
+    .balance-card, .metric-card, .stat-card, .transactions-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .balance-amount {
+        font-size: 18px;
+    }
+
+    .metric-amount {
+        font-size: 1rem;
+    }
+
+    .legend {
+        flex-direction: column;
+    }
+
+    .transactions-card {
+        padding: 15px;
+    }
+}
