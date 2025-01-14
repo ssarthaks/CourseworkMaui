@@ -7,7 +7,7 @@
 
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
-    <p style="color:green;">Available Balance: @userCurrency @currentBalance.ToString("F2")</p>
+    <p style="color:green; font-weight:700; font-size:20px;">Available Balance: @userCurrency @currentBalance.ToString("F2")</p>
     <p style="color:red;">Total Transactions: @totalTransactions</p>
 
     <!-- Filters Section -->
@@ -83,7 +83,7 @@
                         <td>@transaction.Id</td>
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
-                        <td class="amount">@transaction.Amount</td>
+                        <td class="amount">@userCurrency.@transaction.Amount</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Notes</td>

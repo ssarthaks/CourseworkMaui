@@ -21,7 +21,7 @@ namespace ExpenwiseTracker.Components.Pages
             try
             {
                 availableTags = await TagService.GetAllTags();
-                userBalance = await TransactionService.CalculateUserBalance();
+                userBalance = await TransactionService.CalculateUserBalance(); // Initial balance fetch
             }
             catch (Exception ex)
             {
@@ -35,6 +35,9 @@ namespace ExpenwiseTracker.Components.Pages
             try
             {
                 transaction.Date = DateTime.Now;
+
+                // Recalculate balance dynamically based on the current transactions
+                userBalance = await TransactionService.CalculateUserBalance();
 
                 if (transaction.Type == "Debit" && transaction.Amount > userBalance)
                 {
@@ -68,10 +71,11 @@ namespace ExpenwiseTracker.Components.Pages
                 }
 
                 await TransactionService.AddTransaction(transaction);
-                userBalance = await TransactionService.CalculateUserBalance();
-
                 NotifyUser = "Transaction added successfully!";
                 NotifyUserClass = "alert-success";
+
+                // Reset balance after transaction
+                userBalance = await TransactionService.CalculateUserBalance();
 
                 ResetForm();
             }

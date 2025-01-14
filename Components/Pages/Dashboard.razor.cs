@@ -24,12 +24,13 @@ namespace ExpenwiseTracker.Components.Pages
 
         private List<Transaction> topTransactions = new List<Transaction>();
         private string userCurrency = string.Empty;
+        private string username = string.Empty;
 
         #region OnInitialized
         protected override async Task OnInitializedAsync()
         {
             userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-
+            username = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "Username");
             // Load dashboard data
             await LoadDashboardData();
         }
