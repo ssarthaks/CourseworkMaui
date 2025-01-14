@@ -15,14 +15,14 @@ namespace ExpenwiseTracker.Services
 
         public UserService()
         {
-            // Initialize the user list with a seeded user
+            // Initialize the user list with seed user
             _users = new List<User>
             {
                 new User { Username = SeedUser, Password = SeedPassword, PreferredCurrency = "USD", Balance = SeedBalance }
             };
         }
 
-        // Implements the Login method from the IUserService interface
+        // Authentication of the user
         public bool AuthenticateUser(User user)
         {
             if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
@@ -33,7 +33,7 @@ namespace ExpenwiseTracker.Services
             var foundUser = _users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
             if (foundUser != null)
             {
-                _authenticatedUser = foundUser;  // Store the authenticated user
+                _authenticatedUser = foundUser;  
                 return true;
             }
 
@@ -43,19 +43,18 @@ namespace ExpenwiseTracker.Services
         // Implements Logout functionality
         public void Logout()
         {
-            _authenticatedUser = null; // Clear the authenticated user
+            _authenticatedUser = null;
         }
 
-        // Add this method to your UserService for getting the current user after authentication
         public User GetAuthenticatedUser()
         {
-            return _authenticatedUser; // Return the authenticated user
+            return _authenticatedUser;
         }
 
         // Check if a user is logged in
         public bool IsUserAuthenticated()
         {
-            return _authenticatedUser != null; // Return true if a user is authenticated
+            return _authenticatedUser != null; 
         }
     }
 }

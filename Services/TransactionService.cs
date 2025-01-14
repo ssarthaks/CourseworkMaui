@@ -26,9 +26,9 @@ namespace ExpenwiseTracker.Services
 
         public async Task<double> CalculateUserBalance()
         {
-            var transactions = await Task.Run(() => _connection.Table<Transaction>().ToList());
+            var transactions = await RetrieveAllTransactions();
 
-            if (transactions == null || transactions.Count == 0)
+            if (transactions == null || !transactions.Any())
             {
                 return 0;
             }
@@ -72,7 +72,7 @@ namespace ExpenwiseTracker.Services
 
         public async Task<List<(string Month, double Inflow, double Outflow, double Debt)>> GetMonthlyData()
         {
-            var transactions = await Task.Run(() => _connection.Table<Transaction>().ToList());
+            var transactions = await RetrieveAllTransactions();
 
             return transactions
                 .GroupBy(t => t.Date.ToString("MMM"))
@@ -86,5 +86,4 @@ namespace ExpenwiseTracker.Services
                 .ToList();
         }
     }
-
 }

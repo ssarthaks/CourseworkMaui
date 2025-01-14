@@ -1,8 +1,5 @@
 ﻿using ExpenwiseTracker.Model;
 using ExpenwiseTracker.Services.Interface;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ExpenwiseTracker.Services
 {
@@ -30,12 +27,10 @@ namespace ExpenwiseTracker.Services
                 dbConnection.Table<Tag>().FirstOrDefault(t => t.Name == tag.Name)
             );
 
-            if (existingTag != null)
+            if (existingTag == null)
             {
-                return;
+                await Task.Run(() => dbConnection.Insert(tag));
             }
-
-            await Task.Run(() => dbConnection.Insert(tag));
         }
 
         private void InitializeDefaultTags()
@@ -43,10 +38,10 @@ namespace ExpenwiseTracker.Services
             var dbConnection = _dbConnectionService.EstablishConnection();
 
             var defaultTags = new List<string>
-        {
-            "Yearly", "Monthly", "Food", "Drinks", "Clothes",
-            "Gadgets", "Miscellaneous", "Fuel", "Rent", "EMI", "Party"
-        };
+            {
+                "Yearly", "Monthly", "Food", "Drinks", "Clothes",
+                "Gadgets", "Miscellaneous", "Fuel", "Rent", "EMI", "Party"
+            };
 
             foreach (var tagName in defaultTags)
             {
@@ -58,5 +53,4 @@ namespace ExpenwiseTracker.Services
             }
         }
     }
-
 }

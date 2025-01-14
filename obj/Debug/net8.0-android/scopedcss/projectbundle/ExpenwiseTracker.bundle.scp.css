@@ -356,7 +356,7 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    overflow-y: auto; /* Enable scrolling if needed */
+    overflow-y: auto; 
 }
 
 .bargraph[b-wbmb3dhwr8]{
@@ -365,6 +365,20 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
 
 }
 
+.current-balance-board[b-wbmb3dhwr8] {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display:flex;
+    justify-content:space-between;
+}
+
+.current-balance[b-wbmb3dhwr8]{
+    display:flex;
+    gap:10px;
+    font-size:20px;
+}
 
 .card[b-wbmb3dhwr8] {
     background-color: white;
@@ -574,7 +588,7 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     grid-template-columns: 300px 1fr;
     gap: 20px;
     overflow-y: auto;
-    max-height: calc(100vh - 150px); /* Adjust height dynamically */
+    max-height: calc(100vh - 150px);
 }
 
 .statistics-column[b-wbmb3dhwr8] {

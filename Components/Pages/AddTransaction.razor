@@ -7,7 +7,6 @@
 @inject ITransactionService TransactionService
 @inject ITagService TagService
 
-
 <div class="add-transactions-container">
     <h1 class="add-transactions-title">Add Transaction</h1>
 
@@ -46,25 +45,23 @@
                     <ValidationMessage For="@(() => transaction.Amount)" />
                 </div>
 
-                <div class="add-transactions-form-row">
-                    <div class="add-transactions-form-group">
-                        <label for="tag">Tag</label>
-                        <InputSelect @bind-Value="selectedTag" required class="form-control" id="tag">
-                            <option value="">Select Tag</option>
-                            @foreach (var tag in availableTags)
-                            {
-                                <option value="@tag.Name">@tag.Name</option>
-                            }
-                            <option value="Other">Other</option>
-                        </InputSelect>
-                        <ValidationMessage For="@(() => selectedTag)" />
-
-                        @if (selectedTag == "Other")
+                <div class="add-transactions-form-group">
+                    <label for="tag">Tag</label>
+                    <InputSelect @bind-Value="selectedTag" required class="form-control" id="tag">
+                        <option value="">Select Tag</option>
+                        @foreach (var tag in availableTags)
                         {
-                            <InputText id="customTag" @bind-Value="customTag" required class="form-control" placeholder="Enter custom tag" />
-                            <ValidationMessage For="@(() => customTag)" />
+                            <option value="@tag.Name">@tag.Name</option>
                         }
-                    </div>
+                        <option value="Other">Other</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => selectedTag)" />
+
+                    @if (selectedTag == "Other")
+                    {
+                        <InputText id="customTag" @bind-Value="customTag" required class="form-control" placeholder="Enter custom tag" />
+                        <ValidationMessage For="@(() => customTag)" />
+                    }
                 </div>
             </div>
 
@@ -93,6 +90,4 @@
             <button type="submit" class="btn btn-primary" disabled="@IsSubmitDisabled()">Add Transaction</button>
         </div>
     </EditForm>
-
 </div>
-

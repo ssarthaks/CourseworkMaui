@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZyyNmthwyCk4eczD1an/HREXaPtlnMAWs9qvzZl6ubk=",
+  "Hash": "mTnN8PwX0gV7sClpiveYU85iXWvx5lK+2HMQN2xzU4E=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "pl8691rd5y",
-      "Integrity": "81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=",
+      "Fingerprint": "oqcju90axf",
+      "Integrity": "wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "pl8691rd5y",
-      "Integrity": "81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=",
+      "Fingerprint": "oqcju90axf",
+      "Integrity": "wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -641,7 +641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28596"
+          "Value": "28850"
         },
         {
           "Name": "Content-Type",
@@ -649,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
+          "Value": "\"wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
+          "Value": "Tue, 14 Jan 2025 13:44:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,12 +663,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
+          "Value": "sha256-wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.pl8691rd5y.bundle.scp.css",
+      "Route": "ExpenwiseTracker.oqcju90axf.bundle.scp.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -678,7 +678,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28596"
+          "Value": "28850"
         },
         {
           "Name": "Content-Type",
@@ -686,11 +686,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
+          "Value": "\"wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
+          "Value": "Tue, 14 Jan 2025 13:44:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -700,7 +700,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pl8691rd5y"
+          "Value": "oqcju90axf"
         },
         {
           "Name": "label",
@@ -708,12 +708,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
+          "Value": "sha256-wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.pl8691rd5y.styles.css",
+      "Route": "ExpenwiseTracker.oqcju90axf.styles.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -723,7 +723,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28596"
+          "Value": "28850"
         },
         {
           "Name": "Content-Type",
@@ -731,11 +731,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
+          "Value": "\"wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
+          "Value": "Tue, 14 Jan 2025 13:44:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -745,7 +745,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pl8691rd5y"
+          "Value": "oqcju90axf"
         },
         {
           "Name": "label",
@@ -753,7 +753,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
+          "Value": "sha256-wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM="
         }
       ]
     },
@@ -768,7 +768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28596"
+          "Value": "28850"
         },
         {
           "Name": "Content-Type",
@@ -776,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
+          "Value": "\"wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
+          "Value": "Tue, 14 Jan 2025 13:44:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -790,7 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
+          "Value": "sha256-wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM="
         }
       ]
     },

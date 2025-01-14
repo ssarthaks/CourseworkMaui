@@ -1,6 +1,6 @@
 ﻿@page "/transactionhistory"
 @using ExpenwiseTracker.Model
-@inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
+@inject ExpenwiseTracker.Services.Interface.ITransactionService TransactionService
 @inject ExpenwiseTracker.Services.Interface.IUserService UserService
 @using System.Text
 @inject IJSRuntime JSRuntime
@@ -84,7 +84,7 @@
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
                         <td class="amount">@FormatCurrency(transaction.Amount)</td>
-                        <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type.Substring(0, 1).ToUpper()@transaction.Type.Substring(1).ToLower()</span></td>
+                        <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Notes</td>
                     </tr>
@@ -102,15 +102,15 @@
 </div>
 
 @code {
-    private List<Transaction> transactions;
-    private List<Transaction> filteredTransactions;
-    private List<Transaction> paginatedTransactions;
+    private List<Transaction> transactions = new();
+    private List<Transaction> filteredTransactions = new();
+    private List<Transaction> paginatedTransactions = new();
     private int totalTransactions;
     private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
     private string searchName = string.Empty;
     private string selectedType = string.Empty;
     private DateTime? selectedDate = null;
-    private string sortOrder = "asc";
+    private string sortOrder = "desc";
 
     private int currentPage = 1;
     private const int itemsPerPage = 5;
@@ -122,27 +122,18 @@
     {
         userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
 
-        transactions = DatabaseService.RetrieveAllTransactions();
-
-        // Sort transactions based on the selected sort order
-        transactions = sortOrder == "desc"
-            ? transactions.OrderBy(t => t.Date).ToList()
-            : transactions.OrderByDescending(t => t.Date).ToList();
-
-        filteredTransactions = transactions;
+        transactions = await TransactionService.RetrieveAllTransactions();
         totalTransactions = transactions.Count;
 
-        // Calculate the available balance after fetching transactions
-        CalculateAvailableBalance();
-
-        UpdatePagination();
+        ApplyFilters();
     }
 
     private void CalculateAvailableBalance()
     {
-        // Calculate the balance based on the transactions
-        availableBalance = transactions.Where(t => t.Type == "Credit").Sum(t => t.Amount) -
-                           transactions.Where(t => t.Type == "Debit").Sum(t => t.Amount);
+        availableBalance = filteredTransactions
+            .Where(t => t.Type == "Credit").Sum(t => t.Amount) -
+            filteredTransactions
+            .Where(t => t.Type == "Debit").Sum(t => t.Amount);
     }
 
     private string GetTransactionTypeClass(string type)
@@ -158,23 +149,15 @@
 
     private string FormatCurrency(double amount)
     {
-        if (string.IsNullOrEmpty(userCurrency)) return $"{amount:0.00}";
-
-        switch (userCurrency.ToUpper())
+        return userCurrency.ToUpper() switch
         {
-            case "USD":
-                return $"USD. {amount:0.00}";
-            case "EUR":
-                return $"EUR. {amount:0.00}";
-            case "GBP":
-                return $"GBP. {amount:0.00}";
-            case "INR":
-                return $"INR. {amount:0.00}";
-            case "NPR":
-                return $"NPR. {amount:0.00}";
-            default:
-                return $"{amount:0.00} {userCurrency}";
-        }
+            "USD" => $"USD {amount:0.00}",
+            "EUR" => $"EUR {amount:0.00}",
+            "GBP" => $"GBP {amount:0.00}",
+            "INR" => $"INR {amount:0.00}",
+            "NPR" => $"NPR {amount:0.00}",
+            _ => $"{amount:0.00} {userCurrency}"
+        };
     }
 
     private void ApplyFilters()
@@ -183,26 +166,27 @@
 
         if (!string.IsNullOrWhiteSpace(searchName))
         {
-            filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         if (!string.IsNullOrEmpty(selectedType))
         {
-            filteredTransactions = filteredTransactions.Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         if (selectedDate.HasValue)
         {
-            filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
 
-        filteredTransactions = sortOrder == "desc"
+        filteredTransactions = sortOrder == "asc"
             ? filteredTransactions.OrderBy(t => t.Date).ToList()
             : filteredTransactions.OrderByDescending(t => t.Date).ToList();
 
-        // Recalculate available balance after filtering transactions
         CalculateAvailableBalance();
-
         UpdatePagination();
     }
 

@@ -85,7 +85,7 @@
       ]
     },
     {
-      "Route": "ExpenwiseTracker.pl8691rd5y.styles.css",
+      "Route": "ExpenwiseTracker.oqcju90axf.styles.css",
       "AssetFile": "ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -99,7 +99,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28596"
+          "Value": "28850"
         },
         {
           "Name": "Content-Type",
@@ -107,21 +107,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
+          "Value": "\"wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
+          "Value": "Tue, 14 Jan 2025 13:44:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pl8691rd5y"
+          "Value": "oqcju90axf"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
+          "Value": "sha256-wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM="
         },
         {
           "Name": "label",
@@ -144,7 +144,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "28596"
+          "Value": "28850"
         },
         {
           "Name": "Content-Type",
@@ -152,17 +152,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
+          "Value": "\"wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
+          "Value": "Tue, 14 Jan 2025 13:44:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
+          "Value": "sha256-wBYWKMvvYcyYZOEeY9TCyfDevJwsP/7kpOv+o+6TbIM="
         }
       ]
     },

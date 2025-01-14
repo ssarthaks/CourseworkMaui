@@ -1,4 +1,7 @@
 using ExpenwiseTracker.Model;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExpenwiseTracker.Components.Pages
 {
@@ -11,16 +14,14 @@ namespace ExpenwiseTracker.Components.Pages
         private string customTag;
         private List<Tag> availableTags = new List<Tag>();
 
-        // This will hold the current balance of the user
         private double userBalance;
 
-        // On initialization, fetch available tags and user's balance
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                availableTags = await TagService.GetAllTags(); // Use injected TagService
-                userBalance = await TransactionService.CalculateUserBalance(); // Fetch balance
+                availableTags = await TagService.GetAllTags();
+                userBalance = await TransactionService.CalculateUserBalance();
             }
             catch (Exception ex)
             {
@@ -35,7 +36,6 @@ namespace ExpenwiseTracker.Components.Pages
             {
                 transaction.Date = DateTime.Now;
 
-                // Validate if the transaction amount exceeds the balance before submitting
                 if (transaction.Type == "Debit" && transaction.Amount > userBalance)
                 {
                     NotifyUser = "Insufficient balance!";
@@ -48,43 +48,32 @@ namespace ExpenwiseTracker.Components.Pages
                     transaction.IsPaid = false;
                 }
 
-                // If "Other" is selected, add the custom tag to the transaction and save it
-                if (selectedTag == "Other")
+                if (selectedTag == "Other" && !string.IsNullOrWhiteSpace(customTag))
                 {
-                    if (!string.IsNullOrWhiteSpace(customTag))
-                    {
-                        var newTag = new Tag { Name = customTag };
-                        await TagService.AddTag(newTag); // Use injected TagService
-                        transaction.Tag = customTag;
+                    var newTag = new Tag { Name = customTag };
+                    await TagService.AddTag(newTag);
+                    transaction.Tag = customTag;
 
-                        // Optionally, add the custom tag to availableTags list for future use
-                        availableTags.Add(newTag);
-                    }
-                    else
-                    {
-                        NotifyUser = "Custom tag is required!";
-                        NotifyUserClass = "alert-danger";
-                        return;
-                    }
+                    availableTags.Add(newTag); // Add to local cache
+                }
+                else if (selectedTag != "Other")
+                {
+                    transaction.Tag = selectedTag;
                 }
                 else
                 {
-                    transaction.Tag = selectedTag; // Use selected tag
+                    NotifyUser = "Custom tag is required!";
+                    NotifyUserClass = "alert-danger";
+                    return;
                 }
 
-                // Add the transaction to the database
                 await TransactionService.AddTransaction(transaction);
-
-                // Refresh the user's balance and reset the form
                 userBalance = await TransactionService.CalculateUserBalance();
 
                 NotifyUser = "Transaction added successfully!";
                 NotifyUserClass = "alert-success";
 
-                transaction = new Transaction(); // Clear form fields
-
-                selectedTag = null; // Reset tag selection
-                customTag = null; // Reset custom tag field
+                ResetForm();
             }
             catch (Exception ex)
             {
@@ -93,10 +82,13 @@ namespace ExpenwiseTracker.Components.Pages
             }
         }
 
-        private bool IsSubmitDisabled()
+        private void ResetForm()
         {
-            return false;
+            transaction = new Transaction();
+            selectedTag = null;
+            customTag = null;
         }
 
+        private bool IsSubmitDisabled() => false;
     }
 }
