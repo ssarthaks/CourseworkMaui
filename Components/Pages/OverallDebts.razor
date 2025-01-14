@@ -7,7 +7,7 @@
 
 <div class="debt-container">
     <h1 class="debt-header">Overall Debt Calculation</h1>
-    <p style="color:green;">Available Balance: @FormatCurrency(availableBalance)</p>
+    <p style="color:green;">Available Balance: @userCurrency @currentBalance.ToString("F2")</p>
     <div style="display:flex; justify-content:space-between;">
         <p style="color:red;">Total Debt Count: @totalDebtCount</p>
         <p style="color:green;">Paid Debt Count: @paidDebtCount</p>
@@ -78,7 +78,7 @@
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
-                        <td class="amount">@FormatAmount(transaction.Amount)</td>
+                        <td class="amount">@transaction.Amount</td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Source</td>
                         <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
@@ -107,9 +107,9 @@
 </div>
 
 @code {
-    private List<Transaction> transactions;
-    private List<Transaction> filteredTransactions;
-    private List<Transaction> paginatedTransactions;
+    private List<Transaction> transactions = new();
+    private List<Transaction> filteredTransactions = new();
+    private List<Transaction> paginatedTransactions = new();
 
     private double currentBalance;
 
@@ -132,39 +132,11 @@
     protected override async Task OnInitializedAsync()
     {
         userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-
+        currentBalance = await TransactionService.CalculateUserBalance();
         transactions = DatabaseService.RetrieveAllTransactions();
-        CalculateAvailableBalance();  // Call this method to calculate available balance
         ApplyFilters();
     }
 
-    private void CalculateAvailableBalance()
-    {
-        // Calculate the balance based on the transactions
-        availableBalance = transactions.Where(t => t.Type == "Credit").Sum(t => t.Amount) -
-                           transactions.Where(t => t.Type == "Debit").Sum(t => t.Amount);
-    }
-
-    private string FormatCurrency(double amount)
-    {
-        if (string.IsNullOrEmpty(userCurrency)) return $"{amount:0.00}";
-
-        switch (userCurrency.ToUpper())
-        {
-            case "USD":
-                return $"USD. {amount:0.00}";
-            case "EUR":
-                return $"EUR. {amount:0.00}";
-            case "GBP":
-                return $"GBP. {amount:0.00}";
-            case "INR":
-                return $"INR. {amount:0.00}";
-            case "NPR":
-                return $"NPR. {amount:0.00}";
-            default:
-                return $"{amount:0.00} {userCurrency}";
-        }
-    }
 
     private string GetTransactionTypeClass(string type) =>
         type.ToLower() switch
@@ -172,8 +144,6 @@
             "debt" => "type-debt",
             _ => "type-neutral"
         };
-
-    private string FormatAmount(double amount) => $"{userCurrency}. {amount:N2}";
 
     private void ApplyFilters()
     {

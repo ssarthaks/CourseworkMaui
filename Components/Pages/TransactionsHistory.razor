@@ -7,7 +7,7 @@
 
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
-    <p style="color:green;">Available Balance: @FormatCurrency(availableBalance)</p>
+    <p style="color:green;">Available Balance: @userCurrency @currentBalance.ToString("F2")</p>
     <p style="color:red;">Total Transactions: @totalTransactions</p>
 
     <!-- Filters Section -->
@@ -83,7 +83,7 @@
                         <td>@transaction.Id</td>
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
-                        <td class="amount">@FormatCurrency(transaction.Amount)</td>
+                        <td class="amount">@transaction.Amount</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Notes</td>
@@ -111,29 +111,20 @@
     private string selectedType = string.Empty;
     private DateTime? selectedDate = null;
     private string sortOrder = "desc";
-
     private int currentPage = 1;
     private const int itemsPerPage = 5;
-
     private string userCurrency = string.Empty;
-    private double availableBalance;
+    private double currentBalance = 0;
 
     protected override async Task OnInitializedAsync()
     {
         userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
+        currentBalance = await TransactionService.CalculateUserBalance();
 
         transactions = await TransactionService.RetrieveAllTransactions();
         totalTransactions = transactions.Count;
 
         ApplyFilters();
-    }
-
-    private void CalculateAvailableBalance()
-    {
-        availableBalance = filteredTransactions
-            .Where(t => t.Type == "Credit").Sum(t => t.Amount) -
-            filteredTransactions
-            .Where(t => t.Type == "Debit").Sum(t => t.Amount);
     }
 
     private string GetTransactionTypeClass(string type)
@@ -144,19 +135,6 @@
             "debit" => "type-outflow",
             "debt" => "type-debt",
             _ => "type-neutral"
-        };
-    }
-
-    private string FormatCurrency(double amount)
-    {
-        return userCurrency.ToUpper() switch
-        {
-            "USD" => $"USD {amount:0.00}",
-            "EUR" => $"EUR {amount:0.00}",
-            "GBP" => $"GBP {amount:0.00}",
-            "INR" => $"INR {amount:0.00}",
-            "NPR" => $"NPR {amount:0.00}",
-            _ => $"{amount:0.00} {userCurrency}"
         };
     }
 
@@ -186,7 +164,6 @@
             ? filteredTransactions.OrderBy(t => t.Date).ToList()
             : filteredTransactions.OrderByDescending(t => t.Date).ToList();
 
-        CalculateAvailableBalance();
         UpdatePagination();
     }
 
