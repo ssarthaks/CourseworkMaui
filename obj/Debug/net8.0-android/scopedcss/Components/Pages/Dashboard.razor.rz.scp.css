@@ -1,11 +1,26 @@
 
+html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+}
+
+
 .dashboard[b-wbmb3dhwr8] {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    overflow-y: auto; /* Enable scrolling if needed */
 }
+
+.bargraph[b-wbmb3dhwr8]{
+    padding:50px;
+    background-color: #ffffff;
+
+}
+
 
 .card[b-wbmb3dhwr8] {
     background-color: white;
@@ -214,6 +229,8 @@
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Adjust height dynamically */
 }
 
 .statistics-column[b-wbmb3dhwr8] {

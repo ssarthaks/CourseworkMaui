@@ -343,12 +343,41 @@ button[b-oniilsihrt] {
 }
 /* /Components/Pages/Dashboard.razor.rz.scp.css */
 
+html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+}
+
+
 .dashboard[b-wbmb3dhwr8] {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    overflow-y: auto; 
+}
+
+.bargraph[b-wbmb3dhwr8]{
+    padding:50px;
+    background-color: #ffffff;
+
+}
+
+.current-balance-board[b-wbmb3dhwr8] {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display:flex;
+    justify-content:space-between;
+}
+
+.current-balance[b-wbmb3dhwr8]{
+    display:flex;
+    gap:10px;
+    font-size:20px;
 }
 
 .card[b-wbmb3dhwr8] {
@@ -558,6 +587,8 @@ button[b-oniilsihrt] {
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
 }
 
 .statistics-column[b-wbmb3dhwr8] {
@@ -746,15 +777,32 @@ input[b-00srd1ojka], select[b-00srd1ojka], button[b-00srd1ojka] {
     margin-bottom: 1.5rem;
 }
 
-.filters[b-7f1u4othbu] {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.filter-options[b-7f1u4othbu] {
     padding: 1rem;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+}
+
+.filter-buttons[b-7f1u4othbu] {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.filter-button[b-7f1u4othbu] {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+}
+
+.filters[b-7f1u4othbu] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .filter-group[b-7f1u4othbu] {
@@ -928,15 +976,32 @@ body[b-7ixun8buwn] {
     font-weight: 700;
 }
 
-.filters[b-7ixun8buwn] {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.filter-options[b-7ixun8buwn] {
     padding: 1rem;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+}
+
+.filter-buttons[b-7ixun8buwn]{
+    display:flex;
+    gap:2rem;
+    margin-top:1rem;
+    justify-content:center;
+}
+
+.filter-button[b-7ixun8buwn] {
+    background-color: #007bff;
+    color:white;
+    padding:5px 15px 5px 15px;
+    border-radius:10px;
+}
+
+.filters[b-7ixun8buwn] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .filter-group[b-7ixun8buwn] {

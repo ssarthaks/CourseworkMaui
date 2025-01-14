@@ -6,8 +6,8 @@ namespace ExpenwiseTracker.Services.Interface
 {
     public interface ITagService
     {
-        Task<List<Tag>> GetAllTagsAsync();
+        Task<List<Tag>> GetAllTags();
 
-        Task AddTagAsync(Tag tag);
+        Task AddTag(Tag tag);
     }
 }

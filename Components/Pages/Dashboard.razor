@@ -1,11 +1,22 @@
 ﻿@page "/"
 @using ExpenwiseTracker.Model
 @using ExpenwiseTracker.Services.Interface
+@using MudBlazor
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @inject ITransactionService TransactionService
 @inject IJSRuntime JSRuntime
 
 <div class="dashboard">
+    <div class="current-balance-board">
+        <div class="current-balance">
+            <div>Username: </div>
+            <div style="color:green; font-weight:700;">admin </div>
+        </div>
+        <div class="current-balance">
+            <div>Available Balance: </div>
+            <div style="color:green; font-weight:700;">@userCurrency @currentBalance</div>
+        </div>
+    </div>
     <!-- Blocks stating total inflow outflow debt -->
     <div class="metrics">
         <div class="card metric">
@@ -37,6 +48,7 @@
             <div class="metric-amount inflow">@userCurrency @clearedDebts</div>
         </div>
     </div>
+
     <!--2nd section, highestlowest and top 5 transactions -->
     <div class="dashboard-content">
         <!-- Highest Lowest inflow outflow debt -->
@@ -98,68 +110,16 @@
     </div>
 
     <!-- Mudblazor components -->
-
+    <div class="bargraph">
+        @if (Series.Any() && XAxisLabels.Any())
+        {
+            <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" Width="100%" Height="350px" @bind-SelectedIndex="selectedIndex"></MudChart>
+        }
+        else
+        {
+            <MudText Typo="Typo.h6">No data available to display the chart.</MudText>
+        }
+    </div>
 </div>
 
-@code {
-    private double currentBalance;
-    private double totalInflow;
-    private double totalOutflow;
-    private double totalDebts;
-    private double clearedDebts;
 
-    private double highestInflow;
-    private double lowestInflow;
-    private double highestOutflow;
-    private double lowestOutflow;
-    private double highestDebt;
-    private double lowestDebt;
-
-    private List<Transaction> topTransactions = new List<Transaction>();
-
-    // Currency from sessionStorage
-    private string userCurrency = string.Empty;
-
-    protected override async Task OnInitializedAsync()
-    {
-        // Fetch currency from sessionStorage and load dashboard data
-        userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-        await LoadDashboardData();
-    }
-
-    private async Task LoadDashboardData()
-    {
-        // Fetch transactions from the database asynchronously
-        var transactions = DatabaseService.RetrieveAllTransactions();
-
-        // Current balance calculation
-        currentBalance = transactions
-            .Where(t => (t.Type == "Credit" || t.Type == "Debt") && !t.IsPaid) // Include only unpaid debts
-            .Sum(t => t.Amount) -
-            transactions
-            .Where(t => t.Type == "Debit")
-            .Sum(t => t.Amount);
-
-        // Filter transactions based on types
-        var inflows = transactions.Where(t => t.Type == "Credit").ToList();
-        var outflows = transactions.Where(t => t.Type == "Debit").ToList();
-        var debts = transactions.Where(t => t.Type == "Debt").ToList();
-
-        // Calculate total inflow, outflow, and debts
-        totalInflow = inflows.Sum(t => t.Amount);
-        totalOutflow = outflows.Sum(t => t.Amount);
-        totalDebts = debts.Sum(t => t.Amount);
-        clearedDebts = debts.Where(t => t.IsPaid).Sum(t => t.Amount);
-
-        // Statistics calculations (handle empty lists to avoid exceptions)
-        highestInflow = inflows.Any() ? inflows.Max(t => t.Amount) : 0;
-        lowestInflow = inflows.Any() ? inflows.Min(t => t.Amount) : 0;
-        highestOutflow = outflows.Any() ? outflows.Max(t => t.Amount) : 0;
-        lowestOutflow = outflows.Any() ? outflows.Min(t => t.Amount) : 0;
-        highestDebt = debts.Any() ? debts.Max(t => t.Amount) : 0;
-        lowestDebt = debts.Any() ? debts.Min(t => t.Amount) : 0;
-
-        // Get top 5 recent transactions
-        topTransactions = transactions.OrderByDescending(t => t.Amount).Take(5).ToList();
-    }
-}

@@ -6,8 +6,8 @@
 @inject ITransactionService TransactionService
 
 <div class="debt-container">
-
     <h1 class="debt-header">Overall Debt Calculation</h1>
+    <p style="color:green;">Available Balance: @FormatCurrency(availableBalance)</p>
     <div style="display:flex; justify-content:space-between;">
         <p style="color:red;">Total Debt Count: @totalDebtCount</p>
         <p style="color:green;">Paid Debt Count: @paidDebtCount</p>
@@ -15,24 +15,34 @@
     </div>
 
     <!-- Filters Section -->
-    <div class="filters">
-        <div class="filter-group">
-            <label for="searchName">Search by Name:</label>
-            <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+    <div class="filter-options">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="searchName">Search by Name:</label>
+                <input type="text" id="searchName" @bind="searchName" placeholder="Enter name..." />
+            </div>
+
+            <div class="filter-group">
+                <label for="sortDate">Sort by Date:</label>
+                <select id="sortDate" @bind="sortOrder">
+                    <option value="desc">Newest to Oldest</option>
+                    <option value="asc">Oldest to Newest</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filterDate">Filter by Date:</label>
+                <input type="date" id="filterDate" @bind="selectedDate" />
+            </div>
         </div>
+        <div class="filter-buttons">
+            <div class="filter-button">
+                <button @onclick="ApplyFilters" class="filter-btn">Apply Filter</button>
+            </div>
+            <div class="filter-button">
+                <button @onclick="ExportToCsv" class="export-btn">Export to CSV</button>
+            </div>
 
-        <div class="filter-group">
-            <label for="sortDate">Sort by Date:</label>
-            <select id="sortDate" @bind="sortOrder" @bind:event="onchange">
-                <option value="desc">Newest to Oldest</option>
-                <option value="asc">Oldest to Newest</option>
-            </select>
-        </div>
-
-
-        <div class="filter-group">
-            <label for="filterDate">Filter by Date:</label>
-            <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
         </div>
     </div>
 
@@ -68,7 +78,7 @@
                         <td>@transaction.Date.ToString("MM/dd/yyyy")</td>
                         <td>@transaction.Name</td>
                         <td><span class="transaction-type @(GetTransactionTypeClass(transaction.Type))">@transaction.Type</span></td>
-                        <td class="amount">@FormatAmount(transaction.Amount)</td> <!-- Use FormatAmount method -->
+                        <td class="amount">@FormatAmount(transaction.Amount)</td>
                         <td><span class="tag">@transaction.Tag</span></td>
                         <td>@transaction.Source</td>
                         <td>@transaction.DueDate?.ToString("MM/dd/yyyy")</td>
@@ -105,17 +115,15 @@
 
     private string searchName = string.Empty;
     private DateTime? selectedDate = null;
-    private string sortOrder = "asc"; 
+    private string sortOrder = "desc";
 
-    // Debt counts
     private int totalDebtCount;
     private int paidDebtCount;
     private int remainingDebtCount;
 
-    // Currency from sessionStorage
     private string userCurrency = string.Empty;
+    private double availableBalance;
 
-    // Pagination state
     private int currentPage = 1;
     private const int itemsPerPage = 5;
 
@@ -125,61 +133,62 @@
     {
         userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
 
-        // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
-
-        // Filter and sort by "Debt" transactions initially
-        filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
-
-        filteredTransactions = sortOrder switch
-        {
-            "asc" => filteredTransactions.OrderBy(t => t.Date).ToList(),
-            "desc" => filteredTransactions.OrderByDescending(t => t.Date).ToList(),
-            _ => filteredTransactions
-        };
-
-        // Calculate debt counts
-        CalculateDebtCounts();
-
-        // Update pagination after initial load
-        UpdatePagination();
+        CalculateAvailableBalance();  // Call this method to calculate available balance
+        ApplyFilters();
     }
 
-
-    private string GetTransactionTypeClass(string type)
+    private void CalculateAvailableBalance()
     {
-        return type.ToLower() switch
+        // Calculate the balance based on the transactions
+        availableBalance = transactions.Where(t => t.Type == "Credit").Sum(t => t.Amount) -
+                           transactions.Where(t => t.Type == "Debit").Sum(t => t.Amount);
+    }
+
+    private string FormatCurrency(double amount)
+    {
+        if (string.IsNullOrEmpty(userCurrency)) return $"{amount:0.00}";
+
+        switch (userCurrency.ToUpper())
+        {
+            case "USD":
+                return $"USD. {amount:0.00}";
+            case "EUR":
+                return $"EUR. {amount:0.00}";
+            case "GBP":
+                return $"GBP. {amount:0.00}";
+            case "INR":
+                return $"INR. {amount:0.00}";
+            case "NPR":
+                return $"NPR. {amount:0.00}";
+            default:
+                return $"{amount:0.00} {userCurrency}";
+        }
+    }
+
+    private string GetTransactionTypeClass(string type) =>
+        type.ToLower() switch
         {
             "debt" => "type-debt",
             _ => "type-neutral"
         };
-    }
 
-    private string FormatAmount(double amount)
-    {
-        // Display the amount with the selected currency
-        return $"{userCurrency}. {amount:N2}";
-    }
+    private string FormatAmount(double amount) => $"{userCurrency}. {amount:N2}";
 
-    // Filter logic
     private void ApplyFilters()
     {
-        // Filter by "Debt" type only
         filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
 
-        // Filter by name if provided
         if (!string.IsNullOrWhiteSpace(searchName))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        // Filter by date if selected
         if (selectedDate.HasValue)
         {
             filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
 
-        // Sort by date
         filteredTransactions = sortOrder switch
         {
             "asc" => filteredTransactions.OrderBy(t => t.Date).ToList(),
@@ -187,14 +196,10 @@
             _ => filteredTransactions
         };
 
-        // Recalculate debt counts after applying filters
         CalculateDebtCounts();
-
-        // After applying filters, update the pagination
         UpdatePagination();
     }
 
-    // Calculate total debt, paid debt, and remaining debt counts
     private void CalculateDebtCounts()
     {
         totalDebtCount = filteredTransactions.Count;
@@ -202,10 +207,8 @@
         remainingDebtCount = totalDebtCount - paidDebtCount;
     }
 
-    // Pagination logic
     private void UpdatePagination()
     {
-        // Calculate the items for the current page
         int skip = (currentPage - 1) * itemsPerPage;
         paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
     }
@@ -232,21 +235,25 @@
 
     private bool IsPreviousButtonDisabled() => currentPage <= 1;
 
-    // Clear the debt when button is clicked
     private async Task ClearDebt(Transaction transaction)
     {
-        // Mark the transaction as paid in the database
         transaction.IsPaid = true;
-
-        // Update the transaction in the database
         DatabaseService.EstablishConnection().Update(transaction);
 
-        // Recalculate debt counts
         CalculateDebtCounts();
-
-        // Refresh the transaction list to reflect changes
         transactions = DatabaseService.RetrieveAllTransactions();
-        filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
-        UpdatePagination();
+        ApplyFilters();
+    }
+
+    private async Task ExportToCsv()
+    {
+        var csvContent = "ID,Date,Title,Type,Amount,Tag,Source,DueDate,IsPaid\n" +
+            string.Join("\n", filteredTransactions.Select(t =>
+                $"{t.Id},{t.Date:MM/dd/yyyy},{t.Name},{t.Type},{t.Amount},{t.Tag},{t.Source},{t.DueDate:MM/dd/yyyy},{t.IsPaid}"));
+
+        var csvBytes = System.Text.Encoding.UTF8.GetBytes(csvContent);
+        var csvFileName = $"Debts_{DateTime.Now:yyyyMMddHHmmss}.csv";
+
+        await JSRuntime.InvokeVoidAsync("downloadFile", csvFileName, csvBytes);
     }
 }

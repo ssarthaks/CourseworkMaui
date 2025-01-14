@@ -57,3 +57,5 @@ E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ExpenwiseTracker.AssemblyInfo.cs
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ExpenwiseTracker.csproj.CoreCompileInputs.cache
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ExpenwiseTracker.MvcApplicationPartsAssemblyInfo.cache
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\scopedcss\Components\Pages\TransactionsHistory.razor.rz.scp.css
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ExpenwiseTracker.sourcelink.json

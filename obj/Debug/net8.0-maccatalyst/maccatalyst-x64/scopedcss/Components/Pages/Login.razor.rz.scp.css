@@ -1,126 +1,102 @@
+/* Global styles */
 body[b-00srd1ojka] {
-}
-*[b-00srd1ojka] {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-body[b-00srd1ojka], html[b-00srd1ojka] {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
-
-.background[b-00srd1ojka] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://source.unsplash.com/random/1920x1080/?money,currency');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    transform: scale(1.1);
-}
-
-.container[b-00srd1ojka] {
-    position: relative;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+    background: #f2f2f2;
+    color: #333;
 }
 
-.login-card[b-00srd1ojka] {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
+.login-page[b-00srd1ojka] {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    max-width: 400px; 
+    box-sizing: border-box;
+    margin:auto;
+    margin-top:150px;
 }
 
-.login-title[b-00srd1ojka] {
-    font-size: 1.75rem;
+h3[b-00srd1ojka] {
+    font-size: 24px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #4E55C2;
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 2rem;
 }
 
+/* Form fields */
 .form-group[b-00srd1ojka] {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
 }
 
 label[b-00srd1ojka] {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
     display: block;
-    margin-bottom: 0.5rem;
-    color: #374151;
-    font-size: 0.875rem;
+    margin-bottom: 8px;
 }
 
-input[b-00srd1ojka],
-select[b-00srd1ojka] {
+.input-group[b-00srd1ojka] {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"][b-00srd1ojka], input[type="password"][b-00srd1ojka], select[b-00srd1ojka] {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #D1D5DB;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    color: #1a1a1a;
-    background-color: white;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
 }
 
-    input:focus[b-00srd1ojka],
-    select:focus[b-00srd1ojka] {
-        outline: none;
-        border-color: #6366F1;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    input[type="text"]:focus[b-00srd1ojka], input[type="password"]:focus[b-00srd1ojka], select:focus[b-00srd1ojka] {
+        border-color: #4E55C2;
     }
 
-select[b-00srd1ojka] {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.5rem center;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 2.5rem;
-}
-
 button[b-00srd1ojka] {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #4F46E5;
-    color: white;
+    background-color: #4E55C2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
     border: none;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    font-weight: 500;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.15s ease-in-out;
+    width: 100%;
+    transition: background-color 0.3s ease;
 }
 
     button:hover[b-00srd1ojka] {
-        background-color: #4338CA;
+        background-color: #3b47b7;
     }
 
-    button:focus[b-00srd1ojka] {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
-    }
+/* Validation error message */
+.text-danger[b-00srd1ojka] {
+    font-size: 14px;
+    color: #ff4d4d;
+    text-align: center;
+    margin-top: 10px;
+}
 
-@media (max-width: 640px) {
-    .login-card[b-00srd1ojka] {
-        padding: 1.5rem;
-        margin: 1rem;
-    }
+/* Optional: Add some space between form elements for better layout */
+input[b-00srd1ojka], select[b-00srd1ojka], button[b-00srd1ojka] {
+    margin-bottom: 15px;
+}
 
-    .login-title[b-00srd1ojka] {
-        font-size: 1.5rem;
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-page[b-00srd1ojka] {
+        width: 90%; /* Make form full-width on smaller screens */
+        padding: 20px;
     }
 }

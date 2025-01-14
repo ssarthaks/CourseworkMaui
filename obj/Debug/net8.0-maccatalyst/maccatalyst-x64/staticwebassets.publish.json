@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zIADPT6DbT8prdvkVBqS0BWEW27cnv3tbzSut4tCCzs=",
+  "Hash": "Ei4dws8CSg5hPCZmJqZ10p1H4hdLemfK+RntfRU4yEA=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -17,6 +17,48 @@
   ],
   "Assets": [
     {
+      "Identity": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mhumzvqd1g",
+      "Integrity": "2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rnojub5shy",
+      "Integrity": "lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
       "Identity": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
       "SourceId": "ExpenwiseTracker",
       "SourceType": "Computed",
@@ -31,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "cigjdbjq9p",
-      "Integrity": "rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08=",
+      "Fingerprint": "3b10rajv3b",
+      "Integrity": "YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -52,11 +94,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "cigjdbjq9p",
-      "Integrity": "rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08=",
+      "Fingerprint": "3b10rajv3b",
+      "Integrity": "YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "SourceId": "ExpenwiseTracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "Assets/LoginBg#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3so49rvbqv",
+      "Integrity": "c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\LoginBg.jpg"
     },
     {
       "Identity": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\app.css",
@@ -157,14 +220,170 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "d4zoagw8zu",
-      "Integrity": "zVE7b6Pm5MU1IPSjdsK5+6cRAhbLAEmmdcAB6KjOvd8=",
+      "Fingerprint": "82tghl6mx2",
+      "Integrity": "4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
     }
   ],
   "Endpoints": [
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "580975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 29 Oct 2024 20:30:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "C:\\Users\\Acer\\.nuget\\packages\\mudblazor\\7.15.0\\staticwebassets\\MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49823"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 29 Oct 2024 20:30:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lz0Xidl9yw53lEeYs4XMU39zSRQzpCIyWOQSAG0/0GU="
+        }
+      ]
+    },
+    {
+      "Route": "Assets/LoginBg.3so49rvbqv.jpg",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12377638"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Dec 2024 11:26:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3so49rvbqv"
+        },
+        {
+          "Name": "label",
+          "Value": "Assets/LoginBg.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ="
+        }
+      ]
+    },
+    {
+      "Route": "Assets/LoginBg.jpg",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12377638"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Dec 2024 11:26:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c/su6q5F6IV46NUfIKcQ2oniESlmDoL3tn1JeINJTAQ="
+        }
+      ]
+    },
     {
       "Route": "css/app.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\app.css",
@@ -412,6 +631,96 @@
       ]
     },
     {
+      "Route": "ExpenwiseTracker.3b10rajv3b.bundle.scp.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27980"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 02:20:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3b10rajv3b"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.3b10rajv3b.styles.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27980"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 02:20:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3b10rajv3b"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo="
+        }
+      ]
+    },
+    {
       "Route": "ExpenwiseTracker.bundle.scp.css",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
       "Selectors": [],
@@ -422,7 +731,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19735"
+          "Value": "27980"
         },
         {
           "Name": "Content-Type",
@@ -430,11 +739,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08=\""
+          "Value": "\"YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 10:44:55 GMT"
+          "Value": "Tue, 14 Jan 2025 02:20:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -444,97 +753,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.cigjdbjq9p.bundle.scp.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "19735"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 10:44:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "cigjdbjq9p"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.cigjdbjq9p.styles.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "19735"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 10:44:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "cigjdbjq9p"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08="
+          "Value": "sha256-YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo="
         }
       ]
     },
@@ -549,7 +768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19735"
+          "Value": "27980"
         },
         {
           "Name": "Content-Type",
@@ -557,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08=\""
+          "Value": "\"YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 10:44:55 GMT"
+          "Value": "Tue, 14 Jan 2025 02:20:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -571,7 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rDzCIDD1zme0ZMSMXrIRJTv5lsMfB17V5vWWZakNu08="
+          "Value": "sha256-YaYaajnQnA7jgjCugxlajMPu12qg2r55jFer9fWe1Uo="
         }
       ]
     },
@@ -658,7 +877,7 @@
       ]
     },
     {
-      "Route": "index.d4zoagw8zu.html",
+      "Route": "index.82tghl6mx2.html",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -668,7 +887,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "889"
+          "Value": "1641"
         },
         {
           "Name": "Content-Type",
@@ -676,11 +895,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zVE7b6Pm5MU1IPSjdsK5+6cRAhbLAEmmdcAB6KjOvd8=\""
+          "Value": "\"4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 10:16:11 GMT"
+          "Value": "Tue, 14 Jan 2025 02:19:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -690,7 +909,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d4zoagw8zu"
+          "Value": "82tghl6mx2"
         },
         {
           "Name": "label",
@@ -698,7 +917,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-zVE7b6Pm5MU1IPSjdsK5+6cRAhbLAEmmdcAB6KjOvd8="
+          "Value": "sha256-4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU="
         }
       ]
     },
@@ -713,7 +932,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "889"
+          "Value": "1641"
         },
         {
           "Name": "Content-Type",
@@ -721,11 +940,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"zVE7b6Pm5MU1IPSjdsK5+6cRAhbLAEmmdcAB6KjOvd8=\""
+          "Value": "\"4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 10:16:11 GMT"
+          "Value": "Tue, 14 Jan 2025 02:19:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -735,7 +954,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-zVE7b6Pm5MU1IPSjdsK5+6cRAhbLAEmmdcAB6KjOvd8="
+          "Value": "sha256-4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU="
         }
       ]
     }

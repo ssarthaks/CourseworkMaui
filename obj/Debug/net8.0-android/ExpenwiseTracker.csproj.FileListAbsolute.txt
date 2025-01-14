@@ -123,3 +123,5 @@ E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\ExpenwiseTracker.AssemblyInfoInputs.cache
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\ExpenwiseTracker.AssemblyInfo.cs
 E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\ExpenwiseTracker.csproj.CoreCompileInputs.cache
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\scopedcss\Components\Pages\TransactionsHistory.razor.rz.scp.css
+E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-android\ExpenwiseTracker.sourcelink.json

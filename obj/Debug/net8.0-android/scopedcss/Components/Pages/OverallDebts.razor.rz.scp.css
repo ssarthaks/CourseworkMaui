@@ -11,15 +11,32 @@
     margin-bottom: 1.5rem;
 }
 
-.filters[b-7f1u4othbu] {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.filter-options[b-7f1u4othbu] {
     padding: 1rem;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+}
+
+.filter-buttons[b-7f1u4othbu] {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.filter-button[b-7f1u4othbu] {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+}
+
+.filters[b-7f1u4othbu] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .filter-group[b-7f1u4othbu] {

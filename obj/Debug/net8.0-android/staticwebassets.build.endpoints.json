@@ -85,7 +85,7 @@
       ]
     },
     {
-      "Route": "ExpenwiseTracker.kto1mi9teg.styles.css",
+      "Route": "ExpenwiseTracker.pl8691rd5y.styles.css",
       "AssetFile": "ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -99,7 +99,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26303"
+          "Value": "28596"
         },
         {
           "Name": "Content-Type",
@@ -107,21 +107,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
+          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 07:48:57 GMT"
+          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "kto1mi9teg"
+          "Value": "pl8691rd5y"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
+          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
         },
         {
           "Name": "label",
@@ -144,7 +144,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "26303"
+          "Value": "28596"
         },
         {
           "Name": "Content-Type",
@@ -152,17 +152,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw=\""
+          "Value": "\"81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 04 Jan 2025 07:48:57 GMT"
+          "Value": "Tue, 14 Jan 2025 09:55:24 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GJ6Ihe9Lda3zRRWRN2+8weaSPRxMyDqy/+ZpBau1gMw="
+          "Value": "sha256-81ENtguI2HvDVGrtMJI4O4SGz4XOyzZ1yN7bm/2+SxQ="
         }
       ]
     },
@@ -569,7 +569,7 @@
       ]
     },
     {
-      "Route": "index.14vaxr69bt.html",
+      "Route": "index.82tghl6mx2.html",
       "AssetFile": "index.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -583,7 +583,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1143"
+          "Value": "1641"
         },
         {
           "Name": "Content-Type",
@@ -591,21 +591,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AWmu2E8ed0wUl8uDwLPNLgwblHqnrTsPyjp5zqOxAIA=\""
+          "Value": "\"4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 02:10:28 GMT"
+          "Value": "Tue, 14 Jan 2025 02:19:45 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "14vaxr69bt"
+          "Value": "82tghl6mx2"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AWmu2E8ed0wUl8uDwLPNLgwblHqnrTsPyjp5zqOxAIA="
+          "Value": "sha256-4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU="
         },
         {
           "Name": "label",
@@ -628,7 +628,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1143"
+          "Value": "1641"
         },
         {
           "Name": "Content-Type",
@@ -636,17 +636,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AWmu2E8ed0wUl8uDwLPNLgwblHqnrTsPyjp5zqOxAIA=\""
+          "Value": "\"4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 02:10:28 GMT"
+          "Value": "Tue, 14 Jan 2025 02:19:45 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AWmu2E8ed0wUl8uDwLPNLgwblHqnrTsPyjp5zqOxAIA="
+          "Value": "sha256-4AOkGh7GKCOh6vQZjUfF+XQiKy+yph3QjSvvXXRYgyU="
         }
       ]
     }

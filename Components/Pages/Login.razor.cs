@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace ExpenwiseTracker.Components.Pages
+﻿namespace ExpenwiseTracker.Components.Pages
 {
     public partial class LoginPage
     {

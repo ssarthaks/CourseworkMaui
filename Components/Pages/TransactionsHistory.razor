@@ -2,41 +2,55 @@
 @using ExpenwiseTracker.Model
 @inject ExpenwiseTracker.Services.DbConnectionService DatabaseService
 @inject ExpenwiseTracker.Services.Interface.IUserService UserService
+@using System.Text
 @inject IJSRuntime JSRuntime
 
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
+    <p style="color:green;">Available Balance: @FormatCurrency(availableBalance)</p>
     <p style="color:red;">Total Transactions: @totalTransactions</p>
 
     <!-- Filters Section -->
-    <div class="filters">
-        <div class="filter-group">
-            <label for="searchName">Search by Name:</label>
-            <input type="text" id="searchName" @bind="searchName" @oninput="ApplyFilters" placeholder="Enter name..." />
+    <div class="filter-options">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="searchName">Search by Name:</label>
+                <input type="text" id="searchName" @bind="searchName" placeholder="Enter name..." />
+            </div>
+
+            <div class="filter-group">
+                <label for="filterType">Filter by Type:</label>
+                <select id="filterType" @bind="selectedType">
+                    <option value="">All Types</option>
+                    <option value="Debit">Debit</option>
+                    <option value="Credit">Credit</option>
+                    <option value="Debt">Debt</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sortDate">Sort by Date:</label>
+                <select id="sortDate" @bind="sortOrder">
+                    <option value="desc">Newest to Oldest</option>
+                    <option value="asc">Oldest to Newest</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filterDate">Filter by Date:</label>
+                <input type="date" id="filterDate" @bind="selectedDate" />
+            </div>
         </div>
+        <!-- Apply Filter Button -->
+        <div class="filter-buttons">
+            <div class="filter-button">
+                <button @onclick="ApplyFilters">Apply Filter</button>
+            </div>
 
-        <div class="filter-group">
-            <label for="filterType">Filter by Type:</label>
-            <select id="filterType" @bind="selectedType" @bind:event="onchange">
-                <option value="">All Types</option>
-                <option value="Debit">Debit</option>
-                <option value="Credit">Credit</option>
-                <option value="Debt">Debt</option>
-            </select>
-        </div>
-
-        <div class="filter-group">
-            <label for="sortDate">Sort by Date:</label>
-            <select id="sortDate" @bind="sortOrder" @bind:event="onchange">
-                <option value="desc">Newest to Oldest</option>
-                <option value="asc">Oldest to Newest</option>
-            </select>
-        </div>
-
-
-        <div class="filter-group">
-            <label for="filterDate">Filter by Date:</label>
-            <input type="date" id="filterDate" @bind="selectedDate" @bind:event="onchange" />
+            <!-- Export to CSV Button -->
+            <div class="filter-button">
+                <button @onclick="ExportToCsv">Export to CSV</button>
+            </div>
         </div>
     </div>
 
@@ -92,40 +106,44 @@
     private List<Transaction> filteredTransactions;
     private List<Transaction> paginatedTransactions;
     private int totalTransactions;
-
+    private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
     private string searchName = string.Empty;
     private string selectedType = string.Empty;
     private DateTime? selectedDate = null;
-    private string sortOrder = "asc"; 
+    private string sortOrder = "asc";
 
-
-    // Pagination state
     private int currentPage = 1;
     private const int itemsPerPage = 5;
 
-    private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
-
-    private string userCurrency;
+    private string userCurrency = string.Empty;
+    private double availableBalance;
 
     protected override async Task OnInitializedAsync()
     {
         userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
 
-        // Get all transactions from the database
         transactions = DatabaseService.RetrieveAllTransactions();
 
-        // Sort by the default sort order
-        transactions = sortOrder == "asc"
+        // Sort transactions based on the selected sort order
+        transactions = sortOrder == "desc"
             ? transactions.OrderBy(t => t.Date).ToList()
             : transactions.OrderByDescending(t => t.Date).ToList();
 
         filteredTransactions = transactions;
         totalTransactions = transactions.Count;
 
+        // Calculate the available balance after fetching transactions
+        CalculateAvailableBalance();
+
         UpdatePagination();
     }
 
-
+    private void CalculateAvailableBalance()
+    {
+        // Calculate the balance based on the transactions
+        availableBalance = transactions.Where(t => t.Type == "Credit").Sum(t => t.Amount) -
+                           transactions.Where(t => t.Type == "Debit").Sum(t => t.Amount);
+    }
 
     private string GetTransactionTypeClass(string type)
     {
@@ -138,10 +156,9 @@
         };
     }
 
-    // Format the amount based on the user's currency preference
     private string FormatCurrency(double amount)
     {
-        if (string.IsNullOrEmpty(userCurrency)) return $"{amount:0.00}"; // Fallback if no currency is set
+        if (string.IsNullOrEmpty(userCurrency)) return $"{amount:0.00}";
 
         switch (userCurrency.ToUpper())
         {
@@ -156,47 +173,41 @@
             case "NPR":
                 return $"NPR. {amount:0.00}";
             default:
-                return $"{amount:0.00} {userCurrency}"; // Fallback for unknown currencies
+                return $"{amount:0.00} {userCurrency}";
         }
     }
 
-    // Filter logic
     private void ApplyFilters()
     {
         filteredTransactions = transactions;
 
-        // Filter by name if provided
         if (!string.IsNullOrWhiteSpace(searchName))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        // Filter by type if selected
         if (!string.IsNullOrEmpty(selectedType))
         {
             filteredTransactions = filteredTransactions.Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        // Filter by date if selected
         if (selectedDate.HasValue)
         {
             filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
         }
 
-        // Sort transactions by date based on the selected sort order
-        filteredTransactions = sortOrder == "asc"
+        filteredTransactions = sortOrder == "desc"
             ? filteredTransactions.OrderBy(t => t.Date).ToList()
             : filteredTransactions.OrderByDescending(t => t.Date).ToList();
 
-        // After applying filters and sorting, update the pagination
+        // Recalculate available balance after filtering transactions
+        CalculateAvailableBalance();
+
         UpdatePagination();
     }
 
-
-    // Pagination logic
     private void UpdatePagination()
     {
-        // Calculate the items for the current page
         int skip = (currentPage - 1) * itemsPerPage;
         paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
     }
@@ -222,4 +233,17 @@
     private bool IsNextButtonDisabled() => currentPage >= totalPages;
 
     private bool IsPreviousButtonDisabled() => currentPage <= 1;
-} 
+
+    private async Task ExportToCsv()
+    {
+        var csv = new StringBuilder();
+        csv.AppendLine("ID,Date,Title,Amount,Type,Tags,Notes");
+
+        foreach (var transaction in filteredTransactions)
+        {
+            csv.AppendLine($"{transaction.Id},{transaction.Date:MM/dd/yyyy},{transaction.Name},{transaction.Amount},{transaction.Type},{transaction.Tag},{transaction.Notes}");
+        }
+
+        await JSRuntime.InvokeVoidAsync("downloadFile", "transactions.csv", csv.ToString());
+    }
+}

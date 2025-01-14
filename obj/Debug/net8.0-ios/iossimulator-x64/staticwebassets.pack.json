@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ExpenwiseTracker.styles.css"
     },
     {
+      "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\Assets\\LoginBg.jpg",
+      "PackagePath": "staticwebassets\\Assets\\LoginBg.jpg"
+    },
+    {
       "Id": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

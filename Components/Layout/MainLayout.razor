@@ -6,84 +6,21 @@
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
 
-<MudDialogProvider />
-<MudSnackbarProvider />
-
 @if (NavigationManager.Uri.Contains("/auth/login"))
 {
-    <!-- Only render the login page if the user is on the login route -->
     @Body
 }
 else
 {
-    <div class="page" style="background-color: #E9ECFE; height:100vh; overflow:hidden;">
+    <div class="page" style="background-color: #E9ECFE;">
         <div class="sidebar">
             <NavMenu />
         </div>
 
         <main>
-            <div class="top-row">
-                <h1 style="font-weight:700; font-size:20px; color: #4E55C2;">User: Sarthak</h1>
-                <h1 style="font-weight:700; font-size:20px; color: #4E55C2;">Balance: @userCurrency @totalBalance</h1>
-            </div>
-
             <article class="content">
                 @Body
             </article>
         </main>
     </div>
-}
-
-@code {
-    private double totalBalance;
-    private string userCurrency = "USD"; // Default to USD if currency is not found in sessionStorage
-
-    // Override OnInitializedAsync to fetch balance and currency when the component is first loaded
-    protected override async Task OnInitializedAsync()
-    {
-        try
-        {
-            // Fetch preferred currency from sessionStorage
-            userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-            if (string.IsNullOrEmpty(userCurrency))
-            {
-                userCurrency = "USD";  // Fallback to USD if no currency is found
-                Console.WriteLine("Currency not found, defaulting to USD.");
-            }
-
-            // Update the balance after fetching the currency
-            await UpdateBalance();
-        }
-        catch (Exception ex)
-        {
-            // Log or handle the error
-            Console.Error.WriteLine($"Error fetching currency data: {ex.Message}");
-        }
-    }
-
-    // Method to fetch and update the balance
-    private async Task UpdateBalance()
-    {
-        try
-        {
-            // Ensure that the service call to calculate balance is working correctly
-            totalBalance = await TransactionService.CalculateUserBalanceAsync();
-            Console.WriteLine($"Total Balance fetched: {totalBalance}");
-
-            // Trigger the UI refresh after balance is updated
-            StateHasChanged();
-        }
-        catch (Exception ex)
-        {
-            // Log or handle the error while updating the balance
-            Console.Error.WriteLine($"Error updating balance: {ex.Message}");
-        }
-    }
-
-    // Call this method when a transaction is added
-    public async Task OnTransactionAdded()
-    {
-        // Refresh the balance when a transaction is added
-        await UpdateBalance();
-    }
 }
