@@ -210,10 +210,14 @@
         transaction.IsPaid = true;
         DatabaseService.EstablishConnection().Update(transaction);
 
+        // Recalculate current balance
+        currentBalance = await TransactionService.CalculateUserBalance();
+
         CalculateDebtCounts();
         transactions = DatabaseService.RetrieveAllTransactions();
         ApplyFilters();
     }
+
 
     private async Task ExportToCsv()
     {
