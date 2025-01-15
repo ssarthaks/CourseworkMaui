@@ -7,7 +7,14 @@
 
 @if (NavigationManager.Uri.Contains("/auth/login"))
 {
-    @Body
+
+    <div style="background-color:black; height:100vh; width:100vw; opacity:70%; position:absolute;"></div>
+    <article style="
+    background-image: url(https://venuske.com/wp-content/uploads/2024/05/venus-forex-bureau-limited-money-exchange-venuske.com_-2048x1334.jpg);
+    background-size: cover;
+    height: 100vh;">
+        @Body
+    </article>
 }
 else
 {
@@ -30,3 +37,4 @@ else
         </div>
     }
 }
+

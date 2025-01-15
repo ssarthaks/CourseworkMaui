@@ -1,14 +1,9 @@
-﻿/* Global styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+﻿.login-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    min-height: 100vh;
-    background: #f2f2f2;
-    color: #333;
+    height: 100vh;
+    margin: 0;
 }
 
 .login-page {
@@ -17,10 +12,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px; 
+    max-width: 400px;
     box-sizing: border-box;
-    margin:auto;
-    margin-top:150px;
+    margin: auto;
+    z-index:10;
+    position:relative;
 }
 
 h3 {

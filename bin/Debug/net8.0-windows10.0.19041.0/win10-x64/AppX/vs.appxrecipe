@@ -29,25 +29,25 @@
     <AppXManifest Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-15T12:59:54.176</Modified>
+      <Modified>2025-01-15T13:09:54.117</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-01-14T17:40:43.167</Modified>
+      <Modified>2025-01-15T13:09:53.956</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenwiseTracker.runtimeconfig.json">
       <PackagePath>ExpenwiseTracker.runtimeconfig.json</PackagePath>
-      <Modified>2025-01-14T17:40:42.870</Modified>
+      <Modified>2025-01-15T13:09:53.899</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenwiseTracker.dll">
       <PackagePath>ExpenwiseTracker.dll</PackagePath>
-      <Modified>2025-01-15T12:59:52.962</Modified>
+      <Modified>2025-01-15T13:07:25.669</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ExpenwiseTracker.exe</PackagePath>
-      <Modified>2025-01-15T12:59:53.014</Modified>
+      <Modified>2025-01-15T13:07:25.674</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -307,7 +307,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenwiseTracker.deps.json">
       <PackagePath>ExpenwiseTracker.deps.json</PackagePath>
-      <Modified>2025-01-14T17:40:42.719</Modified>
+      <Modified>2025-01-15T13:09:53.843</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.54\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -695,7 +695,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json">
       <PackagePath>ExpenwiseTracker.staticwebassets.endpoints.json</PackagePath>
-      <Modified>2025-01-14T17:40:31.071</Modified>
+      <Modified>2025-01-15T13:09:52.637</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\.nuget\packages\microsoft.maui.controls.compatibility\8.0.83\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
@@ -719,11 +719,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\ExpenwiseTracker.styles.css">
       <PackagePath>wwwroot\ExpenwiseTracker.styles.css</PackagePath>
-      <Modified>2025-01-14T17:02:54.275</Modified>
+      <Modified>2025-01-15T13:09:37.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\ExpenwiseTracker.bundle.scp.css">
-      <PackagePath>wwwroot\ExpenwiseTracker.toxirvf7hy.bundle.scp.css</PackagePath>
-      <Modified>2025-01-14T17:02:54.276</Modified>
+      <PackagePath>wwwroot\ExpenwiseTracker.aakb98bk98.bundle.scp.css</PackagePath>
+      <Modified>2025-01-15T13:09:37.973</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>
@@ -743,7 +743,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\Components\Pages\Login.razor.css">
       <PackagePath>Components\Pages\Login.razor.css</PackagePath>
-      <Modified>2025-01-04T06:58:29.213</Modified>
+      <Modified>2025-01-15T13:09:46.024</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\Components\Pages\OverallDebts.razor.css">
       <PackagePath>Components\Pages\OverallDebts.razor.css</PackagePath>
