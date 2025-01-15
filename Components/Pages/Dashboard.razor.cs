@@ -42,13 +42,13 @@ namespace ExpenwiseTracker.Components.Pages
             userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
             username = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "Username");
 
-            await LoadDashboardData();
+            await DashboardData();
         }
         #endregion
 
-        #region LoadDashboardData
+        #region DashboardData
         // Method to fetch and calculate the data needed for the dashboard
-        private async Task LoadDashboardData()
+        private async Task DashboardData()
         {
             totalInflow = await TransactionService.CalculateTotal("Credit");
             totalOutflow = await TransactionService.CalculateTotal("Debit");
