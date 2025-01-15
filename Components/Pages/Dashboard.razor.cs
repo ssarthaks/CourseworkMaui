@@ -18,6 +18,7 @@ namespace ExpenwiseTracker.Components.Pages
         private double lowestOutflow;
         private double highestDebt;
         private double lowestDebt;
+        private double remainingDebt;
 
         // Variables for chart data and labels
         private List<ChartSeries> Series = new List<ChartSeries>();
@@ -54,6 +55,7 @@ namespace ExpenwiseTracker.Components.Pages
             totalOutflow = await TransactionService.CalculateTotal("Debit");
             totalDebts = await TransactionService.CalculateTotal("Debt");
             clearedDebts = await TransactionService.CalculateClearedDebts();
+            remainingDebt = totalDebts - clearedDebts;
 
             data = new double[] { totalInflow, totalOutflow, totalDebts };
             labels = new string[]
