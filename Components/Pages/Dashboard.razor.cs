@@ -20,6 +20,10 @@ namespace ExpenwiseTracker.Components.Pages
         private double lowestDebt;
         private double remainingDebt;
 
+        private DateTime? startDate = null;
+        private DateTime? endDate = null;
+        private List<Transaction> topRemainingDebts = new();
+
         // Variables for chart data and labels
         private List<ChartSeries> Series = new List<ChartSeries>();
         private string[] XAxisLabels;
@@ -28,7 +32,6 @@ namespace ExpenwiseTracker.Components.Pages
         private int selectedIndex = -1;
         private List<Transaction> topTransactions = new List<Transaction>();
         private string userCurrency = string.Empty;
-        private string username = string.Empty;
 
         // Chart data and labels
         private double[] data; 
@@ -41,8 +44,8 @@ namespace ExpenwiseTracker.Components.Pages
         {
             // Fetch user preferences from session storage
             userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-            username = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "Username");
 
+            await GetTopRemainingDebts();
             await DashboardData();
         }
         #endregion
@@ -81,6 +84,53 @@ namespace ExpenwiseTracker.Components.Pages
                 new ChartSeries { Name = "Debt", Data = monthlyData.Select(m => m.Debt).ToArray() }
             };
             XAxisLabels = monthlyData.Select(m => m.Month).ToArray();
+        }
+        #endregion
+
+        #region FilterMethods
+        // Method to filter remaining debts based on the selected date range
+        private async Task GetTopRemainingDebts()
+        {
+            if (startDate == null || endDate == null)
+            {
+                var transactions = DatabaseService.RetrieveAllTransactions();
+
+                var unpaidDebts = transactions
+                    .Where(t => t.Type == "Debt" && !t.IsPaid)
+                    .OrderBy(t => t.DueDate)
+                    .Take(5) 
+                    .ToList();
+
+                topRemainingDebts = unpaidDebts;
+            }
+            else
+            {
+                var transactions = DatabaseService.RetrieveAllTransactions();
+
+                var unpaidDebts = transactions
+                    .Where(t => t.Type == "Debt" && !t.IsPaid)
+                    .Where(t => t.DueDate >= startDate.Value.Date && t.DueDate <= endDate.Value.Date)
+                    .OrderBy(t => t.DueDate)
+                    .Take(5) 
+                    .ToList();
+
+                topRemainingDebts = unpaidDebts;
+            }
+        }
+
+        //This method applies filter
+        private async Task ApplyFilter()
+        {
+            await GetTopRemainingDebts();
+        }
+
+        //This method clears the filter options
+        private void ClearFilters()
+        {
+            startDate = null;
+            endDate = null;
+
+            GetTopRemainingDebts();
         }
         #endregion
     }

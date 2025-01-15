@@ -99,7 +99,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30041"
+          "Value": "31300"
         },
         {
           "Name": "Content-Type",
@@ -107,22 +107,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=\""
+          "Value": "\"e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 17:19:47 GMT"
+          "Value": "Wed, 15 Jan 2025 19:21:10 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE="
+          "Value": "sha256-e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM="
         }
       ]
     },
     {
-      "Route": "ExpenwiseTracker.u4lpezubeh.styles.css",
+      "Route": "ExpenwiseTracker.vbp18lebay.styles.css",
       "AssetFile": "ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -136,7 +136,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30041"
+          "Value": "31300"
         },
         {
           "Name": "Content-Type",
@@ -144,21 +144,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=\""
+          "Value": "\"e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 17:19:47 GMT"
+          "Value": "Wed, 15 Jan 2025 19:21:10 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "u4lpezubeh"
+          "Value": "vbp18lebay"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE="
+          "Value": "sha256-e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM="
         },
         {
           "Name": "label",
