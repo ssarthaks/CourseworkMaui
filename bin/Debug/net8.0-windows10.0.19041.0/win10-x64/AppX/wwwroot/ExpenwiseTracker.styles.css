@@ -225,7 +225,6 @@ body[b-oniilsihrt] {
 
 .add-transactions-title[b-oniilsihrt] {
     color: #2c2e35;
-    margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
     text-align: center;
@@ -733,16 +732,12 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     }
 }
 /* /Components/Pages/Login.razor.rz.scp.css */
-/* Global styles */
-body[b-00srd1ojka] {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+.login-container[b-00srd1ojka] {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    min-height: 100vh;
-    color: #333;
+    height: 100vh;
+    margin: 0;
 }
 
 .login-page[b-00srd1ojka] {
@@ -754,7 +749,8 @@ body[b-00srd1ojka] {
     max-width: 400px;
     box-sizing: border-box;
     margin: auto;
-    margin-top: 150px;
+    z-index:10;
+    position:relative;
 }
 
 h3[b-00srd1ojka] {

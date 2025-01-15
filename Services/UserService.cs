@@ -26,7 +26,7 @@ namespace ExpenwiseTracker.Services
 
         #region AuthenticateUser
         // Authenticates a user based on the provided username and password.
-        public bool AuthenticateUser(User user)
+        public bool UserAuthentication(User user)
         {
             if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
             {

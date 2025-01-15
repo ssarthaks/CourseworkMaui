@@ -85,7 +85,7 @@
       ]
     },
     {
-      "Route": "ExpenwiseTracker.3qviwvi8uj.styles.css",
+      "Route": "ExpenwiseTracker.ssexef68ga.styles.css",
       "AssetFile": "ExpenwiseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -99,7 +99,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "29898"
+          "Value": "30041"
         },
         {
           "Name": "Content-Type",
@@ -107,21 +107,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"G40WH2+x1TRv22SScbVrthtmhS3y/fEHuVIDe9AUdr8=\""
+          "Value": "\"1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 13:14:34 GMT"
+          "Value": "Wed, 15 Jan 2025 13:46:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3qviwvi8uj"
+          "Value": "ssexef68ga"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-G40WH2+x1TRv22SScbVrthtmhS3y/fEHuVIDe9AUdr8="
+          "Value": "sha256-1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ="
         },
         {
           "Name": "label",
@@ -144,7 +144,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "29898"
+          "Value": "30041"
         },
         {
           "Name": "Content-Type",
@@ -152,17 +152,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"G40WH2+x1TRv22SScbVrthtmhS3y/fEHuVIDe9AUdr8=\""
+          "Value": "\"1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 13:14:34 GMT"
+          "Value": "Wed, 15 Jan 2025 13:46:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-G40WH2+x1TRv22SScbVrthtmhS3y/fEHuVIDe9AUdr8="
+          "Value": "sha256-1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ="
         }
       ]
     },

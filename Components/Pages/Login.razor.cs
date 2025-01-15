@@ -30,7 +30,7 @@ namespace ExpenwiseTracker.Components.Pages
                 return;
             }
 
-            if (UserService.AuthenticateUser(new User
+            if (UserService.UserAuthentication(new User
             {
                 Username = loginModel.Username,  
                 Password = loginModel.Password,  
