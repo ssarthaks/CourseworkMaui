@@ -54,8 +54,7 @@ namespace ExpenwiseTracker.Components.Pages
 
             if (selectedDate.HasValue)
             {
-                filteredTransactions = filteredTransactions
-                    .Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
+                filteredTransactions = filteredTransactions.Where(t => t.Date >= selectedDate.Value.Date).ToList();
             }
 
             filteredTransactions = sortOrder == "asc"

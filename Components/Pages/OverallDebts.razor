@@ -32,6 +32,14 @@
             </div>
 
             <div class="filter-group">
+                <label for="sortDueDate">Sort by Due Date:</label>
+                <select id="sortDueDate" @bind="sortDueDateOrder">
+                    <option value="asc">Earliest to Latest</option>
+                    <option value="desc">Latest to Earliest</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
                 <label for="sortDate">Sort by Date:</label>
                 <select id="sortDate" @bind="sortOrder">
                     <option value="desc">Newest to Oldest</option>
@@ -42,6 +50,13 @@
             <div class="filter-group">
                 <label for="filterDate">Filter by Date:</label>
                 <input type="date" id="filterDate" @bind="selectedDate" />
+            </div>
+        </div>
+        <!--Is Paid for Remaining Debts-->
+        <div style="margin-top:15px;">
+            <div style="display:flex;">
+                <label for="filterIsPaid" style="font-weight:600; font-size:14px;">Filter by Paid Status:</label>
+                <input type="checkbox" id="filterIsPaid" style="width:50px;" @bind="isPaidFilter" />
             </div>
         </div>
 
@@ -58,7 +73,7 @@
     <!-- Conditional Content: Handle loading state and no data state -->
     @if (filteredTransactions == null)
     {
-        <p>Loading...</p> 
+        <p>Loading...</p>
     }
     else if (filteredTransactions.Count == 0)
     {
