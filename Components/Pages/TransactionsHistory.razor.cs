@@ -35,7 +35,7 @@ namespace ExpenwiseTracker.Components.Pages
         }
         #endregion
 
-        #region Filter and Pagination Methods
+        #region FilterMethods
         private void ApplyFilters()
         {
             filteredTransactions = transactions;
@@ -64,6 +64,19 @@ namespace ExpenwiseTracker.Components.Pages
             UpdatePagination();
         }
 
+        // This method clears all filters
+        private void ClearFilters()
+        {
+            searchName = string.Empty;
+            selectedDate = null;
+            selectedType = null;
+            sortOrder = "desc";
+            ApplyFilters();
+        }
+
+        #endregion
+
+        #region PaginationMethods
         private void UpdatePagination()
         {
             int skip = (currentPage - 1) * itemsPerPage;

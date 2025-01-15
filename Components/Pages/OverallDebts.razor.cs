@@ -15,6 +15,8 @@ namespace ExpenwiseTracker.Components.Pages
         private string searchName = string.Empty;
         private DateTime? selectedDate = null;
         private string sortOrder = "desc";
+        private bool isPaidFilter = false;
+        private string sortDueDateOrder = "asc";
 
         private int totalDebtCount;
         private int paidDebtCount;
@@ -55,16 +57,25 @@ namespace ExpenwiseTracker.Components.Pages
         {
             filteredTransactions = transactions.Where(t => t.Type == "Debt").ToList();
 
+            // Apply search filter by name
             if (!string.IsNullOrWhiteSpace(searchName))
             {
                 filteredTransactions = filteredTransactions.Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
+            // Apply filter by selected date
             if (selectedDate.HasValue)
             {
-                filteredTransactions = filteredTransactions.Where(t => t.Date.Date == selectedDate.Value.Date).ToList();
+                filteredTransactions = filteredTransactions.Where(t => t.Date >= selectedDate.Value.Date).ToList();
             }
 
+            // Apply filter by Paid status
+            if (isPaidFilter)
+            {
+                filteredTransactions = filteredTransactions.Where(t => t.IsPaid).ToList();
+            }
+
+            // Apply sorting by Date
             filteredTransactions = sortOrder switch
             {
                 "asc" => filteredTransactions.OrderBy(t => t.Date).ToList(),
@@ -72,9 +83,32 @@ namespace ExpenwiseTracker.Components.Pages
                 _ => filteredTransactions
             };
 
+            // Apply sorting by DueDate if sortDueDateOrder is set
+            filteredTransactions = sortDueDateOrder switch
+            {
+                "asc" => filteredTransactions.OrderBy(t => t.DueDate).ToList(),
+                "desc" => filteredTransactions.OrderByDescending(t => t.DueDate).ToList(),
+                _ => filteredTransactions
+            };
+
             CalculateDebtCounts();
             UpdatePagination();
         }
+        #endregion
+
+        #region ClearFilters
+        // This method clears all filters
+        private void ClearFilters()
+        {
+            searchName = string.Empty;
+            selectedDate = null;
+            isPaidFilter = false;
+            sortOrder = "desc";
+            sortDueDateOrder = "asc";
+
+            ApplyFilters();
+        }
+
         #endregion
 
         #region CalculateDebtCounts
