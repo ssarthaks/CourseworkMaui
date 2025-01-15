@@ -2,8 +2,7 @@
 @using MudBlazor
 @inherits LayoutComponentBase
 @using ExpenwiseTracker.Services.Interface
-@inject ITransactionService TransactionService
-@inject IJSRuntime JSRuntime
+@inject IUserService UserService
 @inject NavigationManager NavigationManager
 
 @if (NavigationManager.Uri.Contains("/auth/login"))
@@ -12,15 +11,22 @@
 }
 else
 {
-    <div class="page" style="background-color: #E9ECFE;">
-        <div class="sidebar">
-            <NavMenu />
-        </div>
+    if (!UserService.IsUserAuthenticated())
+    {
+        NavigationManager.NavigateTo("/auth/login", true);
+    }
+    else
+    {
+        <div class="page" style="background-color: #E9ECFE;">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
 
-        <main>
-            <article class="content" style="padding-bottom:25px; background-color: #E9ECFE;">
-                @Body
-            </article>
-        </main>
-    </div>
+            <main>
+                <article class="content" style="padding-bottom:25px; background-color: #E9ECFE;">
+                    @Body
+                </article>
+            </main>
+        </div>
+    }
 }

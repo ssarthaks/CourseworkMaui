@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NxwGHC0zK5CZy/90aj63Q2jUA7YimDBUjbRdD2VaRA0=",
+  "Hash": "ve4mXr4c2uRvGB9eVkzSppiRArEx9nGNPo7psjCwr+Q=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -220,8 +220,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "p34iw884ur",
-      "Integrity": "RaVREkojSVdEfQoJTeYy5JvABGM+ymSgms0gPLnTa5c=",
+      "Fingerprint": "in16jlpdf8",
+      "Integrity": "3oTrBb765bx8O8iDfI8VXnNjWJrf6sDo7K/CCocuEAE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
@@ -895,11 +895,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RaVREkojSVdEfQoJTeYy5JvABGM+ymSgms0gPLnTa5c=\""
+          "Value": "\"3oTrBb765bx8O8iDfI8VXnNjWJrf6sDo7K/CCocuEAE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 16:38:44 GMT"
+          "Value": "Tue, 14 Jan 2025 17:40:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -909,12 +909,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RaVREkojSVdEfQoJTeYy5JvABGM+ymSgms0gPLnTa5c="
+          "Value": "sha256-3oTrBb765bx8O8iDfI8VXnNjWJrf6sDo7K/CCocuEAE="
         }
       ]
     },
     {
-      "Route": "index.p34iw884ur.html",
+      "Route": "index.in16jlpdf8.html",
       "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\wwwroot\\index.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -932,11 +932,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RaVREkojSVdEfQoJTeYy5JvABGM+ymSgms0gPLnTa5c=\""
+          "Value": "\"3oTrBb765bx8O8iDfI8VXnNjWJrf6sDo7K/CCocuEAE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Jan 2025 16:38:44 GMT"
+          "Value": "Tue, 14 Jan 2025 17:40:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -946,7 +946,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "p34iw884ur"
+          "Value": "in16jlpdf8"
         },
         {
           "Name": "label",
@@ -954,7 +954,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-RaVREkojSVdEfQoJTeYy5JvABGM+ymSgms0gPLnTa5c="
+          "Value": "sha256-3oTrBb765bx8O8iDfI8VXnNjWJrf6sDo7K/CCocuEAE="
         }
       ]
     }
