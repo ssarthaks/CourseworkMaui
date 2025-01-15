@@ -8,7 +8,12 @@
 <div class="transactions-container">
     <h1 class="transactions-header">Recent Transactions</h1>
     <p style="color:green; font-weight:700; font-size:20px;">Available Balance: @userCurrency @currentBalance.ToString("F2")</p>
-    <p style="color:red;">Total Transactions: @totalTransactions</p>
+    <div style="display:flex; justify-content:space-between">
+        <p style="color:red; font-weight:600;">Total Transactions: @totalTransactions</p>
+        <p style="color:green;">Total Inflow Count: @totalInflowCount</p>
+        <p style="color:red;">Total Outflow Count: @totalOutflowCount</p>
+        <p style="color:#eab308;">Total Debt Count: @totalDebtCount</p>
+    </div>
 
     <!-- Filters Section -->
     <div class="filter-options">
@@ -37,9 +42,13 @@
             </div>
 
             <div class="filter-group">
-                <label for="filterDate">Filter by Date:</label>
-                <input type="date" id="filterDate" @bind="selectedDate" />
+                <label for="filterStartDate">Start Date:</label>
+                <input type="date" id="filterStartDate" @bind="startDate" />
+
+                <label for="filterEndDate">End Date:</label>
+                <input type="date" id="filterEndDate" @bind="endDate" />
             </div>
+
         </div>
         <!-- Apply Filter Button -->
         <div class="filter-buttons">

@@ -225,7 +225,6 @@ body[b-oniilsihrt] {
 
 .add-transactions-title[b-oniilsihrt] {
     color: #2c2e35;
-    margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
     text-align: center;
@@ -733,6 +732,14 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     }
 }
 /* /Components/Pages/Login.razor.rz.scp.css */
+.login-container[b-00srd1ojka] {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
 .login-page[b-00srd1ojka] {
     background: #fff;
     padding: 30px 40px;
@@ -742,7 +749,8 @@ html[b-wbmb3dhwr8], body[b-wbmb3dhwr8] {
     max-width: 400px;
     box-sizing: border-box;
     margin: auto;
-    margin-top: 150px;
+    z-index:10;
+    position:relative;
 }
 
 h3[b-00srd1ojka] {
@@ -833,7 +841,7 @@ input[b-00srd1ojka], select[b-00srd1ojka], button[b-00srd1ojka] {
     margin-bottom: 30px;
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .filter-options[b-7f1u4othbu] {
@@ -1030,7 +1038,7 @@ body[b-7ixun8buwn] {
 
 .transactions-header[b-7ixun8buwn] {
     color: #2c2e35;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     font-size: 28px;
     font-weight: 700;
 }

@@ -34,6 +34,7 @@
             <div class="filter-group">
                 <label for="sortDueDate">Sort by Due Date:</label>
                 <select id="sortDueDate" @bind="sortDueDateOrder">
+                    <option value="">Select Sorting Option</option>
                     <option value="asc">Earliest to Latest</option>
                     <option value="desc">Latest to Earliest</option>
                 </select>
@@ -48,15 +49,22 @@
             </div>
 
             <div class="filter-group">
-                <label for="filterDate">Filter by Date:</label>
-                <input type="date" id="filterDate" @bind="selectedDate" />
+                <label for="filterStartDate">Start Date:</label>
+                <input type="date" id="filterStartDate" @bind="startDate" />
+
+                <label for="filterEndDate">End Date:</label>
+                <input type="date" id="filterEndDate" @bind="endDate" />
             </div>
         </div>
         <!--Is Paid for Remaining Debts-->
-        <div style="margin-top:15px;">
+        <div style="margin-top:15px; display:flex; gap:20px;">
             <div style="display:flex;">
-                <label for="filterIsPaid" style="font-weight:600; font-size:14px;">Filter by Paid Status:</label>
+                <label for="filterIsPaid" style="font-weight:600; font-size:14px;">View Paid Debts:</label>
                 <input type="checkbox" id="filterIsPaid" style="width:50px;" @bind="isPaidFilter" />
+            </div>
+            <div style="display:flex;">
+                <label for="filterIsPaid" style="font-weight:600; font-size:14px;">View Remaining Debts:</label>
+                <input type="checkbox" id="filterIsPaid" style="width:50px;" @bind="isUnPaidFilter" />
             </div>
         </div>
 

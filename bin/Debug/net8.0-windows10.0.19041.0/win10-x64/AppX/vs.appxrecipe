@@ -29,7 +29,7 @@
     <AppXManifest Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-15T14:14:45.029</Modified>
+      <Modified>2025-01-15T17:05:19.412</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenwiseTracker.dll">
       <PackagePath>ExpenwiseTracker.dll</PackagePath>
-      <Modified>2025-01-15T14:14:44.752</Modified>
+      <Modified>2025-01-15T17:05:18.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ExpenwiseTracker.exe</PackagePath>
-      <Modified>2025-01-15T14:14:44.756</Modified>
+      <Modified>2025-01-15T17:05:18.605</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\Application Development Weekly\Sarthak_Coursework_Final\ExpenwiseTracker\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>

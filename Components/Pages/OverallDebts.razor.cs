@@ -14,9 +14,12 @@ namespace ExpenwiseTracker.Components.Pages
 
         private string searchName = string.Empty;
         private DateTime? selectedDate = null;
+        private DateTime? startDate = null;
+        private DateTime? endDate = null;
         private string sortOrder = "desc";
         private bool isPaidFilter = false;
-        private string sortDueDateOrder = "asc";
+        private bool isUnPaidFilter = false;
+        private string? sortDueDateOrder;
 
         private int totalDebtCount;
         private int paidDebtCount;
@@ -51,7 +54,7 @@ namespace ExpenwiseTracker.Components.Pages
             };
         #endregion
 
-        #region ApplyFilters
+        #region FilterMethods
         // This method applies filters based on search criteria, date, and sorting order
         private void ApplyFilters()
         {
@@ -75,6 +78,28 @@ namespace ExpenwiseTracker.Components.Pages
                 filteredTransactions = filteredTransactions.Where(t => t.IsPaid).ToList();
             }
 
+            // Apply filter by UnPaid status
+            if (isUnPaidFilter)
+            {
+                filteredTransactions = filteredTransactions.Where(t => !t.IsPaid).ToList();
+            }
+
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                filteredTransactions = filteredTransactions
+                    .Where(t => t.Date.Date >= startDate.Value.Date && t.Date.Date <= endDate.Value.Date).ToList();
+            }
+            else if (startDate.HasValue)
+            {
+                filteredTransactions = filteredTransactions
+                    .Where(t => t.Date.Date >= startDate.Value.Date).ToList();
+            }
+            else if (endDate.HasValue)
+            {
+                filteredTransactions = filteredTransactions
+                    .Where(t => t.Date.Date <= endDate.Value.Date).ToList();
+            }
+
             // Apply sorting by Date
             filteredTransactions = sortOrder switch
             {
@@ -94,17 +119,18 @@ namespace ExpenwiseTracker.Components.Pages
             CalculateDebtCounts();
             UpdatePagination();
         }
-        #endregion
 
-        #region ClearFilters
         // This method clears all filters
         private void ClearFilters()
         {
             searchName = string.Empty;
             selectedDate = null;
             isPaidFilter = false;
+            isUnPaidFilter = false;
+            startDate = null;
+            endDate = null;
             sortOrder = "desc";
-            sortDueDateOrder = "asc";
+            sortDueDateOrder = null;
 
             ApplyFilters();
         }

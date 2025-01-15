@@ -11,10 +11,15 @@ namespace ExpenwiseTracker.Components.Pages
         private List<Transaction> filteredTransactions = new();
         private List<Transaction> paginatedTransactions = new();
         private int totalTransactions;
+        private int totalInflowCount;
+        private int totalOutflowCount;
+        private int totalDebtCount;
         private int totalPages => (int)Math.Ceiling((double)filteredTransactions.Count / itemsPerPage);
         private string searchName = string.Empty;
         private string selectedType = string.Empty;
         private DateTime? selectedDate = null;
+        private DateTime? startDate = null;
+        private DateTime? endDate = null;
         private string sortOrder = "desc";
         private int currentPage = 1;
         private const int itemsPerPage = 5;
@@ -30,6 +35,9 @@ namespace ExpenwiseTracker.Components.Pages
 
             transactions = await TransactionService.RetrieveAllTransactions();
             totalTransactions = transactions.Count;
+            totalInflowCount = transactions.Count(t => t.Type.Equals("Credit", StringComparison.OrdinalIgnoreCase));
+            totalOutflowCount = transactions.Count(t => t.Type.Equals("Debit", StringComparison.OrdinalIgnoreCase));
+            totalDebtCount = transactions.Count(t => t.Type.Equals("Debt", StringComparison.OrdinalIgnoreCase));
 
             ApplyFilters();
         }
@@ -52,9 +60,20 @@ namespace ExpenwiseTracker.Components.Pages
                     .Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            if (selectedDate.HasValue)
+            if (startDate.HasValue && endDate.HasValue)
             {
-                filteredTransactions = filteredTransactions.Where(t => t.Date >= selectedDate.Value.Date).ToList();
+                filteredTransactions = filteredTransactions
+                    .Where(t => t.Date.Date >= startDate.Value.Date && t.Date.Date <= endDate.Value.Date).ToList();
+            }
+            else if (startDate.HasValue)
+            {
+                filteredTransactions = filteredTransactions
+                    .Where(t => t.Date.Date >= startDate.Value.Date).ToList();
+            }
+            else if (endDate.HasValue)
+            {
+                filteredTransactions = filteredTransactions
+                    .Where(t => t.Date.Date <= endDate.Value.Date).ToList();
             }
 
             filteredTransactions = sortOrder == "asc"
@@ -64,13 +83,15 @@ namespace ExpenwiseTracker.Components.Pages
             UpdatePagination();
         }
 
+
         // This method clears all filters
         private void ClearFilters()
         {
             searchName = string.Empty;
-            selectedDate = null;
             selectedType = null;
             sortOrder = "desc";
+            startDate = null;
+            endDate = null;
             ApplyFilters();
         }
 

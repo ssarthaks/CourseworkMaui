@@ -1,3 +1,11 @@
+.login-container[b-00srd1ojka] {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
 .login-page[b-00srd1ojka] {
     background: #fff;
     padding: 30px 40px;
@@ -7,7 +15,8 @@
     max-width: 400px;
     box-sizing: border-box;
     margin: auto;
-    margin-top: 150px;
+    z-index:10;
+    position:relative;
 }
 
 h3[b-00srd1ojka] {

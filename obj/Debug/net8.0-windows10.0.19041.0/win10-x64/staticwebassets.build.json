@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cj3BV7wCdmfArG8JSMhssjHzzu7ZZ34roJgw7+mruiY=",
+  "Hash": "4DKnkI1kMy6eIJ4pfG+fMIf8qj4VJCoAUK28gLv2bQs=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "ssexef68ga",
-      "Integrity": "1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=",
+      "Fingerprint": "u4lpezubeh",
+      "Integrity": "wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "ssexef68ga",
-      "Integrity": "1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=",
+      "Fingerprint": "u4lpezubeh",
+      "Integrity": "wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -649,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=\""
+          "Value": "\"wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 13:46:43 GMT"
+          "Value": "Wed, 15 Jan 2025 17:19:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,97 +663,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.ssexef68ga.bundle.scp.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "30041"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 13:46:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ssexef68ga"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.ssexef68ga.styles.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "30041"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 13:46:43 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ssexef68ga"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ="
+          "Value": "sha256-wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE="
         }
       ]
     },
@@ -776,11 +686,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ=\""
+          "Value": "\"wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 13:46:43 GMT"
+          "Value": "Wed, 15 Jan 2025 17:19:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -790,7 +700,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1Gwtx1j5PGCzSfjRCOTehWguA1OBRecTmF0I99oKRQQ="
+          "Value": "sha256-wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.u4lpezubeh.bundle.scp.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30041"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 17:19:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u4lpezubeh"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.u4lpezubeh.styles.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30041"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 17:19:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u4lpezubeh"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wu5fbwrCCy/iFRfepywW+wqtVwhjEP6IML9IuFlYxBE="
         }
       ]
     },
