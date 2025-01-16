@@ -9,7 +9,7 @@
 
 <div class="add-transactions-container">
     <h1 class="add-transactions-title">Add Transaction</h1>
-    <p style="color:green; font-weight:700; font-size:18px; display:flex; justify-content:center; margin-bottom:20px;">Available Balance: NPR.@userBalance.ToString("F2")</p>
+    <p style="color:green; font-weight:700; font-size:18px; display:flex; justify-content:center; margin-bottom:20px;">Available Balance: @userBalance.ToString("F2")</p>
 
     <!-- Display notification if available -->
     @if (!string.IsNullOrEmpty(NotifyUser))

@@ -130,67 +130,65 @@
         </div>
     </div>
 
-    <!-- Remaining Debts Data -->
-    <div class="debts-card">
-        <div class="stat-title">Top 5 Remaining Debts</div>
-        <div class="filter-group">
-            <label for="filterStartDate">Start Date:</label>
-            <input type="date" id="filterStartDate" @bind="startDate" />
+    <div style="display:flex; gap:3rem;" class="debt-donut">
+        <!-- Remaining Debts Data -->
+        <div class="debts-card">
+            <div class="stat-title">Top 5 Remaining Debts</div>
+            <div class="filter-group">
+                <label for="filterStartDate">Start Date:</label>
+                <input type="date" id="filterStartDate" @bind="startDate" />
 
-            <label for="filterEndDate">End Date:</label>
-            <input type="date" id="filterEndDate" @bind="endDate" />
-        </div>
-        <!-- Apply Filter Button -->
-        <div class="filter-buttons">
-            <div class="filter-button" style="background-color:gray">
-                <button @onclick="ClearFilters" class="clear-filter-btn">Clear Filters</button>
+                <label for="filterEndDate">End Date:</label>
+                <input type="date" id="filterEndDate" @bind="endDate" />
             </div>
-            <div class="filter-button">
-                <button @onclick="ApplyFilter">Apply Filter</button>
-            </div>
-        </div>
-        @if (topRemainingDebts == null || topRemainingDebts.Count == 0)
-        {
-            <p>No remaining debts found.</p>
-        }
-        else
-        {
-            @foreach (var debt in topRemainingDebts)
-            {
-                <div class="transaction-item">
-                    <span>@debt.Name</span>
-                    <span style="color:#eab308; font-weight:500;">@userCurrency.@debt.Amount</span>
-                    <span class="tag @(debt.Tag?.ToLower() ?? "no-tag")">@debt.Tag</span>
-                    <span>Source: @debt.Source</span>
-                    <span>Date: @debt.Date.ToString("yyyy-MM-dd")</span>
-                    <span>Due Date: <span style="color:red;">@debt.DueDate?.ToString("yyyy-MM-dd")</span></span>
+            <!-- Apply Filter Button -->
+            <div class="filter-buttons">
+                <div class="filter-button" style="background-color:gray">
+                    <button @onclick="ClearFilters" class="clear-filter-btn">Clear Filters</button>
                 </div>
+                <div class="filter-button">
+                    <button @onclick="ApplyFilter">Apply Filter</button>
+                </div>
+            </div>
+            @if (topRemainingDebts == null || topRemainingDebts.Count == 0)
+            {
+                <p>No remaining debts found.</p>
             }
-        }
-    </div>
+            else
+            {
+                @foreach (var debt in topRemainingDebts)
+                {
+                    <div class="transaction-item">
+                        <span>@debt.Name</span>
+                        <span style="color:#eab308; font-weight:500;">@userCurrency.@debt.Amount</span>
+                        <span class="tag @(debt.Tag?.ToLower() ?? "no-tag")">@debt.Tag</span>
+                        <span>Source: @debt.Source</span>
+                        <span>Date: @debt.Date.ToString("yyyy-MM-dd")</span>
+                        <span>Due Date: <span style="color:red;">@debt.DueDate?.ToString("yyyy-MM-dd")</span></span>
+                    </div>
+                }
+            }
+        </div>
 
-
-    <!-- MudBlazor Components Section -->
-    <div class="mudblazor-components">
         <!-- Pie Chart -->
         <div class="piechart">
-            <p>Pie Donut Representing Data Statistics</p>
+            <p style="font-size: 16px; font-weight: 600;">Pie Donut Representing Data Statistics</p>
             <MudChart ChartType="ChartType.Donut" LegendPosition="@LegendPosition" Width="300px" Height="300px"
                       InputData="@data" InputLabels="@labels">
             </MudChart>
         </div>
+    </div>
 
-        <!-- Bar Graph -->
-        <div class="bargraph">
-            @if (Series.Any() && XAxisLabels.Any())
-            {
-                <p>Bar Graph Representing Inflow, Outflow, and Debt</p>
-                <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" Width="100%" Height="calc(100% - 20px)"></MudChart>
-            }
-            else
-            {
-                <MudText Typo="Typo.h6">No data available to display the chart.</MudText>
-            }
-        </div>
+    <!-- Bar Graph -->
+    <div class="bargraph">
+        @if (Series.Any() && XAxisLabels.Any())
+        {
+            <p style="font-size: 16px; font-weight: 600;">Bar Graph Representing Inflow, Outflow, and Debt</p>
+            <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" Width="100%" Height="500px" @bind-SelectedIndex="selectedIndex"></MudChart>
+        }
+        else
+        {
+            <MudText Typo="Typo.h6">No data available to display the chart.</MudText>
+        }
     </div>
 </div>
