@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uNh75ZwxD82B5axtOQVceaU60KvuFUnrop/1nY5shfs=",
+  "Hash": "qrXDzgYAM+GtGjREexunOp2T2aZC9Pe8rIXSwgaIGnA=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "ygthvc1xxn",
-      "Integrity": "ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM=",
+      "Fingerprint": "pg9h9yfrgz",
+      "Integrity": "15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "ygthvc1xxn",
-      "Integrity": "ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM=",
+      "Fingerprint": "pg9h9yfrgz",
+      "Integrity": "15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -641,7 +641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30558"
+          "Value": "31168"
         },
         {
           "Name": "Content-Type",
@@ -649,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM=\""
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:18:02 GMT"
+          "Value": "Thu, 16 Jan 2025 18:18:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,7 +663,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM="
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.pg9h9yfrgz.bundle.scp.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31168"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 18:18:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pg9h9yfrgz"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.pg9h9yfrgz.styles.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31168"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 18:18:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pg9h9yfrgz"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
         }
       ]
     },
@@ -678,7 +768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30558"
+          "Value": "31168"
         },
         {
           "Name": "Content-Type",
@@ -686,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM=\""
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:18:02 GMT"
+          "Value": "Thu, 16 Jan 2025 18:18:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -700,97 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.ygthvc1xxn.bundle.scp.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "30558"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:18:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ygthvc1xxn"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.ygthvc1xxn.styles.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "30558"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:18:02 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ygthvc1xxn"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ci4ZzsQ361VBxkoAmbfJtVNoMkM9/JHeBYgQEN/pTGM="
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
         }
       ]
     },

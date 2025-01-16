@@ -18,23 +18,25 @@ namespace ExpenwiseTracker.Components.Pages
         {
             try
             {
-                availableTags = await TagService.GetAllTags(); 
-                userBalance = await TransactionService.CalculateUserBalance(); 
+                availableTags = await TagService.GetAllTags();
+                userBalance = await TransactionService.CalculateUserBalance();
             }
             catch (Exception ex)
             {
-                NotifyUser = "Error fetching data: " + ex.Message;
+                NotifyUser = "Error fetching initial data: " + ex.Message;
                 NotifyUserClass = "alert-danger";
+                Console.WriteLine($"Error fetching initial data: {ex.Message}");
             }
         }
         #endregion
 
         #region SubmitTransaction Method
+        // This method handles submit transaction
         private async Task SubmitTransaction()
         {
             try
             {
-                transaction.Date = DateTime.Now; 
+                transaction.Date = DateTime.Now;
 
                 userBalance = await TransactionService.CalculateUserBalance();
 
@@ -47,7 +49,7 @@ namespace ExpenwiseTracker.Components.Pages
 
                 if (transaction.Type == "Debt")
                 {
-                    transaction.IsPaid = false; 
+                    transaction.IsPaid = false;
                 }
 
                 if (selectedTag == "Other" && !string.IsNullOrWhiteSpace(customTag))
@@ -56,11 +58,11 @@ namespace ExpenwiseTracker.Components.Pages
                     await TagService.AddTag(newTag);
                     transaction.Tag = customTag;
 
-                    availableTags.Add(newTag); 
+                    availableTags.Add(newTag);
                 }
                 else if (selectedTag != "Other")
                 {
-                    transaction.Tag = selectedTag; 
+                    transaction.Tag = selectedTag;
                 }
                 else
                 {
@@ -70,16 +72,19 @@ namespace ExpenwiseTracker.Components.Pages
                 }
 
                 await TransactionService.AddTransaction(transaction);
+
                 NotifyUser = "Transaction added successfully!";
                 NotifyUserClass = "alert-success";
 
                 userBalance = await TransactionService.CalculateUserBalance();
+
                 ResetForm();
             }
             catch (Exception ex)
             {
                 NotifyUser = "Error adding transaction: " + ex.Message;
                 NotifyUserClass = "alert-danger";
+                Console.WriteLine($"Error adding transaction: {ex.Message}"); 
             }
         }
         #endregion
@@ -88,8 +93,8 @@ namespace ExpenwiseTracker.Components.Pages
         // Method to reset form fields after successful transaction
         private void ResetForm()
         {
-            transaction = new Transaction(); 
-            selectedTag = null; 
+            transaction = new Transaction();
+            selectedTag = null;
             customTag = null;
         }
         #endregion

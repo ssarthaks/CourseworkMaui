@@ -8,34 +8,68 @@ namespace ExpenwiseTracker.Services
         private readonly DbConnectionService _dbConnectionService;
 
         #region Constructor
-        // Initializes the TagService with a DbConnectionService and also initialize default tag 
+        // Initializes the TagService with a DbConnectionService and also initializes default tags.
         public TagService(DbConnectionService dbConnectionService)
         {
-            _dbConnectionService = dbConnectionService;
-            InitializeDefaultTags();
+            try
+            {
+                _dbConnectionService = dbConnectionService ?? throw new ArgumentNullException(nameof(dbConnectionService), "Database connection service cannot be null.");
+                InitializeDefaultTags();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during TagService initialization: {ex.Message}");
+                throw;
+            }
         }
         #endregion
 
         #region Get Tags and Add Tag
+
         // Retrieves all tags from the database asynchronously.
         public async Task<List<Tag>> GetAllTags()
         {
-            var dbConnection = _dbConnectionService.EstablishConnection();
-            return await Task.Run(() => dbConnection.Table<Tag>().ToList());
+            try
+            {
+                var dbConnection = _dbConnectionService.EstablishConnection();
+                return await Task.Run(() => dbConnection.Table<Tag>().ToList());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving tags: {ex.Message}");
+                return new List<Tag>();
+            }
         }
 
         // Adds a new tag to the database if it does not already exist.
         public async Task AddTag(Tag tag)
         {
-            var dbConnection = _dbConnectionService.EstablishConnection();
-
-            var existingTag = await Task.Run(() =>
-                dbConnection.Table<Tag>().FirstOrDefault(t => t.Name == tag.Name)
-            );
-
-            if (existingTag == null)
+            try
             {
-                await Task.Run(() => dbConnection.Insert(tag));
+                if (tag == null)
+                {
+                    throw new ArgumentNullException(nameof(tag), "Tag cannot be null.");
+                }
+
+                var dbConnection = _dbConnectionService.EstablishConnection();
+
+                var existingTag = await Task.Run(() =>
+                    dbConnection.Table<Tag>().FirstOrDefault(t => t.Name == tag.Name)
+                );
+
+                if (existingTag == null)
+                {
+                    await Task.Run(() => dbConnection.Insert(tag));
+                }
+                else
+                {
+                    Console.WriteLine($"Tag '{tag.Name}' already exists.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding tag: {ex.Message}");
+                throw;
             }
         }
 
@@ -45,21 +79,35 @@ namespace ExpenwiseTracker.Services
         // Initializes default tags in the database if they do not already exist.
         private void InitializeDefaultTags()
         {
-            var dbConnection = _dbConnectionService.EstablishConnection();
-
-            var defaultTags = new List<string>
+            try
             {
-                "Yearly", "Monthly", "Food", "Drinks", "Clothes",
-                "Gadgets", "Miscellaneous", "Fuel", "Rent", "EMI", "Party"
-            };
+                var dbConnection = _dbConnectionService.EstablishConnection();
 
-            foreach (var tagName in defaultTags)
-            {
-                var existingTag = dbConnection.Table<Tag>().FirstOrDefault(t => t.Name == tagName);
-                if (existingTag == null)
+                var defaultTags = new List<string>
                 {
-                    dbConnection.Insert(new Tag { Name = tagName });
+                    "Yearly", "Monthly", "Food", "Drinks", "Clothes",
+                    "Gadgets", "Miscellaneous", "Fuel", "Rent", "EMI", "Party"
+                };
+
+                foreach (var tagName in defaultTags)
+                {
+                    try
+                    {
+                        var existingTag = dbConnection.Table<Tag>().FirstOrDefault(t => t.Name == tagName);
+                        if (existingTag == null)
+                        {
+                            dbConnection.Insert(new Tag { Name = tagName });
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error initializing default tag '{tagName}': {ex.Message}");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error initializing default tags: {ex.Message}");
             }
         }
         #endregion

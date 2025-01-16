@@ -34,19 +34,25 @@ namespace ExpenwiseTracker.Components.Pages
         private string userCurrency = string.Empty;
 
         // Chart data and labels
-        private double[] data; 
-        private string[] labels; 
+        private double[] data;
+        private string[] labels;
         private Position LegendPosition { get; set; } = Position.Bottom;
 
         #region OnInitialized
         // OnInitializedAsync lifecycle method to load user preferences and dashboard data
         protected override async Task OnInitializedAsync()
         {
-            // Fetch user preferences from session storage
-            userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
+            try
+            {
+                userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
 
-            await GetTopRemainingDebts();
-            await DashboardData();
+                await GetTopRemainingDebts();
+                await DashboardData();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during initialization: {ex.Message}");
+            }
         }
         #endregion
 
@@ -54,36 +60,43 @@ namespace ExpenwiseTracker.Components.Pages
         // Method to fetch and calculate the data needed for the dashboard
         private async Task DashboardData()
         {
-            totalInflow = await TransactionService.CalculateTotal("Credit");
-            totalOutflow = await TransactionService.CalculateTotal("Debit");
-            totalDebts = await TransactionService.CalculateTotal("Debt");
-            clearedDebts = await TransactionService.CalculateClearedDebts();
-            remainingDebt = totalDebts - clearedDebts;
-
-            data = new double[] { totalInflow, totalOutflow, totalDebts };
-            labels = new string[]
+            try
             {
-                $"Credit: {@userCurrency}.{totalInflow.ToString("F2")}",
-                $"Debit: {@userCurrency}.{totalOutflow.ToString("F2")}",
-                $"Debt: {@userCurrency}.{totalDebts.ToString("F2")}"
-            };
+                totalInflow = await TransactionService.CalculateTotal("Credit");
+                totalOutflow = await TransactionService.CalculateTotal("Debit");
+                totalDebts = await TransactionService.CalculateTotal("Debt");
+                clearedDebts = await TransactionService.CalculateClearedDebts();
+                remainingDebt = totalDebts - clearedDebts;
 
-            (highestInflow, lowestInflow) = await TransactionService.GetStatistics("Credit");
-            (highestOutflow, lowestOutflow) = await TransactionService.GetStatistics("Debit");
-            (highestDebt, lowestDebt) = await TransactionService.GetStatistics("Debt");
+                data = new double[] { totalInflow, totalOutflow, totalDebts };
+                labels = new string[]
+                {
+                    $"Credit: {@userCurrency}.{totalInflow.ToString("F2")}",
+                    $"Debit: {@userCurrency}.{totalOutflow.ToString("F2")}",
+                    $"Debt: {@userCurrency}.{totalDebts.ToString("F2")}"
+                };
 
-            topTransactions = await TransactionService.GetTopTransactions(5);
+                (highestInflow, lowestInflow) = await TransactionService.GetStatistics("Credit");
+                (highestOutflow, lowestOutflow) = await TransactionService.GetStatistics("Debit");
+                (highestDebt, lowestDebt) = await TransactionService.GetStatistics("Debt");
 
-            currentBalance = totalInflow - totalOutflow + totalDebts - clearedDebts;
+                topTransactions = await TransactionService.GetTopTransactions(5);
 
-            var monthlyData = await TransactionService.GetMonthlyData();
-            Series = new List<ChartSeries>
+                currentBalance = totalInflow - totalOutflow + totalDebts - clearedDebts;
+
+                var monthlyData = await TransactionService.GetMonthlyData();
+                Series = new List<ChartSeries>
+                {
+                    new ChartSeries { Name = "Inflow", Data = monthlyData.Select(m => m.Inflow).ToArray() },
+                    new ChartSeries { Name = "Outflow", Data = monthlyData.Select(m => m.Outflow).ToArray() },
+                    new ChartSeries { Name = "Debt", Data = monthlyData.Select(m => m.Debt).ToArray() }
+                };
+                XAxisLabels = monthlyData.Select(m => m.Month).ToArray();
+            }
+            catch (Exception ex)
             {
-                new ChartSeries { Name = "Inflow", Data = monthlyData.Select(m => m.Inflow).ToArray() },
-                new ChartSeries { Name = "Outflow", Data = monthlyData.Select(m => m.Outflow).ToArray() },
-                new ChartSeries { Name = "Debt", Data = monthlyData.Select(m => m.Debt).ToArray() }
-            };
-            XAxisLabels = monthlyData.Select(m => m.Month).ToArray();
+                Console.WriteLine($"Error fetching dashboard data: {ex.Message}");
+            }
         }
         #endregion
 
@@ -91,46 +104,67 @@ namespace ExpenwiseTracker.Components.Pages
         // Method to filter remaining debts based on the selected date range
         private async Task GetTopRemainingDebts()
         {
-            if (startDate == null || endDate == null)
+            try
             {
-                var transactions = DatabaseService.RetrieveAllTransactions();
+                if (startDate == null || endDate == null)
+                {
+                    var transactions = DatabaseService.RetrieveAllTransactions();
 
-                var unpaidDebts = transactions
-                    .Where(t => t.Type == "Debt" && !t.IsPaid)
-                    .OrderBy(t => t.DueDate)
-                    .Take(5) 
-                    .ToList();
+                    var unpaidDebts = transactions
+                        .Where(t => t.Type == "Debt" && !t.IsPaid)
+                        .OrderBy(t => t.DueDate)
+                        .Take(5)
+                        .ToList();
 
-                topRemainingDebts = unpaidDebts;
+                    topRemainingDebts = unpaidDebts;
+                }
+                else
+                {
+                    var transactions = DatabaseService.RetrieveAllTransactions();
+
+                    var unpaidDebts = transactions
+                        .Where(t => t.Type == "Debt" && !t.IsPaid)
+                        .Where(t => t.DueDate >= startDate.Value.Date && t.DueDate <= endDate.Value.Date)
+                        .OrderBy(t => t.DueDate)
+                        .Take(5)
+                        .ToList();
+
+                    topRemainingDebts = unpaidDebts;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var transactions = DatabaseService.RetrieveAllTransactions();
-
-                var unpaidDebts = transactions
-                    .Where(t => t.Type == "Debt" && !t.IsPaid)
-                    .Where(t => t.DueDate >= startDate.Value.Date && t.DueDate <= endDate.Value.Date)
-                    .OrderBy(t => t.DueDate)
-                    .Take(5) 
-                    .ToList();
-
-                topRemainingDebts = unpaidDebts;
+                Console.WriteLine($"Error fetching remaining debts: {ex.Message}");
             }
         }
 
         //This method applies filter
         private async Task ApplyFilter()
         {
-            await GetTopRemainingDebts();
+            try
+            {
+                await GetTopRemainingDebts();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error applying filter: {ex.Message}");
+            }
         }
 
         //This method clears the filter options
         private void ClearFilters()
         {
-            startDate = null;
-            endDate = null;
+            try
+            {
+                startDate = null;
+                endDate = null;
 
-            GetTopRemainingDebts();
+                GetTopRemainingDebts();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error clearing filters: {ex.Message}");
+            }
         }
         #endregion
     }

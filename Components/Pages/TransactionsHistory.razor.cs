@@ -25,100 +25,148 @@ namespace ExpenwiseTracker.Components.Pages
         private const int itemsPerPage = 5;
         private string userCurrency = string.Empty;
         private double currentBalance = 0;
+        private string errorMessage = string.Empty; 
 
         #region On Initialized Method
-        //Code that runs on program initialization
+        // Code that runs on program initialization
         protected override async Task OnInitializedAsync()
         {
-            userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
-            currentBalance = await TransactionService.CalculateUserBalance();
+            try
+            {
+                userCurrency = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "preferredCurrency");
+                currentBalance = await TransactionService.CalculateUserBalance();
 
-            transactions = await TransactionService.RetrieveAllTransactions();
-            totalTransactions = transactions.Count;
-            totalInflowCount = transactions.Count(t => t.Type.Equals("Credit", StringComparison.OrdinalIgnoreCase));
-            totalOutflowCount = transactions.Count(t => t.Type.Equals("Debit", StringComparison.OrdinalIgnoreCase));
-            totalDebtCount = transactions.Count(t => t.Type.Equals("Debt", StringComparison.OrdinalIgnoreCase));
+                transactions = await TransactionService.RetrieveAllTransactions();
+                totalTransactions = transactions.Count;
+                totalInflowCount = transactions.Count(t => t.Type.Equals("Credit", StringComparison.OrdinalIgnoreCase));
+                totalOutflowCount = transactions.Count(t => t.Type.Equals("Debit", StringComparison.OrdinalIgnoreCase));
+                totalDebtCount = transactions.Count(t => t.Type.Equals("Debt", StringComparison.OrdinalIgnoreCase));
 
-            ApplyFilters();
+                ApplyFilters();
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error initializing transactions: {ex.Message}";
+                Console.WriteLine(errorMessage);
+            }
         }
         #endregion
 
-        #region FilterMethods
+        #region Filter Methods
+        // This method applies filters to the transactions
         private void ApplyFilters()
         {
-            filteredTransactions = transactions;
-
-            if (!string.IsNullOrWhiteSpace(searchName))
+            try
             {
-                filteredTransactions = filteredTransactions
-                    .Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
-            }
+                filteredTransactions = transactions;
 
-            if (!string.IsNullOrEmpty(selectedType))
-            {
-                filteredTransactions = filteredTransactions
-                    .Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
-            }
+                if (!string.IsNullOrWhiteSpace(searchName))
+                {
+                    filteredTransactions = filteredTransactions
+                        .Where(t => t.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase)).ToList();
+                }
 
-            if (startDate.HasValue && endDate.HasValue)
-            {
-                filteredTransactions = filteredTransactions
-                    .Where(t => t.Date.Date >= startDate.Value.Date && t.Date.Date <= endDate.Value.Date).ToList();
-            }
-            else if (startDate.HasValue)
-            {
-                filteredTransactions = filteredTransactions
-                    .Where(t => t.Date.Date >= startDate.Value.Date).ToList();
-            }
-            else if (endDate.HasValue)
-            {
-                filteredTransactions = filteredTransactions
-                    .Where(t => t.Date.Date <= endDate.Value.Date).ToList();
-            }
+                if (!string.IsNullOrEmpty(selectedType))
+                {
+                    filteredTransactions = filteredTransactions
+                        .Where(t => t.Type.Equals(selectedType, StringComparison.OrdinalIgnoreCase)).ToList();
+                }
 
-            filteredTransactions = sortOrder == "asc"
-                ? filteredTransactions.OrderBy(t => t.Date).ToList()
-                : filteredTransactions.OrderByDescending(t => t.Date).ToList();
+                if (startDate.HasValue && endDate.HasValue)
+                {
+                    filteredTransactions = filteredTransactions
+                        .Where(t => t.Date.Date >= startDate.Value.Date && t.Date.Date <= endDate.Value.Date).ToList();
+                }
+                else if (startDate.HasValue)
+                {
+                    filteredTransactions = filteredTransactions
+                        .Where(t => t.Date.Date >= startDate.Value.Date).ToList();
+                }
+                else if (endDate.HasValue)
+                {
+                    filteredTransactions = filteredTransactions
+                        .Where(t => t.Date.Date <= endDate.Value.Date).ToList();
+                }
 
-            UpdatePagination();
+                filteredTransactions = sortOrder == "asc"
+                    ? filteredTransactions.OrderBy(t => t.Date).ToList()
+                    : filteredTransactions.OrderByDescending(t => t.Date).ToList();
+
+                UpdatePagination();
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error applying filters: {ex.Message}";
+                Console.WriteLine(errorMessage);
+            }
         }
-
 
         // This method clears all filters
         private void ClearFilters()
         {
-            searchName = string.Empty;
-            selectedType = null;
-            sortOrder = "desc";
-            startDate = null;
-            endDate = null;
-            ApplyFilters();
+            try
+            {
+                searchName = string.Empty;
+                selectedType = null;
+                sortOrder = "desc";
+                startDate = null;
+                endDate = null;
+                ApplyFilters();
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error clearing filters: {ex.Message}";
+                Console.WriteLine(errorMessage);
+            }
         }
-
         #endregion
 
-        #region PaginationMethods
+        #region Pagination Methods
         private void UpdatePagination()
         {
-            int skip = (currentPage - 1) * itemsPerPage;
-            paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
+            try
+            {
+                int skip = (currentPage - 1) * itemsPerPage;
+                paginatedTransactions = filteredTransactions.Skip(skip).Take(itemsPerPage).ToList();
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error updating pagination: {ex.Message}";
+                Console.WriteLine(errorMessage);
+            }
         }
 
         private void NextPage()
         {
-            if (currentPage < totalPages)
+            try
             {
-                currentPage++;
-                UpdatePagination();
+                if (currentPage < totalPages)
+                {
+                    currentPage++;
+                    UpdatePagination();
+                }
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error navigating to the next page: {ex.Message}";
+                Console.WriteLine(errorMessage);
             }
         }
 
         private void PreviousPage()
         {
-            if (currentPage > 1)
+            try
             {
-                currentPage--;
-                UpdatePagination();
+                if (currentPage > 1)
+                {
+                    currentPage--;
+                    UpdatePagination();
+                }
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error navigating to the previous page: {ex.Message}";
+                Console.WriteLine(errorMessage);
             }
         }
 
@@ -127,33 +175,50 @@ namespace ExpenwiseTracker.Components.Pages
         private bool IsPreviousButtonDisabled() => currentPage <= 1;
         #endregion
 
-        #region Get type of transaction
-        //get the type of transaction
+        #region Get Transaction Type
+        // This method returns the transaction type class
         private string GetTransactionTypeClass(string type)
         {
-            return type.ToLower() switch
+            try
             {
-                "credit" => "type-inflow",
-                "debit" => "type-outflow",
-                "debt" => "type-debt",
-                _ => "type-neutral"
-            };
+                return type.ToLower() switch
+                {
+                    "credit" => "type-inflow",
+                    "debit" => "type-outflow",
+                    "debt" => "type-debt",
+                    _ => "type-neutral"
+                };
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error determining transaction type class: {ex.Message}";
+                Console.WriteLine(errorMessage);
+                return "type-error";
+            }
         }
         #endregion
 
         #region Export to CSV
-        //Method to export the transactions to a CSV file
+        // This method exports to csv
         private async Task ExportToCsv()
         {
-            var csv = new StringBuilder();
-            csv.AppendLine("ID,Date,Title,Amount,Type,Tags,Notes");
-
-            foreach (var transaction in filteredTransactions)
+            try
             {
-                csv.AppendLine($"{transaction.Id},{transaction.Date:MM/dd/yyyy},{transaction.Name},{transaction.Amount},{transaction.Type},{transaction.Tag},{transaction.Notes}");
-            }
+                var csv = new StringBuilder();
+                csv.AppendLine("ID,Date,Title,Amount,Type,Tags,Notes");
 
-            await JSRuntime.InvokeVoidAsync("downloadFile", "transactions.csv", csv.ToString());
+                foreach (var transaction in filteredTransactions)
+                {
+                    csv.AppendLine($"{transaction.Id},{transaction.Date:MM/dd/yyyy},{transaction.Name},{transaction.Amount},{transaction.Type},{transaction.Tag},{transaction.Notes}");
+                }
+
+                await JSRuntime.InvokeVoidAsync("downloadFile", "transactions.csv", csv.ToString());
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Error exporting transactions to CSV: {ex.Message}";
+                Console.WriteLine(errorMessage);
+            }
         }
         #endregion
     }

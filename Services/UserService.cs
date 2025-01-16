@@ -28,27 +28,52 @@ namespace ExpenwiseTracker.Services
         // Authenticates a user based on the provided username and password.
         public bool UserAuthentication(User user)
         {
-            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
+            try
             {
+                if (user == null)
+                {
+                    throw new ArgumentNullException(nameof(user), "User object cannot be null.");
+                }
+
+                if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
+                {
+                    throw new ArgumentException("Username and Password cannot be empty.");
+                }
+
+                var foundUser = _users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+                if (foundUser != null)
+                {
+                    _authenticatedUser = foundUser;
+                    return true;
+                }
+
                 return false;
             }
-
-            var foundUser = _users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
-            if (foundUser != null)
+            catch (Exception ex)
             {
-                _authenticatedUser = foundUser;
-                return true;
+                Console.WriteLine($"Error in UserAuthentication: {ex.Message}");
+                return false;
             }
-
-            return false;
         }
         #endregion
 
         #region Logout
-        // Logs out the authenticated user by clearing the session.
+        // This method logs out the authenticated user by clearing the session.
         public void Logout()
         {
-            _authenticatedUser = null;
+            try
+            {
+                if (_authenticatedUser == null)
+                {
+                    throw new InvalidOperationException("No user is currently authenticated.");
+                }
+
+                _authenticatedUser = null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Logout: {ex.Message}");
+            }
         }
         #endregion
 
@@ -60,7 +85,20 @@ namespace ExpenwiseTracker.Services
         // Retrieves the authenticated user.
         public User GetAuthenticatedUser()
         {
-            return _authenticatedUser;
+            try
+            {
+                if (_authenticatedUser == null)
+                {
+                    throw new InvalidOperationException("No user is currently authenticated.");
+                }
+
+                return _authenticatedUser;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetAuthenticatedUser: {ex.Message}");
+                return null;
+            }
         }
         #endregion
 
@@ -68,7 +106,15 @@ namespace ExpenwiseTracker.Services
         // Checks if a user is authenticated.
         public bool IsUserAuthenticated()
         {
-            return _authenticatedUser != null;
+            try
+            {
+                return _authenticatedUser != null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in IsUserAuthenticated: {ex.Message}");
+                return false;
+            }
         }
         #endregion
 

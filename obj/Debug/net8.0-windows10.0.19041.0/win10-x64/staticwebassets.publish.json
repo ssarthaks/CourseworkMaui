@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OS9fry+nmI44q13sHpfqwQRjGritniQ+z85Kw80BAP8=",
+  "Hash": "ZjSp1kCOQ+I4QRGR3lBDHgfO/rH2KP/lcNnsoYnyew8=",
   "Source": "ExpenwiseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "vbp18lebay",
-      "Integrity": "e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=",
+      "Fingerprint": "pg9h9yfrgz",
+      "Integrity": "15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "vbp18lebay",
-      "Integrity": "e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=",
+      "Fingerprint": "pg9h9yfrgz",
+      "Integrity": "15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css"
@@ -641,7 +641,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "31300"
+          "Value": "31168"
         },
         {
           "Name": "Content-Type",
@@ -649,11 +649,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=\""
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:21:10 GMT"
+          "Value": "Thu, 16 Jan 2025 14:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,7 +663,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM="
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.pg9h9yfrgz.bundle.scp.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31168"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 14:20:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pg9h9yfrgz"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenwiseTracker.pg9h9yfrgz.styles.css",
+      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31168"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 16 Jan 2025 14:20:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pg9h9yfrgz"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenwiseTracker.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
         }
       ]
     },
@@ -678,7 +768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "31300"
+          "Value": "31168"
         },
         {
           "Name": "Content-Type",
@@ -686,11 +776,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=\""
+          "Value": "\"15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:21:10 GMT"
+          "Value": "Thu, 16 Jan 2025 14:20:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -700,97 +790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.vbp18lebay.bundle.scp.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenwiseTracker.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "31300"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:21:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vbp18lebay"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenwiseTracker.vbp18lebay.styles.css",
-      "AssetFile": "E:\\Application Development Weekly\\Sarthak_Coursework_Final\\ExpenwiseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenwiseTracker.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "31300"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Jan 2025 19:21:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "vbp18lebay"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenwiseTracker.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-e1Iv8FVTMghgTsrlrA0Qz+/Z0JMGpyeq155TaAy0xdM="
+          "Value": "sha256-15SkuEFb7raoj8h2kia5sbHxA8/Mwrh4ooiRu52tfeI="
         }
       ]
     },
